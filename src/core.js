@@ -7,7 +7,7 @@ const PAGES=[
 {k:"sandbox",i:"💻",t:"Sandbox",d:"Simulator CLI Cisco: enable, configure terminal, interface, ip address."},
 {k:"quest",i:"🎯",t:"Quest",d:"Misi konfigurasi dengan hadiah XP."},{k:"kuis",i:"🏆",t:"Kuis",d:"Bank soal 100+ dengan soal acak dan skor."},
 {k:"cheat",i:"📋",t:"Cheat",d:"Daftar command dengan tombol salin."},{k:"kamus",i:"📖",t:"Kamus",d:"Istilah jaringan: VLAN, OSPF, CIDR, NAT, dan lainnya."},
-{k:"subnet",i:"🧮",t:"Subnet",d:"Kalkulator subnet dan konversi CIDR ↔ subnet mask."}
+{k:"subnet",i:"🧮",t:"Subnet",d:"Kalkulator subnet dan konversi CIDR ↔ subnet mask."},{k:"certificate",i:"📜",t:"Certificate",d:"Sertifikat kelulusan NETLAB."}
 ];
 
 const store={
