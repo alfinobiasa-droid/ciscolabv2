@@ -51,7 +51,7 @@ document.addEventListener("click",e=>{
  if(t.dataset.start)return openModule(+t.dataset.start);
 });
 document.addEventListener("input",e=>{if(e.target.id==="q"){S.q=e.target.value;renderList()}});
-const th=store.get("theme",null);if(th)document.documentElement.dataset.theme=th;
+const th=store.get("theme",null);if(th)document.documentElement.dataset.theme=th;const tt=store.get("terminal_theme","default");if(tt!=="default")document.documentElement.dataset.terminal=tt;
 render();
 
 export {renderSoon, renderNav, render, go, ORDER, LBL, ICONS, LOGO, th};

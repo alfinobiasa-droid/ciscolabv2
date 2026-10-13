@@ -73,6 +73,14 @@ main{max-width:1120px;margin:0 auto;padding:16px 16px calc(var(--nav-h) + 28px +
 .score{font-size:3.2rem;font-weight:800;line-height:1.1}
 .term{background:#0b1f3a;color:#c9f7e0;font:.82rem/1.5 ui-monospace,Menlo,Consolas,monospace;border-radius:18px;padding:14px;height:min(56vh,520px);overflow:auto;box-shadow:var(--shadow);margin-bottom:12px}
 .term:focus-within{box-shadow:0 0 0 3px var(--orange)}
+:root[data-terminal="green"] .term{background:#031405;color:#39ff88;text-shadow:0 0 5px rgba(57,255,136,.35)}
+:root[data-terminal="green"] .term input{color:#39ff88}
+:root[data-terminal="amber"] .term{background:#160d00;color:#ffb52e;text-shadow:0 0 5px rgba(255,181,46,.35)}
+:root[data-terminal="amber"] .term input{color:#ffb52e}
+:root[data-terminal="cyber"] .term{background:#11001c;color:#ff4fd8;text-shadow:0 0 5px rgba(255,79,216,.35);border-color:#7c2cff}
+:root[data-terminal="cyber"] .term input{color:#58f6ff}
+[data-terminal] .term{transition:background .2s,color .2s,box-shadow .2s}
+
 .tl{white-space:pre}
 .tin{display:flex;gap:8px;align-items:center;white-space:pre}
 .tin input{flex:1;min-width:8ch;background:none;border:0;outline:0;color:#fff;font:inherit;padding:6px 0}
