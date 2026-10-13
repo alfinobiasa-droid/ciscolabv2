@@ -1,6 +1,7 @@
 import {toast, touchDay, store, S, $, esc, copyText} from "../core.js";
 import {useDevice, lxInit, sbInit, sbReset, sbRun, RT, SW, LX, SB, LXHELP, LXCHIPS, CHIPS, HELP, sbPrompt, HELPSW, SWCHIPS} from "../sim/engine.js";
 import {isIp, validMask} from "../sim/net.js";
+import {SOUND} from "../sim/sound.js";
 import {check} from "./quest.js";
 import {setLesson, openModule, renderModule} from "./lesson.js";
 import {devStatus, liveTopo, topoLegend} from "./netview.js";
@@ -132,8 +133,8 @@ document.addEventListener("keydown",e=>{
  if(e.target.id!=="tcmd")return;
  const i=e.target;
  if(e.key==="Enter"){
-  const v=i.value;SB.lines.push(sbPrompt()+" "+v);
-  if(v.trim().toLowerCase()==="clear")SB.lines=[];else{const o=sbRun(v);SB.lines.push(...o);showExplain(v,o)}
+  const v=i.value;SOUND.key();SB.lines.push(sbPrompt()+" "+v);
+  if(v.trim().toLowerCase()==="clear")SB.lines=[];else{const o=sbRun(v);SB.lines.push(...o);showExplain(v,o);if(o.some(x=>/^%|Invalid|not found|failed/i.test(x)))SOUND.error();else SOUND.success()}
   touchDay();
   if(v.trim())SB.hist.push(v);
   SB.hi=SB.hist.length;i.value="";sbSave();sbDraw();
