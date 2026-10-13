@@ -129,6 +129,7 @@ function renderSandbox(){
  <div class="statusbar" id="sbstat"></div>`;
  sbDraw();
 }
+window.addEventListener("netlab:insert-command",e=>{const i=$("#tcmd");if(!i)return; i.value=e.detail.command;i.focus()});
 document.addEventListener("keydown",e=>{
  if(e.target.id!=="tcmd")return;
  const i=e.target;

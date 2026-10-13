@@ -319,6 +319,7 @@ document.addEventListener("pointerup",e=>{
 document.addEventListener("wheel",e=>{const sv=e.target.closest&&e.target.closest("#bsvg");if(!sv||!(e.ctrlKey||e.metaKey))return;e.preventDefault();const p=sv.createSVGPoint();p.x=e.clientX;p.y=e.clientY;const q=p.matrixTransform(sv.getScreenCTM().inverse());zoomBy(e.deltaY<0?1.2:1/1.2,q.x,q.y)},{passive:false});
 const tipShow=(d,ev)=>{const t=$("#btip"),c=$(".bcanvas");if(!t||!c)return;const L=devTip(d);t.innerHTML=`<b>${esc(L[0])}</b><span>${esc(L[1])}</span>${L.slice(2).map(x=>`<div>${esc(x)}</div>`).join("")}`;t.hidden=false;const r=c.getBoundingClientRect(),x=(ev.clientX!==undefined?ev.clientX:r.left+r.width/2)-r.left+14,y=(ev.clientY!==undefined?ev.clientY:r.top+40)-r.top+14;t.style.left=Math.max(4,Math.min(x,r.width-200))+"px";t.style.top=Math.max(4,Math.min(y,r.height-120))+"px"};
 const tipHide=()=>{const t=$("#btip");if(t)t.hidden=true};
+window.addEventListener("netlab:insert-command",e=>{const i=$("#bcmd");if(!i)return;i.value=e.detail.command;i.focus()});
 document.addEventListener("pointerover",e=>{const g=e.target.closest&&e.target.closest("#bsvg [data-dev]");if(g&&!BU.drag&&!BU.pan&&e.pointerType!=="touch"){const d=dev(g.dataset.dev);if(d)tipShow(d,e)}});
 document.addEventListener("pointerout",e=>{if(e.target.closest&&e.target.closest("#bsvg [data-dev]"))tipHide()});
 document.addEventListener("focusin",e=>{const g=e.target.closest&&e.target.closest("#bsvg [data-dev]");if(g){const d=dev(g.dataset.dev);if(d)tipShow(d,{})}});

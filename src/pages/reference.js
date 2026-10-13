@@ -14,7 +14,7 @@ const searchBox=(id,ph,val)=>`<input class="inp" id="${id}" type="search" placeh
 
 function cheatDraw(){
  const r=CMDS.filter(c=>(CH.cat==="Semua"||c[0]===CH.cat)&&has(CH.q.trim(),c[0],c[1],c[2]));
- $("#chlist").innerHTML=`<div class="count">${r.length} command</div>`+(r.length?`<div class="cgrid">${r.map(c=>`<div class="cmd"><div class="cmd-top"><code>${esc(c[1])}</code><button class="cpy" data-cp="${esc(c[1])}" aria-label="Copy ${esc(c[1])}">COPY</button></div><p class="cd">${esc(c[2])}</p><pre class="ex">${c[0]==="Linux"?"root@debian:~#":/^(show|ping|traceroute|copy|simulate)/.test(c[1])?"R1#":"R1(config)#"} ${esc(c[1])}</pre></div>`).join("")}</div>`:emptyBox);
+ $("#chlist").innerHTML=`<div class="count">${r.length} command</div>`+(r.length?`<div class="cgrid">${r.map(c=>`<div class="cmd"><div class="cmd-top"><code>${esc(c[1])}</code><button class="cpy" data-cp="${esc(c[1])}" aria-label="Copy ${esc(c[1])}">COPY</button><button class="cpy" data-insert="${esc(c[1])}" aria-label="Insert ${esc(c[1])}">INSERT</button></div><p class="cd">${esc(c[2])}</p><pre class="ex">${c[0]==="Linux"?"root@debian:~#":/^(show|ping|traceroute|copy|simulate)/.test(c[1])?"R1#":"R1(config)#"} ${esc(c[1])}</pre></div>`).join("")}</div>`:emptyBox);
 }
 function renderCheat(){
  $("#view").innerHTML=`<h1 class="pg" style="margin:4px 0 6px">Cheat Sheet</h1><p style="color:var(--mute);margin:0 0 12px">Command Cisco IOS yang sering dipakai. Ketuk Salin untuk menyalin.</p>
@@ -36,6 +36,7 @@ document.addEventListener("input",e=>{
  else if(e.target.id==="kg-q"){KG.q=e.target.value;kamusDraw()}
 });
 document.addEventListener("click",e=>{
+ const ins=e.target.closest("[data-insert]");if(ins){window.dispatchEvent(new CustomEvent("netlab:insert-command",{detail:{command:ins.dataset.insert}}));toast("Command dikirim ke terminal aktif");return}
  const cp=e.target.closest("[data-cp]");
  if(cp){const v=cp.dataset.cp;copyText(v).then(ok=>toast(ok?"Tersalin: "+v:"Tidak bisa menyalin otomatis. Salin manual: "+v));return}
  const t=e.target.closest("[data-ch]");if(!t)return;

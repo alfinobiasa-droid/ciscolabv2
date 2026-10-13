@@ -3,7 +3,7 @@ import {isIp, ip2n, n2ip, validMask, maskLen} from "../sim/net.js";
 
 const SN={mode:"calc",ip:"192.168.1.0",cidr:"24",mask:"255.255.255.0"};
 const SNMODES=[["calc","Subnet"],["c2m","CIDR → Mask"],["m2c","Mask → CIDR"],["game","⚡ Speed Game"]];
-const GAME={active:false,left:30,score:0,streak:0,best:store.get("subnet_best",0),q:null,timer:null};
+const GAME={active:false,left:30,score:0,streak:0,best:store.get("subnet_best",0),q:null,timer:null,stats:store.get("subnet_stats",{games:0,attempts:0,correct:0,best:0,history:[]})};
 const gameMask=n=>n===0?0:(0xFFFFFFFF<<(32-n))>>>0;
 function gameQuestion(){
  const n=24+Math.floor(Math.random()*7),ip=`${[10,172,192][Math.floor(Math.random()*3)]}.${Math.floor(Math.random()*254)+1}.${Math.floor(Math.random()*254)+1}.${Math.floor(Math.random()*254)+1}`;
@@ -11,10 +11,10 @@ function gameQuestion(){
  const wrong=kind===3?[String(+correct+2),String(Math.max(1,+correct-2)),String(+correct*2)]:[n2ip((net+Math.max(1,2**(32-n)))>>>0),n2ip((bc-1)>>>0),n2ip(mk===0?0:gameMask(Math.max(0,n-1)))].filter(x=>x!==correct);
  return {text:`${labels[kind]} untuk <b>${ip}/${n}</b>?`,answer:correct,options:[correct,...wrong].slice(0,4).sort(()=>Math.random()-.5)};
 }
-function gameEnd(){clearInterval(GAME.timer);GAME.timer=null;GAME.active=false;if(GAME.score>GAME.best){GAME.best=GAME.score;store.set("subnet_best",GAME.best)}if(GAME.score){S.xp+=GAME.score*5;store.set("xp",S.xp);xpPop(GAME.score*5)}drawGame()}
+function gameEnd(){clearInterval(GAME.timer);GAME.timer=null;GAME.active=false;GAME.stats.games++;GAME.stats.best=Math.max(GAME.stats.best,GAME.score);GAME.stats.history=[...GAME.stats.history,{date:new Date().toISOString(),score:GAME.score,attempts:GAME.stats._attempts||0}].slice(-20);delete GAME.stats._attempts;store.set("subnet_stats",GAME.stats);if(GAME.score>GAME.best){GAME.best=GAME.score;store.set("subnet_best",GAME.best)}if(GAME.score){S.xp+=GAME.score*5;store.set("xp",S.xp);xpPop(GAME.score*5)}drawGame()}
 function gameStart(){GAME.active=true;GAME.left=30;GAME.score=0;GAME.streak=0;GAME.q=gameQuestion();clearInterval(GAME.timer);GAME.timer=setInterval(()=>{GAME.left--;drawGame();if(GAME.left<=0)gameEnd()},1000);drawGame()}
-function gameAnswer(v){if(!GAME.active)return;if(v===GAME.q.answer){GAME.score++;GAME.streak++;toast("✓ Benar! +1 skor")}else{GAME.streak=0;toast("✗ Jawaban: "+GAME.q.answer)}GAME.q=gameQuestion();drawGame()}
-function drawGame(){const b=$("#sngame");if(!b)return;if(!GAME.active){b.innerHTML=`<div style="text-align:center"><div style="font-size:2.2rem">⚡</div><h2>Speed Subnetting</h2><p style="color:var(--mute)">Jawab sebanyak mungkin dalam 30 detik.</p><p>Best: <b>${GAME.best}</b> · Last: <b>${GAME.score}</b></p><button class="act" data-sngame="start">Mulai 30 Detik</button></div>`;return}b.innerHTML=`<div class="qtop"><b>Skor ${GAME.score} · Streak ${GAME.streak}</b><b id="sgtime">${GAME.left}s</b></div><div class="qcard" style="margin:14px 0;text-align:center">${GAME.q.text}</div><div class="seg">${GAME.q.options.map(x=>`<button class="chip" data-sngame="answer" data-v="${esc(x)}">${esc(x)}</button>`).join("")}</div>`}
+function gameAnswer(v){if(!GAME.active)return;GAME.stats.attempts++;GAME.stats._attempts=(GAME.stats._attempts||0)+1;if(v===GAME.q.answer){GAME.stats.correct++;GAME.score++;GAME.streak++;toast("✓ Benar! +1 skor")}else{GAME.streak=0;toast("✗ Jawaban: "+GAME.q.answer)}GAME.q=gameQuestion();drawGame()}
+function drawGame(){const b=$("#sngame");if(!b)return;if(!GAME.active){b.innerHTML=`<div style="text-align:center"><div style="font-size:2.2rem">⚡</div><h2>Speed Subnetting</h2><p style="color:var(--mute)">Jawab sebanyak mungkin dalam 30 detik.</p><p>Best: <b>${GAME.best}</b> · Last: <b>${GAME.score}</b></p><p class="muted">Games ${GAME.stats.games} · Accuracy ${GAME.stats.attempts?Math.round(GAME.stats.correct/GAME.stats.attempts*100):0}% · Best ${GAME.stats.best}</p><button class="act" data-sngame="start">Mulai 30 Detik</button></div>`;return}b.innerHTML=`<div class="qtop"><b>Skor ${GAME.score} · Streak ${GAME.streak}</b><b id="sgtime">${GAME.left}s</b></div><div class="qcard" style="margin:14px 0;text-align:center">${GAME.q.text}</div><div class="seg">${GAME.q.options.map(x=>`<button class="chip" data-sngame="answer" data-v="${esc(x)}">${esc(x)}</button>`).join("")}</div>`}
 const cidrMask=n=>n===0?0:(0xFFFFFFFF<<(32-n))>>>0;
 const wild=mk=>n2ip((~mk)>>>0);
 const bin=m=>[24,16,8,0].map(b=>((m>>>b)&255).toString(2).padStart(8,"0")).join(".");

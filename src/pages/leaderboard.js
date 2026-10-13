@@ -1,0 +1,5 @@
+import {S,$,esc,store,toast} from "../core.js";
+import {configured,localRank} from "../cloud/sync.js";
+function renderLeaderboard(){const name=store.get("cert_name","");const rows=localRank();$("#view").innerHTML=`<h1 class="pg">Leaderboard</h1><p class="muted">${configured()?"Cloud leaderboard siap dikonfigurasi.":"Mode offline: ranking lokal perangkat ini."}</p><div class="qcard"><label class="fld">Nama tampilan<input class="inp" id="rank-name" maxlength="24" value="${esc(name)}" placeholder="Nama kamu"></label><button class="act" data-rank="save">Simpan skor lokal</button></div><div class="qcard" style="margin-top:14px"><b>Ranking XP</b>${rows.sort((a,b)=>b.xp-a.xp).map((r,i)=>`<div class="row"><span>#${i+1} ${esc(r.name)}</span><b>${r.xp} XP</b></div>`).join("")}</div>`}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-rank]");if(!t)return;if(t.dataset.rank==="save"){const n=$("#rank-name").value.trim();if(!n)return toast("Masukkan nama tampilan");store.set("cert_name",n);toast("Skor tersimpan di perangkat ini");renderLeaderboard()}})
+export {renderLeaderboard};
