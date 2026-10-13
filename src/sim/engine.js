@@ -118,10 +118,10 @@ const SWCHIPS=["enable","configure terminal","vlan 10","name Sales","vlan 20","i
 const short=n=>n.replace("FastEthernet","Fa").replace("GigabitEthernet","Gi");
 
 function sbInit(o,dev){
- const sw=dev==="switch",ifc=()=>({ip:"",mask:"",up:false,nat:"",acl:{}}),port=()=>({up:true,mode:"access",vlan:1,native:1,allowed:"all"}),ifs={};
+ const sw=dev==="switch",ifc=()=>({ip:"",mask:"",up:false,nat:"",acl:{},helper:""}),port=()=>({up:true,mode:"access",vlan:1,native:1,allowed:"all"}),ifs={};
  if(sw)["FastEthernet0/1","FastEthernet0/2","FastEthernet0/3","FastEthernet0/4","GigabitEthernet0/1"].forEach(k=>ifs[k]=port());
  else["GigabitEthernet0/0","GigabitEthernet0/1"].forEach(k=>ifs[k]=ifc());
- Object.assign(o,{dev,host:sw?"Switch":"Router",mode:"user",cur:null,curV:null,routes:[],seen:{},hist:[],hi:0,vlans:{1:{name:"default"}},secret:"",banner:"",con:{pw:"",login:false},saved:false,startup:null,nattab:[],dhcpb:[],dhcp:{ex:[],pools:{}},curP:null,nat:[],acls:{},rp:{on:false,ver:1,nets:[],auto:true},os:{pid:"",rid:"",nets:[],pass:[]},ei:{as:"",nets:[],auto:true},proto:"",ifs,lines:[`${sw?"Switch":"Router"} simulator. Type ? for help.`]});
+ Object.assign(o,{dev,host:sw?"Switch":"Router",mode:"user",cur:null,curV:null,routes:[],seen:{},hist:[],hi:0,vlans:{1:{name:"default"}},secret:"",banner:"",ssh:false,con:{pw:"",login:false},saved:false,startup:null,nattab:[],dhcpb:[],dhcp:{ex:[],pools:{}},curP:null,nat:[],acls:{},rp:{on:false,ver:1,nets:[],auto:true},os:{pid:"",rid:"",nets:[],pass:[]},ei:{as:"",nets:[],auto:true},proto:"",ifs,lines:[`${sw?"Switch":"Router"} simulator. Type ? for help.`]});
 }
 function sbReset(){SB.dev==="linux"?lxInit(SB):sbInit(SB,SB.dev)}
 function swVlans(){
@@ -352,6 +352,8 @@ function sbRun(line){
   }
   if(M==="if"&&c0==="ip"&&m(1,"nat",2)&&n===3&&(w[2]==="inside"||w[2]==="outside")){SB.ifs[SB.cur].nat=w[2];return[]}
   if(M==="if"&&c0==="ip"&&m(1,"access-group",3)&&n===4&&/^(in|out)$/i.test(w[3])){const i=SB.ifs[SB.cur];i.acl=i.acl||{};i.acl[w[3].toLowerCase()]=w[2];return[]}
+  if(M==="if"&&c0==="ip"&&m(1,"helper-address",3)&&n===3&&isIp(w[2])){SB.ifs[SB.cur].helper=w[2];return[]}
+  if(M==="config"&&c0==="crypto"&&m(1,"key",3)&&m(2,"generate",3)&&m(3,"rsa",3)){SB.ssh=true;return["The name for the keys will be: "+SB.host+".netlab.local","% The key modulus size is 1024 bits","% Generating 1024 bit RSA keys, keys will be non-exportable...","[OK]"]}
   if(cfg&&c0==="ip"&&m(1,"nat",2)&&m(2,"inside",2)&&m(3,"source",2)&&m(4,"list",2)&&m(6,"interface",3)&&n===9&&w[8].toLowerCase()==="overload"){SB.nat.push({acl:w[5],ifc:w[7]});SB.mode="config";return[]}
   if(cfg&&c0==="access-list"&&/^\d+$/.test(w[1])&&(w[2]==="permit"||w[2]==="deny")){
    const id=+w[1];let e=null;
