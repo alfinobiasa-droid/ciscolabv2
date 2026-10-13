@@ -1,0 +1,467 @@
+[
+ {
+  "id": 1,
+  "cat": "Dasar Cisco",
+  "title": "Pengenalan Cisco IOS & Konfigurasi Dasar",
+  "level": "Pemula",
+  "min": 30,
+  "color": "#0a6cff",
+  "devices": [
+   "Router",
+   "Switch",
+   "PC"
+  ],
+  "topics": [
+   "User EXEC Mode",
+   "Privileged EXEC Mode",
+   "Global Configuration Mode",
+   "hostname",
+   "enable secret",
+   "console password",
+   "banner MOTD",
+   "interface configuration"
+  ],
+  "goals": [
+   "Membedakan mode User EXEC, Privileged EXEC, dan Global Configuration",
+   "Mengatur hostname, password, dan banner",
+   "Mengonfigurasi dan mengaktifkan interface"
+  ],
+  "topo": [
+   [
+    "PC1",
+    "pc"
+   ],
+   [
+    "SW1",
+    "sw"
+   ],
+   [
+    "R1",
+    "rt"
+   ],
+   [
+    "PC2",
+    "pc"
+   ]
+  ]
+ },
+ {
+  "id": 2,
+  "cat": "Switching & VLAN",
+  "title": "Switching & VLAN",
+  "level": "Pemula",
+  "min": 40,
+  "color": "#12b8d6",
+  "devices": [
+   "Switch",
+   "PC"
+  ],
+  "topics": [
+   "VLAN",
+   "Access Port",
+   "Trunk",
+   "Native VLAN",
+   "Inter-VLAN"
+  ],
+  "goals": [
+   "Membuat VLAN dan memasang port access",
+   "Mengonfigurasi trunk dan native VLAN",
+   "Menjelaskan inter-VLAN routing"
+  ],
+  "topo": [
+   [
+    "PC1",
+    "pc",
+    "VLAN 10"
+   ],
+   [
+    "SW1",
+    "sw",
+    "trunk"
+   ],
+   [
+    "SW2",
+    "sw"
+   ],
+   [
+    "PC2",
+    "pc",
+    "VLAN 20"
+   ]
+  ]
+ },
+ {
+  "id": 3,
+  "cat": "Routing",
+  "title": "Static Routing",
+  "level": "Menengah",
+  "min": 45,
+  "color": "#7a5cff",
+  "devices": [
+   "Router",
+   "PC"
+  ],
+  "topics": [
+   "routing table",
+   "ip route",
+   "default route",
+   "next hop",
+   "multi-router topology"
+  ],
+  "goals": [
+   "Membaca routing table",
+   "Membuat static route dan default route",
+   "Menghubungkan beberapa router dengan route pergi dan pulang"
+  ],
+  "topo": [
+   [
+    "PC1",
+    "pc"
+   ],
+   [
+    "R1",
+    "rt"
+   ],
+   [
+    "R2",
+    "rt"
+   ],
+   [
+    "R3",
+    "rt"
+   ],
+   [
+    "PC2",
+    "pc"
+   ]
+  ]
+ },
+ {
+  "id": 4,
+  "cat": "Routing",
+  "title": "Dynamic Routing",
+  "level": "Menengah",
+  "min": 50,
+  "color": "#ff8a1f",
+  "devices": [
+   "Router"
+  ],
+  "topics": [
+   "RIP",
+   "OSPF",
+   "network",
+   "router ID",
+   "routing table"
+  ],
+  "goals": [
+   "Membandingkan RIP, OSPF, dan EIGRP",
+   "Mengonfigurasi network statement tiap protokol",
+   "Memverifikasi neighbor dan route"
+  ],
+  "topo": [
+   [
+    "R1",
+    "rt"
+   ],
+   [
+    "R2",
+    "rt"
+   ],
+   [
+    "R3",
+    "rt"
+   ]
+  ]
+ },
+ {
+  "id": 5,
+  "cat": "Subnetting",
+  "title": "Subnetting",
+  "level": "Pemula",
+  "min": 45,
+  "color": "#12a37f",
+  "devices": [
+   "PC",
+   "Router"
+  ],
+  "topics": [
+   "IPv4",
+   "subnet mask",
+   "CIDR",
+   "network address",
+   "broadcast",
+   "host range",
+   "VLSM"
+  ],
+  "goals": [
+   "Menghitung network, broadcast, dan host range",
+   "Mengonversi CIDR dan subnet mask",
+   "Merencanakan VLSM"
+  ],
+  "topo": [
+   [
+    "LAN A",
+    "sw",
+    "/26"
+   ],
+   [
+    "R1",
+    "rt"
+   ],
+   [
+    "LAN B",
+    "sw",
+    "/27"
+   ]
+  ]
+ },
+ {
+  "id": 6,
+  "cat": "Troubleshooting",
+  "title": "Troubleshooting Network",
+  "level": "Lanjut",
+  "min": 60,
+  "color": "#e0475b",
+  "devices": [
+   "Router",
+   "Switch",
+   "PC"
+  ],
+  "topics": [
+   "ping",
+   "traceroute",
+   "show ip interface",
+   "show ip route",
+   "show vlan",
+   "show interfaces",
+   "troubleshooting VLAN",
+   "troubleshooting routing"
+  ],
+  "goals": [
+   "Memakai ping dan traceroute secara berurutan",
+   "Membaca show ip interface brief dan show ip route",
+   "Menemukan masalah VLAN dan routing"
+  ],
+  "topo": [
+   [
+    "PC1",
+    "pc"
+   ],
+   [
+    "SW1",
+    "sw"
+   ],
+   [
+    "R1",
+    "rt"
+   ],
+   [
+    "PC2",
+    "pc"
+   ]
+  ]
+ },
+ {
+  "id": 7,
+  "cat": "Layanan",
+  "title": "Layanan Jaringan: DHCP, NAT & ACL",
+  "level": "Menengah",
+  "min": 50,
+  "color": "#c9399b",
+  "devices": [
+   "Router",
+   "Switch",
+   "PC"
+  ],
+  "topics": [
+   "DHCP",
+   "ip dhcp pool",
+   "NAT",
+   "PAT overload",
+   "ACL standar",
+   "ip access-group"
+  ],
+  "goals": [
+   "Mengonfigurasi DHCP server di router",
+   "Memahami NAT dan PAT",
+   "Menulis ACL standar dan extended"
+  ],
+  "topo": [
+   [
+    "PC",
+    "pc"
+   ],
+   [
+    "R1",
+    "rt",
+    "NAT/DHCP"
+   ],
+   [
+    "Internet",
+    "cloud"
+   ]
+  ]
+ },
+ {
+  "id": 8,
+  "cat": "Keamanan",
+  "title": "Keamanan Jaringan",
+  "level": "Pemula",
+  "min": 35,
+  "color": "#0f766e",
+  "devices": [
+   "Router",
+   "Switch",
+   "PC"
+  ],
+  "topics": [
+   "Confidentiality",
+   "Integrity",
+   "Availability",
+   "DoS/DDoS",
+   "packet sniffing",
+   "IP spoofing",
+   "prevention",
+   "SSH"
+  ],
+  "goals": [
+   "Menyebut aspek dan jenis ancaman keamanan",
+   "Mengenali serangan umum",
+   "Mengamankan akses perangkat Cisco"
+  ],
+  "topo": [
+   [
+    "Klien",
+    "pc"
+   ],
+   [
+    "Router",
+    "rt",
+    "ACL"
+   ],
+   [
+    "Internet",
+    "cloud"
+   ]
+  ]
+ },
+ {
+  "id": 9,
+  "cat": "Linux",
+  "title": "Linux Debian & Layanan Server",
+  "level": "Menengah",
+  "min": 60,
+  "color": "#b45309",
+  "devices": [
+   "Server",
+   "PC"
+  ],
+  "topics": [
+   "direktori Linux",
+   "chmod",
+   "chown",
+   "apt-get",
+   "/etc/network/interfaces",
+   "DHCP server",
+   "mail server",
+   "proxy Squid"
+  ],
+  "goals": [
+   "Memakai perintah dasar Linux",
+   "Mengatur hak akses dan pemilik",
+   "Memasang layanan server di Debian"
+  ],
+  "topo": [
+   [
+    "Server",
+    "srv"
+   ],
+   [
+    "SW1",
+    "sw"
+   ],
+   [
+    "PC",
+    "pc"
+   ]
+  ]
+ },
+ {
+  "id": 10,
+  "cat": "Linux",
+  "title": "VirtualBox & Instalasi Debian",
+  "level": "Pemula",
+  "min": 40,
+  "color": "#6d28d9",
+  "devices": [
+   "PC",
+   "Server"
+  ],
+  "topics": [
+   "virtualisasi",
+   "VirtualBox",
+   "mesin virtual",
+   "ISO",
+   "partisi swap",
+   "boot loader",
+   "root"
+  ],
+  "goals": [
+   "Menjelaskan virtualisasi",
+   "Membuat mesin virtual",
+   "Memasang Debian di VirtualBox"
+  ],
+  "topo": [
+   [
+    "Host",
+    "pc"
+   ],
+   [
+    "VM Debian",
+    "srv"
+   ]
+  ]
+ },
+ {
+  "id": 11,
+  "cat": "Troubleshooting",
+  "title": "Troubleshooting Layanan Client-Server",
+  "level": "Lanjut",
+  "min": 60,
+  "color": "#be123c",
+  "devices": [
+   "Router",
+   "Server",
+   "PC"
+  ],
+  "topics": [
+   "VLSM",
+   "NAT masquerade",
+   "DHCP server",
+   "DNS",
+   "web server",
+   "bandwidth",
+   "ping"
+  ],
+  "goals": [
+   "Merencanakan subnet dengan VLSM",
+   "Memeriksa NAT dan DHCP",
+   "Menguji server dengan ping dan nslookup"
+  ],
+  "topo": [
+   [
+    "Klien",
+    "pc"
+   ],
+   [
+    "Router",
+    "rt",
+    "NAT"
+   ],
+   [
+    "Server",
+    "srv"
+   ]
+  ]
+ }
+]

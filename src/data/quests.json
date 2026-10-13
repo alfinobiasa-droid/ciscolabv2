@@ -1,0 +1,472 @@
+[
+ {
+  "id": 1,
+  "title": "Konfigurasi Router Dasar",
+  "desc": "Siapkan R1 di Sandbox: beri nama, atur IP, lalu aktifkan interface.",
+  "hint": "hostname R1 → interface g0/0 → ip address 192.168.1.1 255.255.255.0 → no shutdown",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Hostname diubah menjadi R1",
+    "rule": {
+     "test": "hostname",
+     "value": "R1"
+    }
+   },
+   {
+    "t": "Gi0/0 memakai IP 192.168.1.1 255.255.255.0",
+    "rule": {
+     "test": "iface",
+     "name": "GigabitEthernet0/0",
+     "ip": "192.168.1.1",
+     "mask": "255.255.255.0"
+    }
+   },
+   {
+    "t": "Gi0/0 sudah no shutdown",
+    "rule": {
+     "test": "iface",
+     "name": "GigabitEthernet0/0",
+     "up": true
+    }
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "Buat Static Route",
+  "desc": "Hubungkan R1 ke jaringan lain dengan static route, lalu cek routing table.",
+  "hint": "Aktifkan Gi0/0 dulu, lalu: ip route 10.0.0.0 255.255.255.0 192.168.1.2 → end → show ip route",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Gi0/0 aktif dan punya IP",
+    "rule": {
+     "test": "iface",
+     "name": "GigabitEthernet0/0",
+     "up": true,
+     "hasIp": true
+    }
+   },
+   {
+    "t": "Static route dengan next hop di jaringan Gi0/0",
+    "rule": {
+     "test": "static_route",
+     "name": "GigabitEthernet0/0"
+    }
+   },
+   {
+    "t": "Menjalankan show ip route",
+    "rule": {
+     "test": "seen",
+     "what": "route"
+    }
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "Buat VLAN",
+  "desc": "Di Sandbox pilih perangkat Switch, lalu buat dua VLAN, pasang port access, dan buat trunk.",
+  "hint": "vlan 10 → vlan 20 → interface fa0/1 → switchport access vlan 10 → interface fa0/2 → switchport access vlan 20 → interface g0/1 → switchport mode trunk",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "VLAN 10 dibuat",
+    "rule": {
+     "dev": "switch",
+     "test": "vlan_exists",
+     "id": 10
+    }
+   },
+   {
+    "t": "VLAN 20 dibuat",
+    "rule": {
+     "dev": "switch",
+     "test": "vlan_exists",
+     "id": 20
+    }
+   },
+   {
+    "t": "Ada port access di VLAN 10",
+    "rule": {
+     "dev": "switch",
+     "test": "access_vlan",
+     "id": 10
+    }
+   },
+   {
+    "t": "Ada port access di VLAN 20",
+    "rule": {
+     "dev": "switch",
+     "test": "access_vlan",
+     "id": 20
+    }
+   },
+   {
+    "t": "Ada port trunk",
+    "rule": {
+     "dev": "switch",
+     "test": "any_trunk"
+    }
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "Buat Default Route",
+  "desc": "Buat route 0.0.0.0/0 pada router, lalu verifikasi di routing table.",
+  "hint": "Aktifkan Gi0/0 → ip route 0.0.0.0 0.0.0.0 192.168.1.254 → end → show ip route",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Gi0/0 aktif dan punya IP",
+    "rule": {
+     "test": "iface",
+     "name": "GigabitEthernet0/0",
+     "up": true,
+     "hasIp": true
+    }
+   },
+   {
+    "t": "Ada default route",
+    "rule": {
+     "test": "default_route"
+    }
+   },
+   {
+    "t": "Menjalankan show ip route",
+    "rule": {
+     "test": "seen",
+     "what": "route"
+    }
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "Trunk dengan Native VLAN 99",
+  "desc": "Di Switch, ubah native VLAN pada trunk uplink menjadi 99.",
+  "hint": "interface g0/1 → switchport mode trunk → switchport trunk native vlan 99",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Ada port trunk",
+    "rule": {
+     "dev": "switch",
+     "test": "any_trunk"
+    }
+   },
+   {
+    "t": "Native VLAN trunk adalah 99",
+    "rule": {
+     "dev": "switch",
+     "test": "trunk_native",
+     "value": 99
+    }
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "Amankan Router",
+  "desc": "Pasang password privileged, amankan port console, beri banner peringatan, lalu simpan konfigurasi.",
+  "hint": "enable secret cisco123 → line console 0 → password konsol1 → login → exit → banner motd #Akses terbatas# → end → copy running-config startup-config",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "enable secret sudah diatur",
+    "rule": {
+     "test": "secret"
+    }
+   },
+   {
+    "t": "Console memakai password dan login",
+    "rule": {
+     "test": "console_login"
+    }
+   },
+   {
+    "t": "Banner MOTD sudah dibuat",
+    "rule": {
+     "test": "banner"
+    }
+   },
+   {
+    "t": "Konfigurasi disimpan ke startup-config",
+    "rule": {
+     "test": "saved"
+    }
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "title": "Jadikan Router DHCP Server",
+  "desc": "Buat pool DHCP untuk LAN 192.168.1.0/24 lengkap dengan gateway.",
+  "hint": "ip dhcp excluded-address 192.168.1.1 192.168.1.10 → ip dhcp pool LAN1 → network 192.168.1.0 255.255.255.0 → default-router 192.168.1.1",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Alamat yang dikecualikan sudah diatur",
+    "rule": {
+     "test": "dhcp_excluded"
+    }
+   },
+   {
+    "t": "Pool DHCP punya network dan default-router",
+    "rule": {
+     "test": "dhcp_pool"
+    }
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "title": "Konfigurasi PAT (NAT Overload)",
+  "desc": "Izinkan LAN keluar lewat satu IP public dengan NAT overload.",
+  "hint": "access-list 1 permit 192.168.1.0 0.0.0.255 → interface g0/0 → ip nat inside → interface g0/1 → ip nat outside → exit → ip nat inside source list 1 interface g0/1 overload",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "ACL untuk NAT sudah dibuat",
+    "rule": {
+     "test": "acl_exists"
+    }
+   },
+   {
+    "t": "Satu interface ditandai inside",
+    "rule": {
+     "test": "nat_if",
+     "value": "inside"
+    }
+   },
+   {
+    "t": "Satu interface ditandai outside",
+    "rule": {
+     "test": "nat_if",
+     "value": "outside"
+    }
+   },
+   {
+    "t": "NAT overload memakai ACL tersebut",
+    "rule": {
+     "test": "nat_acl"
+    }
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "title": "Blokir Host dengan ACL",
+  "desc": "Blokir satu host, izinkan sisanya, lalu pasang ACL pada interface.",
+  "hint": "access-list 10 deny 192.168.1.50 → access-list 10 permit any → interface g0/1 → ip access-group 10 out",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "ACL berisi deny host dan permit any",
+    "rule": {
+     "test": "acl_deny"
+    }
+   },
+   {
+    "t": "ACL dipasang pada interface",
+    "rule": {
+     "test": "acl_applied"
+    }
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "title": "ACL Extended: Blokir Web",
+  "desc": "Blokir akses web (TCP 80), izinkan sisanya, pasang pada interface, lalu uji dengan simulate.",
+  "hint": "Aktifkan Gi0/0 (192.168.1.1) dan Gi0/1 (10.0.0.1) → access-list 100 deny tcp any any eq 80 → access-list 100 permit ip any any → interface g0/0 → ip access-group 100 in → end → simulate 192.168.1.10 10.0.0.5 tcp 80",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "ACL extended: deny tcp eq 80 dan permit ip any any",
+    "rule": {
+     "test": "acl_ext_web"
+    }
+   },
+   {
+    "t": "ACL dipasang pada interface",
+    "rule": {
+     "test": "acl_applied"
+    }
+   },
+   {
+    "t": "Menjalankan simulate",
+    "rule": {
+     "test": "seen",
+     "what": "sim"
+    }
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "title": "Konfigurasi RIP versi 2",
+  "desc": "Aktifkan RIP v2 dan umumkan jaringan, lalu matikan ringkasan otomatis.",
+  "hint": "router rip → version 2 → network 192.168.1.0 → no auto-summary → end → show ip protocols",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "RIP versi 2 aktif",
+    "rule": {
+     "test": "rip_v2"
+    }
+   },
+   {
+    "t": "Ada network yang diumumkan",
+    "rule": {
+     "test": "rip_net"
+    }
+   },
+   {
+    "t": "Auto-summary dimatikan",
+    "rule": {
+     "test": "rip_noauto"
+    }
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "title": "Konfigurasi OSPF Area 0",
+  "desc": "Buat proses OSPF dengan router ID dan umumkan jaringan di area 0.",
+  "hint": "router ospf 1 → router-id 1.1.1.1 → network 192.168.1.0 0.0.0.255 area 0",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Proses OSPF dibuat",
+    "rule": {
+     "test": "ospf_on"
+    }
+   },
+   {
+    "t": "Router ID diatur",
+    "rule": {
+     "test": "ospf_rid"
+    }
+   },
+   {
+    "t": "Network diumumkan di area 0",
+    "rule": {
+     "test": "ospf_net"
+    }
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "title": "Konfigurasi EIGRP",
+  "desc": "Buat proses EIGRP dengan nomor AS, umumkan jaringan, dan matikan auto-summary.",
+  "hint": "router eigrp 100 → network 192.168.1.0 → no auto-summary",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Proses EIGRP dengan nomor AS dibuat",
+    "rule": {
+     "test": "eigrp_on"
+    }
+   },
+   {
+    "t": "Ada network yang diumumkan",
+    "rule": {
+     "test": "eigrp_net"
+    }
+   },
+   {
+    "t": "Auto-summary dimatikan",
+    "rule": {
+     "test": "eigrp_noauto"
+    }
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "title": "Struktur Kebun Binatang (Linux)",
+  "desc": "Di Sandbox pilih Linux, buat struktur direktori dan atur hak akses serta pemilik.",
+  "hint": "cd /home → mkdir kebun_binatang → cd kebun_binatang → mkdir karnivora herbivora → touch herbivora/kuda → chmod 676 herbivora/kuda → useradd sandikta_jaya → chown sandikta_jaya herbivora",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Direktori karnivora ada",
+    "rule": {
+     "dev": "linux",
+     "test": "path",
+     "path": "/home/kebun_binatang/karnivora",
+     "type": "d"
+    }
+   },
+   {
+    "t": "Direktori herbivora ada",
+    "rule": {
+     "dev": "linux",
+     "test": "path",
+     "path": "/home/kebun_binatang/herbivora",
+     "type": "d"
+    }
+   },
+   {
+    "t": "File kuda ada di herbivora",
+    "rule": {
+     "dev": "linux",
+     "test": "path",
+     "path": "/home/kebun_binatang/herbivora/kuda",
+     "type": "f"
+    }
+   },
+   {
+    "t": "Hak akses kuda adalah 676",
+    "rule": {
+     "dev": "linux",
+     "test": "mode",
+     "path": "/home/kebun_binatang/herbivora/kuda",
+     "value": "676"
+    }
+   },
+   {
+    "t": "User sandikta_jaya dibuat",
+    "rule": {
+     "dev": "linux",
+     "test": "user",
+     "value": "sandikta_jaya"
+    }
+   },
+   {
+    "t": "Pemilik herbivora adalah sandikta_jaya",
+    "rule": {
+     "dev": "linux",
+     "test": "owner",
+     "path": "/home/kebun_binatang/herbivora",
+     "value": "sandikta_jaya"
+    }
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "title": "Instal Linux Debian (simulasi)",
+  "desc": "Selesaikan Linux Installation Lab sampai login pertama, lalu cek hasilnya di Linux Filesystem Simulator.",
+  "hint": "Buka Linux Install → ikuti wizard → Install → Reboot → Login → whoami / hostname / ip addr",
+  "xp": 100,
+  "obj": [
+   {
+    "t": "Instalasi selesai",
+    "rule": {
+     "test": "linux_installed"
+    }
+   },
+   {
+    "t": "Login pertama berhasil dan sistem dipakai di simulator",
+    "rule": {
+     "test": "linux_login"
+    }
+   }
+  ]
+ }
+]

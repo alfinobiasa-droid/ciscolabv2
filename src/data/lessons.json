@@ -1,0 +1,1285 @@
+{
+ "1": [
+  [
+   "User EXEC Mode",
+   "Mode awal saat masuk ke perangkat Cisco, ditandai prompt Router>.",
+   "Router> ?\nRouter> show version",
+   "Tanda > berarti mode terbatas. Untuk konfigurasi kamu harus naik mode.",
+   "Prompt Router> menandakan mode apa?",
+   [
+    "User EXEC",
+    "Privileged EXEC",
+    "Global configuration",
+    "Interface configuration"
+   ],
+   0,
+   {
+    "what": "User EXEC adalah mode pertama yang kamu temui saat masuk ke router atau switch. Prompt-nya Router>. Di sini kamu hanya bisa melihat informasi dasar dengan command terbatas.",
+    "why": "Cisco memisahkan hak akses supaya orang yang hanya perlu melihat status tidak bisa mengubah konfigurasi.",
+    "ex": "Seperti pengunjung di lobi gedung: boleh melihat-lihat, tetapi belum boleh masuk ke ruang server.",
+    "res": "Router>\n(hanya command terbatas seperti ping, show tertentu, dan enable)",
+    "err": "Mengetik configure terminal langsung dari Router>. Command itu baru bisa dipakai setelah enable.",
+    "practice": [
+     "?",
+     "show ip interface brief"
+    ],
+    "qwhy": "Tanda > pada prompt selalu berarti User EXEC, mode awal yang terbatas."
+   }
+  ],
+  [
+   "Privileged EXEC Mode",
+   "Mode dengan akses lebih luas, prompt Router#, dimasuki dengan enable.",
+   "Router> enable\nRouter#\nRouter# show running-config",
+   "Tanda # berarti Privileged EXEC. Keluar dengan disable.",
+   "Command untuk masuk ke Privileged EXEC dari User EXEC:",
+   [
+    "enable",
+    "configure terminal",
+    "exit",
+    "login"
+   ],
+   0,
+   {
+    "what": "Privileged EXEC adalah mode dengan hak akses lebih tinggi. Prompt-nya Router#. Dari sini kamu bisa memakai semua command show, menyimpan konfigurasi, dan masuk ke mode konfigurasi.",
+    "why": "Mode ini menjadi pintu menuju konfigurasi. Dengan password (enable secret), hanya administrator yang bisa masuk.",
+    "ex": "Seperti kartu akses staf: setelah ditempel, pintu ke ruang kontrol terbuka.",
+    "res": "Router> enable\nRouter#",
+    "err": "Mencoba show running-config dari Router>. Command itu hanya jalan di Router#.",
+    "practice": [
+     "enable",
+     "show running-config"
+    ],
+    "qwhy": "enable menaikkan mode dari User EXEC (>) ke Privileged EXEC (#)."
+   }
+  ],
+  [
+   "Global Configuration Mode",
+   "Mode untuk mengubah konfigurasi perangkat, prompt Router(config)#.",
+   "Router# configure terminal\nRouter(config)#",
+   "Dari sini kamu bisa masuk ke sub-mode seperti interface atau line.",
+   "Prompt Router(config)# menandakan mode:",
+   [
+    "Global configuration",
+    "User EXEC",
+    "Privileged EXEC",
+    "ROMMON"
+   ],
+   0,
+   {
+    "what": "Global Configuration adalah mode untuk mengubah konfigurasi yang berlaku untuk seluruh perangkat, misalnya hostname, password, dan route.",
+    "why": "Semua perubahan konfigurasi dimulai dari sini agar tidak ada perubahan tanpa sengaja saat kamu hanya melihat status.",
+    "ex": "Seperti masuk ke ruang kontrol: dari sini kamu bisa mengubah pengaturan seluruh gedung.",
+    "res": "Router# configure terminal\nEnter configuration commands, one per line.  End with CNTL/Z.\nRouter(config)#",
+    "err": "Mengetik hostname atau ip address saat masih di Router#. Hasilnya error karena belum masuk configuration mode.",
+    "practice": [
+     "enable",
+     "configure terminal"
+    ],
+    "table": [
+     [
+      "Prompt",
+      "Mode",
+      "Fungsi"
+     ],
+     [
+      "Router>",
+      "User EXEC",
+      "Melihat info dasar, command terbatas"
+     ],
+     [
+      "Router#",
+      "Privileged EXEC",
+      "Semua show, simpan konfigurasi, masuk config"
+     ],
+     [
+      "Router(config)#",
+      "Global Configuration",
+      "Mengubah konfigurasi perangkat"
+     ],
+     [
+      "Router(config-if)#",
+      "Interface Configuration",
+      "Mengatur satu interface"
+     ]
+    ],
+    "qwhy": "configure terminal membuka Global Configuration, ditandai (config) pada prompt."
+   }
+  ],
+  [
+   "Hostname",
+   "hostname mengganti nama perangkat.",
+   "Router(config)# hostname R1\nR1(config)#",
+   "Hostname tidak boleh mengandung spasi.",
+   "Apa fungsi command hostname?",
+   [
+    "Mengganti nama perangkat",
+    "Mengganti password",
+    "Mengaktifkan interface",
+    "Menyimpan konfigurasi"
+   ],
+   0,
+   {
+    "what": "Hostname adalah nama yang diberikan kepada perangkat jaringan.",
+    "why": "Supaya administrator mudah membedakan satu router dengan router lain.",
+    "ex": "Misalnya ada R1, R2, dan R3. Daripada semuanya tampil Router#, lebih mudah jika tampil R1#, R2#, R3#.",
+    "res": "R1(config)#",
+    "err": "Menjalankan hostname di mode yang salah. Pastikan berada di Router(config)#.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "hostname R1"
+    ],
+    "qwhy": "hostname mengubah nama perangkat sehingga prompt berubah menjadi nama baru."
+   }
+  ],
+  [
+   "Enable secret",
+   "Password terenkripsi untuk masuk ke Privileged EXEC.",
+   "R1(config)# enable secret cisco123",
+   "Gunakan enable secret, bukan enable password, karena hasilnya di-hash.",
+   "Command untuk membuat password terenkripsi Privileged EXEC:",
+   [
+    "enable secret",
+    "enable password",
+    "line vty",
+    "banner motd"
+   ],
+   0,
+   {
+    "what": "enable secret membuat password untuk masuk ke Privileged EXEC Mode (Router#).",
+    "why": "Untuk melindungi akses konfigurasi. Kata secret berarti password disimpan terenkripsi (hash) di konfigurasi, tidak terbaca langsung seperti enable password.",
+    "ex": "Setelah diatur, setiap kali ada yang mengetik enable, router meminta password lebih dulu.",
+    "res": "R1> enable\nPassword:\nR1#",
+    "err": "Memakai enable password. Password itu tersimpan hampir sebagai teks biasa. Jika keduanya ada, yang dipakai adalah secret.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "enable secret cisco123",
+     "end",
+     "show running-config"
+    ],
+    "qwhy": "enable secret menyimpan password dalam bentuk terenkripsi (hash), lebih aman daripada enable password."
+   }
+  ],
+  [
+   "Console password",
+   "Mengamankan akses lewat port console.",
+   "R1(config)# line console 0\nR1(config-line)# password konsol1\nR1(config-line)# login",
+   "login wajib ada agar password benar-benar diminta.",
+   "Agar password console benar-benar diminta, command yang wajib ada setelah password adalah:",
+   [
+    "login",
+    "logout",
+    "no login",
+    "enable"
+   ],
+   0,
+   {
+    "what": "line console 0 adalah pengaturan untuk port console, yaitu kabel yang dicolok langsung ke perangkat.",
+    "why": "Siapa pun yang punya akses fisik ke kabel console bisa masuk ke perangkat, jadi harus diberi password.",
+    "ex": "Seperti mengunci pintu ruang server walaupun orang sudah berada di dalam gedung.",
+    "res": "Saat tersambung lewat console:\nUser Access Verification\nPassword:",
+    "err": "Menulis password tanpa login. Hasilnya password tidak pernah diminta.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "line console 0",
+     "password konsol1",
+     "login"
+    ],
+    "qwhy": "login mengaktifkan pemeriksaan password pada line itu. Tanpanya password tidak diminta."
+   }
+  ],
+  [
+   "Banner MOTD",
+   "Pesan peringatan yang tampil saat seseorang masuk ke perangkat.",
+   "R1(config)# banner motd #Akses hanya untuk staf berwenang#",
+   "Karakter pembatas (#) tidak boleh muncul di dalam teks banner.",
+   "Banner MOTD tampil pada saat:",
+   [
+    "Pengguna login ke perangkat",
+    "Perangkat dimatikan",
+    "Interface aktif",
+    "Konfigurasi disimpan"
+   ],
+   0,
+   {
+    "what": "Banner MOTD (Message of the Day) adalah pesan yang tampil saat seseorang masuk ke perangkat.",
+    "why": "Sebagai peringatan bahwa akses hanya untuk yang berwenang. Pesan ini juga berguna sebagai dasar tindakan hukum.",
+    "ex": "Seperti papan Dilarang masuk selain petugas di depan pintu ruang server.",
+    "res": "Akses hanya untuk staf berwenang\n(tampil sebelum prompt login)",
+    "err": "Memakai karakter pembatas (#) di dalam pesan sehingga banner terpotong.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "banner motd #Akses hanya untuk staf berwenang#"
+    ],
+    "qwhy": "MOTD ditampilkan kepada pengguna yang mengakses perangkat, sebelum login."
+   }
+  ],
+  [
+   "Interface configuration",
+   "Memilih interface yang akan dikonfigurasi, prompt (config-if)#.",
+   "R1(config)# interface gigabitEthernet 0/0\nR1(config-if)#",
+   "Singkatan yang diterima: int g0/0.",
+   "Command untuk memilih interface GigabitEthernet 0/0:",
+   [
+    "interface gigabitEthernet 0/0",
+    "select g0/0",
+    "port g0/0",
+    "enable g0/0"
+   ],
+   0,
+   {
+    "what": "Memilih interface yang ingin dikonfigurasi. Setelah itu prompt berubah menjadi (config-if)#.",
+    "why": "IP address dan konfigurasi interface harus diberikan pada interface tertentu, jadi router perlu tahu interface mana yang kamu maksud.",
+    "ex": "Seperti memilih nomor lubang colokan di panel sebelum memasang kabel.",
+    "res": "R1(config)# interface gigabitEthernet 0/0\nR1(config-if)#",
+    "err": "Salah menulis nomor interface, misalnya g0/3 yang tidak ada di perangkat.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface gigabitEthernet 0/0"
+    ],
+    "qwhy": "Interface harus dipilih dulu sebelum IP address atau statusnya diatur."
+   }
+  ],
+  [
+   "IP address",
+   "Memberikan alamat IP dan subnet mask kepada interface.",
+   "R1(config-if)# ip address 192.168.1.1 255.255.255.0",
+   "Gateway LAN biasanya memakai alamat pertama di subnet.",
+   "Command untuk memberi IP address pada interface:",
+   [
+    "ip address 192.168.1.1 255.255.255.0",
+    "ip set 192.168.1.1/24",
+    "address ip 192.168.1.1",
+    "network 192.168.1.1"
+   ],
+   0,
+   {
+    "what": "ip address memberikan alamat IP dan subnet mask kepada interface.",
+    "why": "Agar interface bisa berkomunikasi di jaringan IP dan menjadi gateway bagi perangkat di LAN-nya.",
+    "ex": "192.168.1.1 255.255.255.0 berarti interface ini berada di jaringan 192.168.1.0/24.",
+    "res": "show ip interface brief\nGi0/0  192.168.1.1  YES manual ...",
+    "err": "Salah subnet mask, atau IP berada di subnet yang berbeda dari PC. Akibatnya PC tidak bisa menjangkau gateway.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface gigabitEthernet 0/0",
+     "ip address 192.168.1.1 255.255.255.0"
+    ],
+    "qwhy": "ip address menetapkan alamat IP dan subnet mask pada interface yang sedang dipilih."
+   }
+  ],
+  [
+   "no shutdown",
+   "Mengaktifkan interface yang masih administratively down.",
+   "R1(config-if)# no shutdown\nR1(config-if)# end\nR1# show ip interface brief",
+   "Status administratively down artinya interface belum dinyalakan.",
+   "Command untuk mengaktifkan interface yang administratively down:",
+   [
+    "no shutdown",
+    "shutdown",
+    "ip enable",
+    "interface up"
+   ],
+   0,
+   {
+    "what": "no shutdown mengaktifkan interface.",
+    "why": "Interface router Cisco secara default berada dalam kondisi administratively down, jadi harus dinyalakan.",
+    "ex": "Seperti menekan tombol power: IP sudah terpasang tetapi interface belum menyala.",
+    "res": "%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up",
+    "err": "Lupa no shutdown sehingga ping gagal walaupun IP sudah benar.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface gigabitEthernet 0/0",
+     "ip address 192.168.1.1 255.255.255.0",
+     "no shutdown",
+     "end",
+     "show ip interface brief"
+    ],
+    "qwhy": "no shutdown membatalkan status shutdown sehingga interface menjadi up."
+   }
+  ],
+  [
+   "Simpan konfigurasi",
+   "Menyimpan konfigurasi dari RAM ke NVRAM agar tidak hilang.",
+   "R1# copy running-config startup-config",
+   "running-config ada di RAM, startup-config di NVRAM.",
+   "Command untuk menyimpan konfigurasi agar tidak hilang saat reload:",
+   [
+    "copy running-config startup-config",
+    "copy startup-config running-config",
+    "erase startup-config",
+    "show startup-config"
+   ],
+   0,
+   {
+    "what": "Menyalin konfigurasi yang sedang berjalan (RAM) ke konfigurasi awal (NVRAM).",
+    "why": "Konfigurasi di RAM hilang saat perangkat mati atau reload, sedangkan NVRAM tetap tersimpan.",
+    "ex": "Seperti menekan Save pada dokumen: tanpa Save, pekerjaan hilang saat komputer mati.",
+    "res": "Destination filename [startup-config]?\nBuilding configuration...\n[OK]",
+    "err": "Lupa menyimpan lalu reload sehingga semua konfigurasi hilang.",
+    "practice": [
+     "enable",
+     "copy running-config startup-config",
+     "show startup-config"
+    ],
+    "qwhy": "Konfigurasi berjalan hanya ada di RAM. Perintah copy memindahkannya ke NVRAM."
+   }
+  ],
+  [
+   "Akses remote dengan SSH",
+   "SSH mengenkripsi sesi remote, berbeda dengan Telnet yang mengirim teks polos. Perangkat butuh hostname, domain name, RSA key, dan user lokal.",
+   "R1(config)# ip domain-name lab.local\nR1(config)# crypto key generate rsa\nR1(config)# username admin secret Cisco123\nR1(config)# line vty 0 4\nR1(config-line)# transport input ssh\nR1(config-line)# login local",
+   "Hostname harus diganti dari default sebelum membuat RSA key.",
+   "Protokol remote yang mengenkripsi sesi adalah:",
+   [
+    "SSH",
+    "Telnet",
+    "TFTP",
+    "HTTP"
+   ],
+   0
+  ]
+ ],
+ "2": [
+  [
+   "Membuat VLAN",
+   "VLAN memecah satu switch menjadi beberapa broadcast domain. Perangkat beda VLAN tidak bisa berkomunikasi tanpa routing.",
+   "Switch(config)# vlan 10\nSwitch(config-vlan)# name STAFF\nSwitch(config-vlan)# vlan 20\nSwitch(config-vlan)# name SISWA",
+   "Default semua port ada di VLAN 1.",
+   "Command untuk membuat VLAN 10:",
+   [
+    "vlan 10",
+    "create vlan 10",
+    "vlan-create 10",
+    "interface vlan create 10"
+   ],
+   0,
+   {
+    "what": "Switch adalah perangkat yang menghubungkan banyak komputer dalam satu jaringan lokal. VLAN (Virtual LAN) membagi satu switch menjadi beberapa jaringan logis yang terpisah.",
+    "why": "Supaya kelompok berbeda, misalnya STAFF dan SISWA, tidak saling melihat traffic broadcast satu sama lain. Jaringan jadi lebih aman dan rapi.",
+    "ex": "VLAN seperti membagi satu gedung menjadi beberapa ruangan. VLAN 10 = Ruang A, VLAN 20 = Ruang B. Walau memakai gedung (switch) yang sama, kedua kelompok terpisah secara logis.",
+    "res": "Switch# show vlan brief\n10   STAFF   active\n20   SISWA   active",
+    "err": "Membuat VLAN di mode yang salah. VLAN dibuat di global configuration, yaitu Switch(config)#, bukan di interface.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "vlan 10",
+     "name STAFF",
+     "vlan 20",
+     "name SISWA",
+     "end",
+     "show vlan brief"
+    ],
+    "qwhy": "vlan 10 membuat VLAN bernomor 10 di switch.",
+    "cmds": [
+     [
+      "vlan 10",
+      "Membuat VLAN nomor 10 dan masuk ke mode konfigurasi VLAN."
+     ],
+     [
+      "name STAFF",
+      "Memberi nama VLAN agar mudah dikenali di show vlan brief."
+     ]
+    ]
+   }
+  ],
+  [
+   "Access port dan trunk",
+   "Port access membawa satu VLAN untuk perangkat akhir. Port trunk membawa banyak VLAN antar switch dengan tag 802.1Q.",
+   "Switch(config)# interface fa0/1\nSwitch(config-if)# switchport mode access\nSwitch(config-if)# switchport access vlan 10\nSwitch(config)# interface g0/1\nSwitch(config-if)# switchport mode trunk",
+   "Cek dengan show vlan brief dan show interfaces trunk.",
+   "Port yang membawa banyak VLAN antar switch adalah:",
+   [
+    "Trunk",
+    "Access",
+    "Console",
+    "Loopback"
+   ],
+   0,
+   {
+    "what": "Access port adalah port yang hanya menjadi anggota satu VLAN, dipakai untuk perangkat akhir seperti PC. Trunk adalah port yang membawa banyak VLAN sekaligus, dipakai untuk menghubungkan switch ke switch atau ke router.",
+    "why": "Setiap PC harus berada di VLAN yang benar (access), dan VLAN yang sama di dua switch harus tetap bisa berkomunikasi lewat satu kabel (trunk).",
+    "ex": "Access port seperti pintu ruangan A: orang di dalam hanya masuk ruangan A. Trunk seperti koridor utama yang dilewati penghuni semua ruangan, dengan tanda pengenal (tag) agar tidak tertukar.",
+    "res": "Switch# show interfaces trunk\nGi0/1  on  802.1q  trunking  1",
+    "err": "Menjadikan port PC sebagai trunk, atau lupa mengatur mode trunk di salah satu ujung kabel.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface fa0/1",
+     "switchport mode access",
+     "switchport access vlan 10",
+     "interface g0/1",
+     "switchport mode trunk",
+     "end",
+     "show interfaces trunk"
+    ],
+    "qwhy": "Trunk membawa traffic banyak VLAN dengan tag 802.1Q, sedangkan access hanya satu VLAN.",
+    "cmds": [
+     [
+      "switchport mode access",
+      "Menjadikan port sebagai access port (satu VLAN)."
+     ],
+     [
+      "switchport access vlan 10",
+      "Memasukkan port ke VLAN 10."
+     ],
+     [
+      "switchport mode trunk",
+      "Menjadikan port trunk yang membawa banyak VLAN."
+     ]
+    ]
+   }
+  ],
+  [
+   "Native VLAN dan Inter-VLAN",
+   "Native VLAN dikirim tanpa tag di trunk (default VLAN 1) dan harus sama di kedua ujung. Komunikasi antar VLAN butuh router (router-on-a-stick) atau switch Layer 3.",
+   "R1(config)# interface g0/0.10\nR1(config-subif)# encapsulation dot1q 10\nR1(config-subif)# ip address 192.168.10.1 255.255.255.0",
+   "Gateway tiap VLAN adalah IP subinterface atau SVI-nya.",
+   "Router-on-a-stick memakai:",
+   [
+    "Subinterface dot1q",
+    "Satu port access",
+    "Kabel console",
+    "DHCP relay"
+   ],
+   0,
+   {
+    "what": "Native VLAN adalah VLAN yang frame-nya dikirim tanpa tag di trunk (default VLAN 1). Inter-VLAN routing adalah proses menghubungkan dua VLAN berbeda lewat router atau switch Layer 3.",
+    "why": "Beda VLAN berarti beda subnet, sehingga butuh perangkat Layer 3 agar bisa saling berkomunikasi.",
+    "ex": "Ruang A dan Ruang B tidak punya pintu penghubung. Router bertindak sebagai resepsionis yang meneruskan pesan antar ruangan.",
+    "res": "R1(config-subif)# encapsulation dot1q 10\nR1(config-subif)# ip address 192.168.10.1 255.255.255.0",
+    "err": "Native VLAN berbeda di dua ujung trunk, atau lupa membuat gateway untuk setiap VLAN.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface g0/1",
+     "switchport mode trunk",
+     "switchport trunk native vlan 99",
+     "end",
+     "show interfaces trunk"
+    ],
+    "qwhy": "Router-on-a-stick memakai subinterface dengan encapsulation dot1q agar satu trunk melayani banyak VLAN.",
+    "cmds": [
+     [
+      "switchport trunk native vlan 99",
+      "Mengubah native VLAN trunk menjadi 99. Harus sama di kedua ujung."
+     ],
+     [
+      "encapsulation dot1q 10",
+      "Pada subinterface router: memakai VLAN 10 dengan tag 802.1Q."
+     ]
+    ]
+   }
+  ],
+  [
+   "Verifikasi dan salah konfigurasi VLAN",
+   "Kesalahan VLAN yang paling umum: port di VLAN salah, VLAN belum dibuat, trunk tidak membawa VLAN tertentu, atau native VLAN berbeda.",
+   "Switch# show vlan brief\nSwitch# show interfaces trunk\nSwitch# show running-config interface fa0/1",
+   "Cek dari port PC menuju uplink, satu per satu.",
+   "VLAN tidak lewat trunk padahal port benar. Cek bagian:",
+   [
+    "allowed vlan pada trunk",
+    "banner motd",
+    "hostname",
+    "enable secret"
+   ],
+   0,
+   {
+    "what": "Verifikasi VLAN berarti memeriksa apakah VLAN sudah dibuat, port berada di VLAN yang benar, dan trunk membawa VLAN yang dibutuhkan.",
+    "why": "Kebanyakan masalah VLAN berasal dari kesalahan kecil yang mudah terlihat lewat show command.",
+    "ex": "Dua PC satu subnet tidak bisa saling ping. Cek show vlan brief: kemungkinan salah satu port ada di VLAN lain.",
+    "res": "Switch# show vlan brief\n10  STAFF  active  Fa0/1\n20  SISWA  active  Fa0/2",
+    "err": "Memeriksa routing padahal masalahnya hanya port yang salah VLAN.",
+    "practice": [
+     "enable",
+     "show vlan brief",
+     "show interfaces trunk",
+     "show running-config"
+    ],
+    "qwhy": "Periksa dari port PC menuju uplink: show vlan brief untuk port, show interfaces trunk untuk trunk.",
+    "cmds": [
+     [
+      "show vlan brief",
+      "Daftar VLAN dan port anggotanya."
+     ],
+     [
+      "show interfaces trunk",
+      "Status trunk dan VLAN yang diizinkan."
+     ]
+    ]
+   }
+  ],
+  [
+   "Jenis VLAN dan VLAN antar lantai",
+   "Ada lima jenis VLAN: default (VLAN 1), data, native (tidak diberi tag di trunk), voice (untuk VoIP), dan management. Pada gedung dua lantai, tiap switch membuat VLAN 10 Logistik dan VLAN 20 Keuangan, lalu kedua switch dihubungkan dengan port trunk.",
+   "Switch(config)# vlan 10\nSwitch(config-vlan)# name Logistik\nSwitch(config-vlan)# vlan 20\nSwitch(config-vlan)# name Keuangan\nSwitch(config)# interface fa0/1\nSwitch(config-if)# switchport access vlan 10\nSwitch(config)# interface fa0/24\nSwitch(config-if)# switchport mode trunk",
+   "Beri nama VLAN sesuai fungsinya agar mudah dibaca di show vlan brief.",
+   "VLAN yang frame-nya tidak diberi tag pada trunk 802.1Q:",
+   [
+    "Native VLAN",
+    "Voice VLAN",
+    "Management VLAN",
+    "Data VLAN"
+   ],
+   0,
+   {
+    "what": "VLAN punya lima jenis: default (VLAN 1), data (untuk pengguna), native (frame tanpa tag di trunk), voice (untuk telepon IP), dan management (untuk mengelola switch).",
+    "why": "Memisahkan jenis traffic membuat jaringan lebih teratur dan lebih aman.",
+    "ex": "Gedung dua lantai: tiap lantai punya switch sendiri. VLAN 10 Logistik dan VLAN 20 Keuangan dibuat di kedua switch, lalu switch dihubungkan dengan trunk supaya anggota VLAN yang sama di lantai berbeda tetap satu jaringan.",
+    "res": "Switch# show vlan brief\n10  Logistik   active\n20  Keuangan   active",
+    "err": "Membuat VLAN hanya di satu switch sehingga VLAN itu tidak ada di switch satunya.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "vlan 10",
+     "name Logistik",
+     "vlan 20",
+     "name Keuangan",
+     "interface g0/1",
+     "switchport mode trunk",
+     "end",
+     "show vlan brief"
+    ],
+    "qwhy": "Native VLAN adalah satu-satunya VLAN yang dikirim tanpa tag di trunk 802.1Q.",
+    "cmds": [
+     [
+      "vlan 10",
+      "Membuat VLAN di setiap switch yang membutuhkannya."
+     ],
+     [
+      "switchport mode trunk",
+      "Menghubungkan switch antar lantai agar VLAN yang sama tetap tersambung."
+     ]
+    ]
+   }
+  ]
+ ],
+ "3": [
+  [
+   "Routing table",
+   "Router meneruskan paket berdasarkan routing table. C berarti connected, L local, S static.",
+   "R1# show ip route\nC  192.168.1.0/24 is directly connected, Gi0/0\nL  192.168.1.1/32 is directly connected, Gi0/0",
+   "Route connected muncul setelah interface up dan punya IP.",
+   "Kode C pada routing table berarti:",
+   [
+    "Connected",
+    "Static",
+    "OSPF",
+    "Default"
+   ],
+   0,
+   {
+    "what": "Routing adalah proses router menentukan jalur untuk meneruskan paket ke jaringan tujuan. Routing table adalah daftar jaringan tujuan beserta next hop atau interface keluarnya.",
+    "why": "Tanpa routing table, router tidak tahu ke mana harus mengirim paket yang bukan untuk jaringannya sendiri.",
+    "ex": "Seperti papan penunjuk jalan di persimpangan: setiap tujuan punya arah yang ditunjuk.",
+    "res": "C  192.168.1.0/24 is directly connected, Gi0/0\nL  192.168.1.1/32 is directly connected, Gi0/0",
+    "err": "Mengira route langsung sudah ada padahal interface masih down. Route C baru muncul setelah interface up dan punya IP.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface g0/0",
+     "ip address 192.168.1.1 255.255.255.0",
+     "no shutdown",
+     "end",
+     "show ip route"
+    ],
+    "qwhy": "Kode C berarti jaringan terhubung langsung ke interface router.",
+    "cmds": [
+     [
+      "show ip route",
+      "Menampilkan routing table."
+     ]
+    ]
+   }
+  ],
+  [
+   "Static route",
+   "Static route dibuat manual dengan format ip route [network] [mask] [next-hop]. Next hop adalah IP tetangga yang terhubung langsung.",
+   "R1(config)# ip route 192.168.3.0 255.255.255.0 10.0.0.2",
+   "Buat juga route balik di router seberang.",
+   "Pada ip route 192.168.3.0 255.255.255.0 10.0.0.2, next hop-nya adalah:",
+   [
+    "10.0.0.2",
+    "192.168.3.0",
+    "255.255.255.0",
+    "Tidak ada"
+   ],
+   0,
+   {
+    "what": "Static route adalah route yang dibuat manual oleh administrator dengan format ip route [network] [mask] [next-hop].",
+    "why": "Router hanya mengenal jaringan yang terhubung langsung. Agar R1 bisa menjangkau jaringan PC2 di balik R2, R1 harus diberi tahu lewat static route.",
+    "ex": "Topologi PC1 → R1 → R2 → PC2. R1 harus tahu bahwa jaringan PC2 (192.168.2.0/24) ada di balik R2, dengan next hop 10.0.0.2.",
+    "res": "S  192.168.2.0/24 [1/0] via 10.0.0.2",
+    "err": "Menulis next hop yang bukan tetangga langsung, atau lupa membuat route balik di R2.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface g0/1",
+     "ip address 10.0.0.1 255.255.255.252",
+     "no shutdown",
+     "exit",
+     "ip route 192.168.2.0 255.255.255.0 10.0.0.2",
+     "end",
+     "show ip route"
+    ],
+    "qwhy": "Argumen ketiga adalah next hop, yaitu alamat tetangga yang harus dilewati paket.",
+    "cmds": [
+     [
+      "192.168.2.0",
+      "Network tujuan."
+     ],
+     [
+      "255.255.255.0",
+      "Subnet mask network tujuan."
+     ],
+     [
+      "10.0.0.2",
+      "Next hop: alamat router tetangga yang dituju."
+     ]
+    ]
+   }
+  ],
+  [
+   "Default route",
+   "Default route 0.0.0.0/0 dipakai bila tidak ada route yang lebih spesifik, biasanya menuju ISP.",
+   "R1(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.2\nR1# show ip route\nGateway of last resort is 10.0.0.2\nS*  0.0.0.0/0 [1/0] via 10.0.0.2",
+   "Router memilih route dengan prefix terpanjang lebih dulu.",
+   "Tanda S* berarti:",
+   [
+    "Default route statis",
+    "Route OSPF",
+    "Route connected",
+    "Route RIP"
+   ],
+   0,
+   {
+    "what": "Default route (0.0.0.0/0) adalah route cadangan yang dipakai jika tidak ada route yang lebih spesifik.",
+    "why": "Praktis untuk jaringan kecil yang hanya punya satu jalan keluar, misalnya ke ISP.",
+    "ex": "Seperti papan petunjuk Semua tujuan lain lewat sini.",
+    "res": "Gateway of last resort is 10.0.0.2\nS*  0.0.0.0/0 [1/0] via 10.0.0.2",
+    "err": "Mengira default route menggantikan route spesifik. Router tetap memilih route paling spesifik lebih dulu.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface g0/1",
+     "ip address 10.0.0.1 255.255.255.252",
+     "no shutdown",
+     "exit",
+     "ip route 0.0.0.0 0.0.0.0 10.0.0.2",
+     "end",
+     "show ip route"
+    ],
+    "qwhy": "0.0.0.0/0 cocok dengan semua tujuan, tetapi hanya dipakai bila tidak ada route yang lebih spesifik.",
+    "cmds": [
+     [
+      "0.0.0.0 0.0.0.0",
+      "Network dan mask yang berarti semua jaringan."
+     ]
+    ]
+   }
+  ],
+  [
+   "Topologi multi-router",
+   "Pada topologi R1 - R2 - R3, tiap router butuh route ke LAN yang tidak terhubung langsung, dan route baliknya. Next hop selalu tetangga yang terhubung langsung.",
+   "R1(config)# ip route 192.168.3.0 255.255.255.0 10.0.0.2\nR2(config)# ip route 192.168.1.0 255.255.255.0 10.0.0.1\nR2(config)# ip route 192.168.3.0 255.255.255.0 10.0.1.2\nR3(config)# ip route 0.0.0.0 0.0.0.0 10.0.1.1",
+   "Router di ujung topologi cukup memakai satu default route.",
+   "Router ujung yang hanya punya satu tetangga paling praktis memakai:",
+   [
+    "Default route",
+    "Route untuk setiap host",
+    "Tanpa route",
+    "Route ke broadcast"
+   ],
+   0,
+   {
+    "what": "Pada beberapa router berantai, setiap router butuh route ke LAN yang tidak terhubung langsung, beserta route baliknya.",
+    "why": "Paket harus bisa berangkat dan juga kembali. Jika hanya satu arah, ping tetap gagal.",
+    "ex": "PC1 → R1 → R2 → R3 → PC2: R1 butuh route ke LAN R3 lewat R2, dan R3 butuh route balik ke LAN R1 lewat R2.",
+    "res": "R2 memiliki dua static route: satu ke LAN R1 dan satu ke LAN R3.",
+    "err": "Hanya membuat route pergi tetapi lupa route pulang.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface g0/1",
+     "ip address 10.0.0.1 255.255.255.252",
+     "no shutdown",
+     "exit",
+     "ip route 192.168.3.0 255.255.255.0 10.0.0.2",
+     "end",
+     "show ip route"
+    ],
+    "qwhy": "Komunikasi dua arah membutuhkan route pergi dan pulang di router masing-masing."
+   }
+  ],
+  [
+   "Floating static route",
+   "Floating static route adalah route cadangan dengan AD lebih tinggi dari route utama. Ia baru dipakai bila route utama hilang.",
+   "R1(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.2\nR1(config)# ip route 0.0.0.0 0.0.0.0 10.0.1.2 200",
+   "AD default static adalah 1, jadi angka 200 menjadikannya cadangan.",
+   "Route cadangan dibuat dengan menaikkan:",
+   [
+    "Administrative distance",
+    "Subnet mask",
+    "Jumlah host",
+    "Nomor VLAN"
+   ],
+   0,
+   {
+    "what": "Floating static route adalah route cadangan dengan administrative distance (AD) lebih tinggi daripada route utama.",
+    "why": "Jika link utama mati, route cadangan otomatis dipakai.",
+    "ex": "Jalan tol utama (AD 1) dan jalan biasa sebagai cadangan (AD 200): jalan biasa dipakai hanya saat tol ditutup.",
+    "res": "S*  0.0.0.0/0 [1/0] via 10.0.0.2   (utama)\nRoute cadangan [200/0] muncul bila yang utama hilang",
+    "err": "Memberi AD cadangan lebih kecil dari route utama sehingga cadangan justru yang dipakai.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface g0/1",
+     "ip address 10.0.0.1 255.255.255.252",
+     "no shutdown",
+     "exit",
+     "ip route 0.0.0.0 0.0.0.0 10.0.0.2",
+     "ip route 0.0.0.0 0.0.0.0 10.0.1.2 200",
+     "end",
+     "show ip route"
+    ],
+    "qwhy": "AD lebih tinggi berarti prioritas lebih rendah, jadi route baru dipakai saat route utama hilang.",
+    "cmds": [
+     [
+      "... 200",
+      "Angka 200 di akhir adalah administrative distance route cadangan."
+     ]
+    ]
+   }
+  ],
+  [
+   "Praktik tiga router: Geplak, Cucur, Apem",
+   "Tiga router dihubungkan lewat serial dengan urutan Geplak - Cucur - Apem, masing-masing punya satu LAN 202.10.x.0/24. Tiap router butuh static route ke LAN yang tidak terhubung langsung, dengan next hop berupa IP tetangga.",
+   "Geplak(config)# ip route 202.10.30.0 255.255.255.0 202.10.20.2\nGeplak(config)# ip route 202.10.50.0 255.255.255.0 202.10.20.2\nCucur(config)# ip route 202.10.10.0 255.255.255.0 202.10.20.1\nCucur(config)# ip route 202.10.50.0 255.255.255.0 202.10.40.2\nApem(config)# ip route 202.10.10.0 255.255.255.0 202.10.40.1\nApem(config)# ip route 202.10.30.0 255.255.255.0 202.10.40.1",
+   "Geplak tidak terhubung langsung ke Apem, jadi route ke LAN Apem lewat Cucur.",
+   "Next hop Geplak untuk LAN 202.10.50.0/24 adalah:",
+   [
+    "202.10.20.2 (Cucur)",
+    "202.10.40.2 (Apem)",
+    "202.10.10.1",
+    "202.10.30.1"
+   ],
+   0,
+   {
+    "what": "Latihan memetakan tiga router berantai (Geplak, Cucur, Apem) lengkap dengan static route di setiap router.",
+    "why": "Melatih membaca topologi dan menentukan next hop yang benar.",
+    "ex": "Geplak tidak terhubung langsung ke Apem, jadi route ke LAN Apem lewat Cucur.",
+    "res": "Geplak: S  202.10.50.0/24 via 202.10.20.2",
+    "err": "Memakai alamat router tujuan akhir sebagai next hop, bukan tetangga langsung.",
+    "practice": [
+     "enable",
+     "configure terminal",
+     "interface g0/1",
+     "ip address 202.10.20.1 255.255.255.0",
+     "no shutdown",
+     "exit",
+     "ip route 202.10.50.0 255.255.255.0 202.10.20.2",
+     "end",
+     "show ip route"
+    ],
+    "qwhy": "Next hop selalu tetangga yang terhubung langsung, yaitu Cucur."
+   }
+  ]
+ ],
+ "4": [
+  [
+   "RIP dan OSPF",
+   "Routing dinamis bertukar informasi route otomatis. RIP memakai hop count (AD 120), OSPF memakai link-state dan cost (AD 110).",
+   "R1(config)# router ospf 1\nR1(config-router)# router-id 1.1.1.1",
+   "Router ID juga bisa dipilih otomatis dari IP loopback tertinggi.",
+   "Metrik utama OSPF adalah:",
+   [
+    "Cost",
+    "Hop count",
+    "Jumlah VLAN",
+    "Delay saja"
+   ],
+   0
+  ],
+  [
+   "Perintah network",
+   "network mengaktifkan OSPF pada interface. Gunakan wildcard mask dan nomor area. Area backbone adalah area 0.",
+   "R1(config-router)# network 192.168.1.0 0.0.0.255 area 0\nR1(config-router)# network 10.0.0.0 0.0.0.3 area 0",
+   "Wildcard mask adalah kebalikan dari subnet mask.",
+   "Wildcard mask untuk /24:",
+   [
+    "0.0.0.255",
+    "255.255.255.0",
+    "0.0.255.255",
+    "0.0.0.3"
+   ],
+   0
+  ],
+  [
+   "Verifikasi OSPF",
+   "Pastikan neighbor terbentuk (FULL), lalu cek route OSPF yang berkode O.",
+   "R1# show ip ospf neighbor\nNeighbor ID  State   Address\n2.2.2.2      FULL/-  10.0.0.2\nR1# show ip route ospf\nO  192.168.3.0/24 [110/2] via 10.0.0.2",
+   "Neighbor tidak terbentuk? Cek subnet, area, dan hello timer.",
+   "State neighbor OSPF yang menandakan adjacency lengkap:",
+   [
+    "FULL",
+    "INIT",
+    "DOWN",
+    "ATTEMPT"
+   ],
+   0
+  ],
+  [
+   "RIP versi 2",
+   "RIP memakai hop count dengan batas 15 (16 dianggap tidak terjangkau). Cocok untuk jaringan kecil dan mudah dikonfigurasi.",
+   "R1(config)# router rip\nR1(config-router)# version 2\nR1(config-router)# network 192.168.1.0\nR1(config-router)# no auto-summary",
+   "RIP memakai network classful tanpa wildcard, berbeda dengan OSPF.",
+   "Hop count maksimum yang valid pada RIP:",
+   [
+    "15",
+    "16",
+    "30",
+    "255"
+   ],
+   0
+  ],
+  [
+   "Passive interface dan cost OSPF",
+   "passive-interface menghentikan Hello di interface LAN. Cost OSPF berasal dari bandwidth referensi dan bisa diubah manual.",
+   "R1(config-router)# passive-interface g0/1\nR1(config)# interface g0/0\nR1(config-if)# ip ospf cost 10",
+   "Interface LAN tetap diiklankan meski passive.",
+   "Tujuan passive-interface pada interface LAN:",
+   [
+    "Mencegah neighbor OSPF terbentuk di LAN",
+    "Menghapus network dari OSPF",
+    "Mematikan interface",
+    "Mengubah router ID"
+   ],
+   0
+  ],
+  [
+   "Konsep OSPF: Hello dan tiga tabel",
+   "OSPF adalah protokol link-state berstandar terbuka. Router menemukan tetangga lewat paket Hello (default 10 detik pada broadcast dan point-to-point, 30 detik pada NBMA). OSPF menyimpan tiga tabel: routing table, adjacency database (tetangga), dan topology database (semua link state di area). Tipe paket: Hello, DBD, LSR, LSU, LSAck.",
+   "R1(config)# router ospf 1\nR1(config-router)# network 207.22.1.0 0.0.0.255 area 0\nR1# show ip ospf neighbor\nR1# show ip route",
+   "Neighbor OSPF hanya terbentuk bila timer Hello/Dead, area, dan subnet cocok.",
+   "Database OSPF yang berisi daftar tetangga:",
+   [
+    "Adjacency database",
+    "Topology database",
+    "Routing table",
+    "ARP table"
+   ],
+   0
+  ],
+  [
+   "EIGRP",
+   "EIGRP adalah protokol milik Cisco yang bersifat hybrid: dasarnya distance vector tetapi punya fitur link-state. Hello dikirim multicast ke 224.0.0.10. Paketnya: Hello, Update, Query, Reply, dan Acknowledgement. Algoritma DUAL memilih jalur terbaik dan RTP menjamin pengiriman paket.",
+   "R1(config)# router eigrp 100\nR1(config-router)# network 130.0.0.0\nR1(config-router)# network 219.100.1.0\nR1# show ip route",
+   "Semua router dalam satu domain EIGRP memakai nomor AS yang sama (di sini 100).",
+   "Alamat multicast untuk Hello EIGRP:",
+   [
+    "224.0.0.10",
+    "224.0.0.5",
+    "224.0.0.9",
+    "255.255.255.255"
+   ],
+   0
+  ],
+  [
+   "RIP versi 1, versi 2, dan latihan",
+   "RIP memakai hop count dengan batas 15. RIPv1 bersifat classful dan tidak membawa subnet mask, sedangkan RIPv2 membawa subnet mask, mendukung autentikasi, dan mengirim update secara multicast. Latihan: enam router berantai, tiap router punya dua serial dan satu FastEthernet, semua network diumumkan dengan RIP.",
+   "R1(config)# router rip\nR1(config-router)# version 2\nR1(config-router)# network 1.0.0.0\nR1(config-router)# network 6.0.0.0\nR1(config-router)# network 201.1.1.0",
+   "Gunakan network classful pada RIP, bukan wildcard seperti OSPF.",
+   "Versi RIP yang membawa informasi subnet mask:",
+   [
+    "RIP versi 2",
+    "RIP versi 1",
+    "Keduanya tidak",
+    "Tidak ada"
+   ],
+   0
+  ]
+ ],
+ "5": [
+  [
+   "IPv4 dan CIDR",
+   "IPv4 terdiri dari 32 bit. Notasi /n menyatakan jumlah bit network. Host usable = 2^(32-n) - 2.",
+   "/24 = 255.255.255.0   -> 254 host\n/26 = 255.255.255.192 -> 62 host\n/30 = 255.255.255.252 -> 2 host",
+   "Kurangi 2 untuk network address dan broadcast address.",
+   "Host usable pada /26:",
+   [
+    "62",
+    "64",
+    "30",
+    "126"
+   ],
+   0
+  ],
+  [
+   "Network, broadcast, host range",
+   "Ukuran blok subnet menentukan batasnya. Pada /26 blok berukuran 64: network .0, .64, .128, .192.",
+   "192.168.1.0/26\nNetwork   192.168.1.0\nBroadcast 192.168.1.63\nHost      192.168.1.1 - 192.168.1.62",
+   "Broadcast = network berikutnya dikurangi 1.",
+   "Broadcast address dari 192.168.1.64/26:",
+   [
+    "192.168.1.127",
+    "192.168.1.63",
+    "192.168.1.128",
+    "192.168.1.255"
+   ],
+   0
+  ],
+  [
+   "VLSM",
+   "VLSM memakai subnet dengan ukuran berbeda. Urutkan kebutuhan host dari terbesar, lalu pilih prefix yang paling pas.",
+   "100 host -> /25 (126)\n50 host  -> /26 (62)\nLink router -> /30 (2)",
+   "Alokasikan subnet terbesar lebih dulu agar tidak tumpang tindih.",
+   "Prefix paling efisien untuk link antar dua router:",
+   [
+    "/30",
+    "/29",
+    "/24",
+    "/28"
+   ],
+   0
+  ],
+  [
+   "Subnetting cepat",
+   "Cari block size: 256 dikurangi nilai oktet mask. Untuk 255.255.255.192 block size 64, jadi subnet mulai di kelipatan 64.",
+   "Mask 255.255.255.192 -> block 64\nSubnet: .0 .64 .128 .192\nHost .70 -> network .64, broadcast .127",
+   "Broadcast selalu network berikutnya dikurangi 1.",
+   "Block size untuk mask 255.255.255.224:",
+   [
+    "32",
+    "16",
+    "64",
+    "224"
+   ],
+   0
+  ]
+ ],
+ "6": [
+  [
+   "Ping dan traceroute",
+   "ping menguji jangkauan ke tujuan. traceroute menunjukkan router yang dilalui sehingga titik putus terlihat.",
+   "R1# ping 192.168.3.10\n!!!!!\nSuccess rate is 100 percent (5/5)\nR1# traceroute 192.168.3.10\n1 10.0.0.2\n2 * * *",
+   "Tanda * * * berarti hop itu tidak membalas atau route buntu.",
+   "Tanda ! pada hasil ping berarti:",
+   [
+    "Balasan diterima",
+    "Timeout",
+    "Unreachable",
+    "Ping diblokir"
+   ],
+   0
+  ],
+  [
+   "Cek interface dan routing",
+   "show ip interface brief memeriksa status interface, show interfaces memeriksa error counter, dan show ip route memeriksa route yang ada.",
+   "R1# show ip interface brief\nGi0/1  10.0.0.1  YES manual  administratively down  down",
+   "Mulai dari bawah: Layer 1, lalu 2, lalu 3.",
+   "Status administratively down diperbaiki dengan:",
+   [
+    "no shutdown",
+    "shutdown",
+    "ip address dhcp",
+    "exit"
+   ],
+   0
+  ],
+  [
+   "Masalah VLAN dan routing",
+   "PC satu subnet gagal ping? Cek VLAN port dengan show vlan brief. Beda subnet gagal? Cek gateway dan route pergi-pulang.",
+   "Switch# show vlan brief\nR1# show ip route\nR2# show ip route",
+   "Cek juga native VLAN yang sama di kedua ujung trunk.",
+   "Dua PC satu subnet gagal ping. Cek pertama di switch:",
+   [
+    "show vlan brief",
+    "show ip ospf",
+    "show version",
+    "show clock"
+   ],
+   0
+  ],
+  [
+   "Metode troubleshooting",
+   "Tiga pendekatan: bottom-up (mulai Layer 1), top-down (mulai aplikasi), dan divide-and-conquer (mulai dari layer tengah).",
+   "1. Kabel dan interface up/up?\n2. VLAN dan trunk benar?\n3. IP, mask, gateway benar?\n4. Route pergi dan pulang ada?",
+   "Ubah satu hal setiap kali agar mudah dibatalkan.",
+   "Pendekatan yang dimulai dari Layer 1 disebut:",
+   [
+    "Bottom-up",
+    "Top-down",
+    "Divide-and-conquer",
+    "Trial and error"
+   ],
+   0
+  ]
+ ],
+ "7": [
+  [
+   "DHCP di router",
+   "DHCP memberi IP, mask, gateway, dan DNS secara otomatis. Router bisa menjadi DHCP server dengan membuat pool. Alamat yang sudah dipakai, misalnya gateway, harus dikecualikan.",
+   "R1(config)# ip dhcp excluded-address 192.168.1.1 192.168.1.10\nR1(config)# ip dhcp pool LAN1\nR1(dhcp-config)# network 192.168.1.0 255.255.255.0\nR1(dhcp-config)# default-router 192.168.1.1\nR1(dhcp-config)# dns-server 8.8.8.8",
+   "Cek hasilnya dengan show ip dhcp binding.",
+   "Command untuk mengecualikan alamat dari pool DHCP:",
+   [
+    "ip dhcp excluded-address",
+    "ip dhcp exclude",
+    "no ip dhcp pool",
+    "ip dhcp reserve"
+   ],
+   0
+  ],
+  [
+   "NAT dan PAT",
+   "NAT menerjemahkan IP private ke IP public. PAT (overload) membuat banyak host berbagi satu IP public dengan nomor port berbeda. Interface harus ditandai inside atau outside.",
+   "R1(config)# access-list 1 permit 192.168.1.0 0.0.0.255\nR1(config)# interface g0/0\nR1(config-if)# ip nat inside\nR1(config)# interface g0/1\nR1(config-if)# ip nat outside\nR1(config)# ip nat inside source list 1 interface g0/1 overload",
+   "Cek hasilnya dengan show ip nat translations.",
+   "Kata kunci agar banyak host berbagi satu IP public:",
+   [
+    "overload",
+    "static",
+    "outside",
+    "pool"
+   ],
+   0
+  ],
+  [
+   "ACL standar",
+   "ACL menyaring paket dengan aturan yang dibaca dari atas ke bawah. ACL standar hanya melihat IP sumber, sehingga biasanya dipasang dekat tujuan. Di akhir ada aturan deny any yang tidak terlihat.",
+   "R1(config)# access-list 10 deny 192.168.1.50\nR1(config)# access-list 10 permit any\nR1(config)# interface g0/1\nR1(config-if)# ip access-group 10 out",
+   "Aturan pertama yang cocok langsung dipakai, jadi urutan penting.",
+   "Di akhir setiap ACL ada aturan implisit:",
+   [
+    "deny any",
+    "permit any",
+    "log all",
+    "reset"
+   ],
+   0
+  ]
+ ],
+ "8": [
+  [
+   "Konsep dan aspek keamanan jaringan",
+   "Keamanan jaringan melindungi jaringan dari ancaman. Aspek utamanya: Confidentiality (data tidak dibaca pihak tak berhak), Integrity (data tidak diubah tanpa izin), Availability (layanan tersedia saat dibutuhkan), Authentication (identitas terbukti asli), Access Control (pembatasan akses), dan Non-repudiation (tidak bisa menyangkal transaksi).",
+   "Confidentiality -> enkripsi, kriptografi\nIntegrity -> tanda tangan digital, hash\nAvailability -> redundansi, anti DoS\nAuthentication -> password, biometrik\nNon-repudiation -> digital signature",
+   "Ingat singkatan CIA: Confidentiality, Integrity, Availability.",
+   "Aspek yang berkaitan dengan serangan DoS:",
+   [
+    "Availability",
+    "Confidentiality",
+    "Integrity",
+    "Non-repudiation"
+   ],
+   0
+  ],
+  [
+   "Kategori dan jenis serangan",
+   "Empat kategori ancaman: Interruption (aset tidak tersedia), Interception (pihak tak berwenang mendapat akses), Modification (aset diubah), dan Fabrication (objek palsu disisipkan). Contoh serangan: DoS/DDoS, packet sniffing, IP spoofing, DNS forgery, trojan horse, probe, dan scan.",
+   "DoS/DDoS -> menghabiskan sumber daya layanan\nSniffing -> mendengarkan paket di jaringan\nIP spoofing -> memalsukan alamat asal paket\nDNS forgery -> memalsukan data DNS\nProbe/Scan -> mencari celah dan port terbuka",
+   "Penyadapan data termasuk Interception, sedangkan pesan palsu termasuk Fabrication.",
+   "Penyadapan data di jaringan termasuk kategori:",
+   [
+    "Interception",
+    "Interruption",
+    "Modification",
+    "Fabrication"
+   ],
+   0
+  ],
+  [
+   "Prevention, Observation, Response",
+   "Keamanan dijaga dengan tiga langkah: Prevention (mencegah akses yang tidak diinginkan lewat konfigurasi layanan yang tepat), Observation (memantau log yang tidak normal), dan Response (bertindak cepat saat sistem berhasil disusupi).",
+   "Prevention: password kuat, ACL, port security\nObservation: periksa log secara berkala\nResponse: isolasi perangkat, ganti password, pulihkan konfigurasi",
+   "Tidak ada sistem yang 100% aman, jadi pencegahan harus disertai pemantauan.",
+   "Memeriksa log yang tidak normal termasuk langkah:",
+   [
+    "Observation",
+    "Prevention",
+    "Response",
+    "Fabrication"
+   ],
+   0
+  ],
+  [
+   "Pengamanan perangkat Cisco",
+   "Langkah praktis: enable secret, password console dan vty, SSH sebagai pengganti Telnet, banner peringatan, ACL untuk membatasi akses, dan port security pada switch.",
+   "R1(config)# enable secret Cisco123\nR1(config)# access-list 10 permit 192.168.1.0 0.0.0.255\nR1(config)# line vty 0 4\nR1(config-line)# transport input ssh\nR1(config-line)# login local\nR1(config-line)# access-class 10 in",
+   "Batasi akses vty hanya dari jaringan administrator.",
+   "Command untuk membatasi akses vty memakai ACL:",
+   [
+    "access-class",
+    "access-group",
+    "ip access",
+    "line acl"
+   ],
+   0
+  ]
+ ],
+ "9": [
+  [
+   "Struktur direktori dan perintah dasar",
+   "Linux memakai satu pohon direktori dengan akar /. Direktori penting: /etc (konfigurasi), /home (data pengguna), /var (data yang berubah, log), /tmp (sementara), /root (home root), dan /srv (data layanan). Perintah dasar: cd, ls -l, mkdir, cp, mv, rm, rmdir.",
+   "cd /tmp\nls -l\nmkdir UJIAN\ncp -r /tmp/UJIAN /opt\nmv /tmp/sosial /opt\nrm article.txt\nrm -r direk1",
+   "rm -r menghapus direktori beserta isinya, gunakan dengan hati-hati.",
+   "Direktori yang menyimpan file konfigurasi sistem:",
+   [
+    "/etc",
+    "/home",
+    "/tmp",
+    "/srv"
+   ],
+   0
+  ],
+  [
+   "Hak akses dan pengguna",
+   "ls -l menampilkan pemilik, grup, dan hak akses. Nilai r=4, w=2, x=1 untuk pemilik, grup, dan lainnya. chmod mengubah permission, chown mengubah kepemilikan, useradd membuat pengguna, dan passwd mengatur password.",
+   "chmod 676 Kuda    -> rw-, rwx, rw-\nchmod 451 kambing -> r--, r-x, --x\nuseradd sandikta_jaya\npasswd sandikta_jaya\nchown sandikta_jaya Herbivora",
+   "Hitung per kelompok: 6 = 4+2 (rw-), 5 = 4+1 (r-x), 1 = --x.",
+   "chmod 544 memberi pemilik hak akses:",
+   [
+    "Baca dan jalankan (r-x)",
+    "Baca dan tulis (rw-)",
+    "Baca saja (r--)",
+    "Semua hak (rwx)"
+   ],
+   0
+  ],
+  [
+   "Debian: jaringan dan paket",
+   "Di Debian, IP statis diatur di /etc/network/interfaces lalu layanan jaringan di-restart. Paket dikelola dengan apt-get yang membaca daftar repository dari /etc/apt/sources.list.",
+   "apt-get update\napt-get install apache2\nnano /etc/network/interfaces\n  iface ens3 inet static\n  address 10.10.10.194/30\nsystemctl restart networking\nip a",
+   "apt-get update memperbarui daftar paket, sedangkan apt-get upgrade memasang versi terbaru.",
+   "File untuk IP statis pada Debian 10:",
+   [
+    "/etc/network/interfaces",
+    "/etc/resolv.conf",
+    "/etc/hosts",
+    "/etc/apt/sources.list"
+   ],
+   0
+  ],
+  [
+   "Layanan server: DHCP, web, mail, proxy",
+   "Layanan umum di Debian: DHCP (isc-dhcp-server), web (apache2), mail (postfix, courier-imap, courier-pop, dengan DNS bind9 dan subdomain mail), dan proxy (squid3, port 3128). Proxy meningkatkan kinerja lewat cache dan dapat menyaring situs.",
+   "apt-get install isc-dhcp-server\napt-get install apache2\napt-get install postfix courier-imap courier-pop\napt-get install squid3 -y\nhttp_port 3128 transparent\niptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3128",
+   "Buat DNS dan web server lebih dulu sebelum mail server.",
+   "Port default Squid:",
+   [
+    "3128",
+    "80",
+    "25",
+    "443"
+   ],
+   0
+  ],
+  [
+   "Praktik di Sandbox Linux",
+   "Latihan dari soal praktik: buat struktur direktori kebun_binatang di /home dengan subdirektori karnivora dan herbivora, atur hak akses dan pemilik, lalu salin atau pindahkan. Gunakan perangkat Linux di Sandbox.",
+   "cd /home\nmkdir kebun_binatang\ncd kebun_binatang\nmkdir karnivora herbivora\ntouch herbivora/kuda\nchmod 676 herbivora/kuda\nuseradd sandikta_jaya\nchown sandikta_jaya herbivora\nls -l",
+   "Pada chmod 676, grup mendapat rwx karena angka tengah 7 = 4+2+1.",
+   "Setelah chmod 676, hak akses pemilik adalah:",
+   [
+    "rw-",
+    "rwx",
+    "r--",
+    "r-x"
+   ],
+   0
+  ]
+ ],
+ "10": [
+  [
+   "Virtualisasi dan VirtualBox",
+   "Virtualisasi memungkinkan beberapa sistem operasi berjalan di satu komputer fisik sebagai mesin virtual. Contoh perangkat lunaknya: VirtualBox, VMware Workstation, QEMU, dan Proxmox. VirtualBox punya menu File, Machine, dan Help. Menu Machine berisi New, Settings, Clone, Start (Normal, Headless, Detachable), dan Remove.",
+   "File > Preferences > Network   (adapter jaringan)\nMachine > New                  (buat VM)\nMachine > Clone                (gandakan VM)\nMachine > Start > Headless     (tanpa jendela)",
+   "Remove punya tiga pilihan: Delete all files, Remove only, atau Cancel.",
+   "Menu VirtualBox untuk menggandakan mesin virtual:",
+   [
+    "Clone",
+    "Move",
+    "Group",
+    "Add"
+   ],
+   0
+  ],
+  [
+   "Membuat mesin virtual",
+   "Saat membuat VM, isi nama, folder, tipe dan versi OS, lalu RAM dan hard disk virtual. File ISO Debian dipasang lewat Settings (Ctrl+S) pada bagian storage CD/DVD. Mesin virtual bisa diekspor dan diimpor sebagai file OVA atau OVF.",
+   "Name   : debian-8\nType   : Linux\nVersion: Debian (32-bit)\nSettings > Storage > CD/DVD > pilih file ISO",
+   "Mode Headless menjalankan VM tanpa jendela, cocok untuk server.",
+   "Format file untuk impor dan ekspor mesin virtual (appliance):",
+   [
+    "OVA atau OVF",
+    "ISO",
+    "VDI",
+    "ZIP"
+   ],
+   0
+  ],
+  [
+   "Instalasi Debian",
+   "Langkah instalasi: pilih bahasa English dan negara Indonesia, isi hostname dan domain, password root, buat user baru, pilih zona waktu, lalu partisi Guided - Use Entire Disk. Partisi swap berfungsi sebagai memori tambahan bila RAM fisik penuh. Pilih standard system, pasang GRUB di hard disk, lalu login sebagai root.",
+   "Hostname : debian-8\nDomain   : sandikta.com\nPartisi  : Guided - Use Entire Disk\n#1 primary  8.2 GB ext3 /\n#5 logical  488 MB swap\nGRUB boot loader -> install ke hard disk",
+   "Superuser (root) bisa mengubah seluruh sistem, sedangkan user biasa dibatasi.",
+   "Fungsi partisi swap:",
+   [
+    "Memori tambahan saat RAM penuh",
+    "Menyimpan sistem operasi",
+    "Menyimpan data pengguna",
+    "Mengatur boot loader"
+   ],
+   0
+  ]
+ ],
+ "11": [
+  [
+   "Perencanaan VLSM",
+   "Skenario: jaringan Server (router + 1 server = 2 host), LAN (router + 50 klien = 51 host), dan WLAN (router + 100 klien = 101 host) dari blok 10.10.1.0/24. Urutkan dari kebutuhan terbesar: WLAN butuh /25, LAN /26, Server /30.",
+   "WLAN   101 host -> 10.10.1.0/25   (126 host)\nLAN     51 host -> 10.10.1.128/26 (62 host)\nServer   2 host -> 10.10.1.192/30 (2 host)",
+   "Mulai dari subnet terbesar agar blok tidak tumpang tindih.",
+   "Prefix paling pas untuk 51 host:",
+   [
+    "/26",
+    "/25",
+    "/27",
+    "/30"
+   ],
+   0
+  ],
+  [
+   "IP, NAT masquerade, dan DHCP",
+   "Router mendapat IP dari ISP (DHCP client), lalu NAT masquerade pada chain srcnat agar klien lokal bisa ke internet. DHCP server dibuat pada interface LAN dan WLAN dengan gateway, rentang alamat, DNS, dan lease time. Pada contoh LAN 10.10.10.128/26, gateway .129 dan pembagian .130 sampai .180.",
+   "IP > Firewall > NAT > chain: srcnat, action: masquerade\nIP > DHCP Server > DHCP Setup\nGateway: 10.10.10.129\nRentang: 10.10.10.130 - 10.10.10.180\nDNS: 8.8.8.8, 8.8.4.4",
+   "Tanpa NAT masquerade, klien tidak bisa ke internet meski IP dan gateway benar.",
+   "Chain NAT masquerade pada router:",
+   [
+    "srcnat",
+    "dstnat",
+    "forward",
+    "input"
+   ],
+   0
+  ],
+  [
+   "Server Debian dan pemeriksaan",
+   "Server Linux perlu IP statis di /etc/network/interfaces, default gateway, dan DNS di /etc/resolv.conf. Cek dengan ping ke router lalu internet. Layanan DNS, web, dan database dipasang setelah koneksi berhasil, dan nslookup menguji DNS.",
+   "iface ens3 inet static\n  address 10.10.10.194/30\n  gateway 10.10.10.193\nnano /etc/resolv.conf\nping 10.10.10.193\napt-get install dnsutils\nnslookup namapeserta.net",
+   "Urutan cek: kabel, IP, gateway, DNS, baru layanan.",
+   "Perintah untuk menguji resolusi DNS:",
+   [
+    "nslookup",
+    "ping -6",
+    "ifconfig",
+    "traceroute -n"
+   ],
+   0
+  ]
+ ]
+}

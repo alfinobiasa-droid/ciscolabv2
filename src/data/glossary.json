@@ -1,0 +1,188 @@
+[
+ [
+  "Access Port",
+  "Port yang hanya menjadi anggota satu VLAN, untuk perangkat akhir.",
+  "Fa0/1 untuk PC di VLAN 10.",
+  "switchport mode access"
+ ],
+ [
+  "ACL",
+  "Daftar aturan permit/deny yang menyaring paket berdasarkan alamat atau port.",
+  "Memblokir satu host agar tidak mengakses server.",
+  "access-list 10 deny 192.168.1.50"
+ ],
+ [
+  "ARP",
+  "Protokol yang memetakan alamat IP ke MAC address pada satu jaringan.",
+  "PC menanyakan MAC milik 192.168.1.1 sebelum mengirim frame.",
+  "arp -a"
+ ],
+ [
+  "CIDR",
+  "Notasi /n yang menyatakan jumlah bit network pada alamat IP.",
+  "192.168.1.0/24 sama dengan mask 255.255.255.0.",
+  ""
+ ],
+ [
+  "Default Route",
+  "Route 0.0.0.0/0 yang dipakai bila tidak ada route yang lebih spesifik.",
+  "Semua tujuan tak dikenal dikirim ke ISP.",
+  "ip route 0.0.0.0 0.0.0.0 192.168.1.254"
+ ],
+ [
+  "DHCP",
+  "Layanan yang memberi IP, mask, gateway, dan DNS ke host secara otomatis.",
+  "PC lab mendapat IP dari router tanpa diatur manual.",
+  "ip dhcp pool LAN1"
+ ],
+ [
+  "DNS",
+  "Sistem yang menerjemahkan nama domain menjadi alamat IP.",
+  "google.com diterjemahkan menjadi alamat IP server.",
+  "ip name-server 8.8.8.8"
+ ],
+ [
+  "DoS / DDoS",
+  "Serangan yang menghabiskan sumber daya layanan sehingga tidak bisa dipakai pengguna sah.",
+  "Server web dibanjiri permintaan palsu hingga down.",
+  ""
+ ],
+ [
+  "EIGRP",
+  "Protokol routing milik Cisco yang bersifat hybrid, memakai algoritma DUAL.",
+  "Router satu AS 100 bertukar route lewat multicast 224.0.0.10.",
+  "router eigrp 100"
+ ],
+ [
+  "Gateway",
+  "Alamat router yang dipakai host untuk keluar dari subnetnya.",
+  "PC 192.168.1.10 memakai gateway 192.168.1.1.",
+  "ip default-gateway [ip]"
+ ],
+ [
+  "IP Address",
+  "Alamat logis di Layer 3 yang mengidentifikasi host dan jaringannya.",
+  "192.168.1.10/24",
+  "ip address 192.168.1.1 255.255.255.0"
+ ],
+ [
+  "IP Spoofing",
+  "Serangan dengan memalsukan alamat asal paket untuk menipu penerima atau melewati firewall.",
+  "Paket seolah berasal dari host tepercaya.",
+  ""
+ ],
+ [
+  "LAN",
+  "Jaringan lokal yang mencakup area terbatas seperti lab atau gedung.",
+  "Semua PC di lab terhubung lewat satu switch.",
+  ""
+ ],
+ [
+  "MAC Address",
+  "Alamat fisik 48 bit pada kartu jaringan, dipakai di Layer 2.",
+  "aaaa.bbbb.cccc dipelajari switch di Fa0/1.",
+  "show mac address-table"
+ ],
+ [
+  "NAT",
+  "Penerjemahan IP private ke IP public agar host bisa keluar ke internet.",
+  "Banyak PC 192.168.x.x memakai satu IP public.",
+  "ip nat inside source list 1 interface g0/1 overload"
+ ],
+ [
+  "OSI",
+  "Model referensi tujuh lapis: Physical, Data Link, Network, Transport, Session, Presentation, Application.",
+  "Switch bekerja di Layer 2, router di Layer 3.",
+  ""
+ ],
+ [
+  "OSPF",
+  "Protokol routing link-state berbasis cost dan area.",
+  "Router kampus bertukar route otomatis di area 0.",
+  "router ospf 1"
+ ],
+ [
+  "Packet Sniffing",
+  "Menyadap seluruh paket yang lewat pada media jaringan.",
+  "Membaca password yang dikirim lewat Telnet.",
+  ""
+ ],
+ [
+  "Proxy Server",
+  "Perantara antara jaringan lokal dan internet yang menyimpan cache dan dapat menyaring situs.",
+  "Squid pada port 3128 memblokir situs tertentu.",
+  "apt-get install squid3"
+ ],
+ [
+  "RIP",
+  "Protokol routing distance-vector berbasis hop count (maksimum 15).",
+  "Jaringan kecil dengan sedikit router.",
+  "router rip"
+ ],
+ [
+  "Router",
+  "Perangkat Layer 3 yang meneruskan paket antar jaringan berdasarkan alamat IP.",
+  "Menghubungkan LAN sekolah ke internet.",
+  "show ip route"
+ ],
+ [
+  "Routing",
+  "Proses menentukan jalur paket antar jaringan memakai routing table.",
+  "R1 meneruskan paket ke 10.0.0.2 lewat static route.",
+  "show ip route"
+ ],
+ [
+  "Subnet Mask",
+  "Penentu bagian network dan bagian host pada alamat IP.",
+  "255.255.255.0 berarti 24 bit network.",
+  "ip address 192.168.1.1 255.255.255.0"
+ ],
+ [
+  "Switch",
+  "Perangkat Layer 2 yang meneruskan frame berdasarkan MAC address.",
+  "Menghubungkan PC-PC dalam satu lab.",
+  "show mac address-table"
+ ],
+ [
+  "TCP",
+  "Protokol transport yang andal: berorientasi koneksi, ada urutan dan pengiriman ulang.",
+  "HTTP, SSH, dan email memakai TCP.",
+  ""
+ ],
+ [
+  "Trunk",
+  "Port yang membawa banyak VLAN antar switch dengan tag 802.1Q.",
+  "Link dua switch yang membawa VLAN 10 dan 20.",
+  "switchport mode trunk"
+ ],
+ [
+  "UDP",
+  "Protokol transport tanpa koneksi yang cepat tetapi tidak menjamin pengiriman.",
+  "DNS dan streaming suara memakai UDP.",
+  ""
+ ],
+ [
+  "Virtualisasi",
+  "Teknologi yang menjalankan beberapa sistem operasi sebagai mesin virtual pada satu komputer fisik.",
+  "Debian berjalan di VirtualBox di dalam Windows.",
+  ""
+ ],
+ [
+  "VLAN",
+  "Pemisahan logis satu jaringan menjadi beberapa broadcast domain.",
+  "Sales di VLAN 10 dan Admin di VLAN 20.",
+  "vlan 10"
+ ],
+ [
+  "VLSM",
+  "Teknik membagi jaringan menjadi subnet dengan ukuran berbeda sesuai kebutuhan host.",
+  "WLAN 101 host memakai /25, LAN 51 host memakai /26.",
+  ""
+ ],
+ [
+  "WAN",
+  "Jaringan yang menghubungkan lokasi berjauhan lewat penyedia layanan.",
+  "Kantor pusat dan cabang dihubungkan lewat link ISP.",
+  ""
+ ]
+]

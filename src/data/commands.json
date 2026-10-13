@@ -1,0 +1,302 @@
+[
+ [
+  "Basic IOS",
+  "enable",
+  "Masuk privileged EXEC mode."
+ ],
+ [
+  "Basic IOS",
+  "configure terminal",
+  "Masuk global configuration mode."
+ ],
+ [
+  "Basic IOS",
+  "hostname R1",
+  "Mengganti nama perangkat."
+ ],
+ [
+  "Basic IOS",
+  "enable secret [password]",
+  "Password terenkripsi untuk privileged EXEC."
+ ],
+ [
+  "Basic IOS",
+  "line console 0",
+  "Masuk konfigurasi port console."
+ ],
+ [
+  "Basic IOS",
+  "banner motd # [pesan] #",
+  "Pesan yang tampil saat login."
+ ],
+ [
+  "Basic IOS",
+  "copy running-config startup-config",
+  "Simpan konfigurasi ke NVRAM."
+ ],
+ [
+  "Basic IOS",
+  "show running-config",
+  "Melihat konfigurasi yang sedang berjalan."
+ ],
+ [
+  "Basic IOS",
+  "show ip interface brief",
+  "Melihat status dan IP interface."
+ ],
+ [
+  "Switch",
+  "show mac address-table",
+  "Melihat tabel MAC address switch."
+ ],
+ [
+  "Switch",
+  "interface range fa0/1 - 24",
+  "Konfigurasi banyak port sekaligus."
+ ],
+ [
+  "Switch",
+  "switchport mode access",
+  "Menjadikan port sebagai access."
+ ],
+ [
+  "Switch",
+  "switchport port-security",
+  "Mengaktifkan port security."
+ ],
+ [
+  "Switch",
+  "show interfaces status",
+  "Status semua port switch."
+ ],
+ [
+  "VLAN",
+  "vlan 10",
+  "Membuat VLAN 10."
+ ],
+ [
+  "VLAN",
+  "name Sales",
+  "Memberi nama pada VLAN."
+ ],
+ [
+  "VLAN",
+  "switchport access vlan 10",
+  "Memasukkan port access ke VLAN 10."
+ ],
+ [
+  "VLAN",
+  "switchport mode trunk",
+  "Menjadikan port sebagai trunk."
+ ],
+ [
+  "VLAN",
+  "switchport trunk native vlan 99",
+  "Mengubah native VLAN trunk."
+ ],
+ [
+  "VLAN",
+  "show vlan brief",
+  "Daftar VLAN dan port anggotanya."
+ ],
+ [
+  "VLAN",
+  "show interfaces trunk",
+  "Status port trunk."
+ ],
+ [
+  "Routing",
+  "ip address [ip] [mask]",
+  "Mengatur IP pada interface."
+ ],
+ [
+  "Routing",
+  "no shutdown",
+  "Mengaktifkan interface."
+ ],
+ [
+  "Routing",
+  "ip route [network] [mask] [next-hop]",
+  "Membuat static route."
+ ],
+ [
+  "Routing",
+  "ip route 0.0.0.0 0.0.0.0 [next-hop]",
+  "Membuat default route."
+ ],
+ [
+  "Routing",
+  "show ip route",
+  "Melihat routing table."
+ ],
+ [
+  "OSPF",
+  "router ospf 1",
+  "Memulai proses OSPF."
+ ],
+ [
+  "OSPF",
+  "router-id 1.1.1.1",
+  "Menetapkan router ID."
+ ],
+ [
+  "OSPF",
+  "network [net] [wildcard] area 0",
+  "Mengaktifkan OSPF pada jaringan."
+ ],
+ [
+  "OSPF",
+  "passive-interface g0/1",
+  "Mencegah Hello keluar lewat interface."
+ ],
+ [
+  "OSPF",
+  "show ip ospf neighbor",
+  "Melihat neighbor OSPF."
+ ],
+ [
+  "OSPF",
+  "show ip protocols",
+  "Info protokol routing yang aktif."
+ ],
+ [
+  "Troubleshooting",
+  "ping [ip]",
+  "Menguji konektivitas ke tujuan."
+ ],
+ [
+  "Troubleshooting",
+  "traceroute [ip]",
+  "Melacak hop menuju tujuan."
+ ],
+ [
+  "Troubleshooting",
+  "show interfaces",
+  "Statistik dan error counter interface."
+ ],
+ [
+  "Troubleshooting",
+  "show version",
+  "Versi IOS, uptime, dan config register."
+ ],
+ [
+  "Troubleshooting",
+  "show cdp neighbors",
+  "Perangkat Cisco yang terhubung langsung."
+ ],
+ [
+  "Layanan",
+  "ip dhcp pool LAN1",
+  "Membuat pool DHCP."
+ ],
+ [
+  "Layanan",
+  "ip dhcp excluded-address [awal] [akhir]",
+  "Mengecualikan alamat dari pool DHCP."
+ ],
+ [
+  "Layanan",
+  "ip nat inside source list 1 interface g0/1 overload",
+  "Mengaktifkan PAT lewat interface outside."
+ ],
+ [
+  "Layanan",
+  "access-list 10 permit [network] [wildcard]",
+  "Membuat ACL standar."
+ ],
+ [
+  "Layanan",
+  "ip access-group 10 out",
+  "Memasang ACL pada interface."
+ ],
+ [
+  "Layanan",
+  "show ip nat translations",
+  "Melihat tabel terjemahan NAT."
+ ],
+ [
+  "Routing",
+  "router eigrp 100",
+  "Memulai proses EIGRP dengan nomor AS 100."
+ ],
+ [
+  "Routing",
+  "router rip",
+  "Memulai proses RIP."
+ ],
+ [
+  "Routing",
+  "version 2",
+  "Memakai RIP versi 2."
+ ],
+ [
+  "Routing",
+  "no auto-summary",
+  "Menonaktifkan ringkasan otomatis (RIPv2 dan EIGRP)."
+ ],
+ [
+  "Linux",
+  "ls -l",
+  "Daftar isi direktori beserta hak akses."
+ ],
+ [
+  "Linux",
+  "mkdir [nama]",
+  "Membuat direktori."
+ ],
+ [
+  "Linux",
+  "cp -r [asal] [tujuan]",
+  "Menyalin file atau direktori."
+ ],
+ [
+  "Linux",
+  "mv [asal] [tujuan]",
+  "Memindahkan atau mengganti nama."
+ ],
+ [
+  "Linux",
+  "rm -r [nama]",
+  "Menghapus direktori beserta isinya."
+ ],
+ [
+  "Linux",
+  "chmod 644 [file]",
+  "Mengubah hak akses dengan angka."
+ ],
+ [
+  "Linux",
+  "chown [user] [file]",
+  "Mengubah pemilik file."
+ ],
+ [
+  "Linux",
+  "useradd [nama]",
+  "Membuat pengguna baru."
+ ],
+ [
+  "Linux",
+  "apt-get update",
+  "Memperbarui daftar paket."
+ ],
+ [
+  "Linux",
+  "systemctl restart networking",
+  "Memulai ulang layanan jaringan."
+ ],
+ [
+  "Linux",
+  "ip a",
+  "Melihat IP dan interface."
+ ],
+ [
+  "Troubleshooting",
+  "nslookup [domain]",
+  "Menguji resolusi DNS."
+ ],
+ [
+  "Routing",
+  "show ip protocols",
+  "Melihat protokol routing yang aktif."
+ ]
+]

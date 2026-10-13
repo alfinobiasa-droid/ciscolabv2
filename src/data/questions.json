@@ -1,0 +1,3346 @@
+[
+ {
+  "id": 1,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Apa fungsi command enable?",
+  "code": "",
+  "options": [
+   "Masuk ke privileged EXEC mode",
+   "Masuk ke global configuration mode",
+   "Menghapus konfigurasi",
+   "Mematikan router"
+  ],
+  "answer": 0,
+  "explanation": "enable dipakai untuk pindah dari User EXEC ke Privileged EXEC mode.",
+  "xp": 10
+ },
+ {
+  "id": 2,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Apa fungsi command berikut?",
+  "code": "show ip interface brief",
+  "options": [
+   "Melihat routing table",
+   "Melihat status dan IP interface",
+   "Membuat static route",
+   "Membuat VLAN"
+  ],
+  "answer": 1,
+  "explanation": "Command ini menampilkan ringkasan interface: IP address, status, dan protocol.",
+  "xp": 10
+ },
+ {
+  "id": 3,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Prompt Router(config)# menandakan mode apa?",
+  "code": "",
+  "options": [
+   "User EXEC",
+   "Privileged EXEC",
+   "Global configuration",
+   "Interface configuration"
+  ],
+  "answer": 2,
+  "explanation": "(config)# adalah global configuration mode. Interface configuration memakai (config-if)#.",
+  "xp": 10
+ },
+ {
+  "id": 4,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "enable secret cisco123",
+  "options": [
+   "Membuat password terenkripsi untuk privileged EXEC",
+   "Membuat password console",
+   "Membuat banner login",
+   "Mengganti hostname"
+  ],
+  "answer": 0,
+  "explanation": "enable secret menyimpan password mode privileged dalam bentuk terenkripsi (hash).",
+  "xp": 10
+ },
+ {
+  "id": 5,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Command untuk membuat VLAN 10 adalah:",
+  "code": "",
+  "options": [
+   "vlan 10",
+   "create vlan 10",
+   "interface vlan create 10",
+   "vlan-create 10"
+  ],
+  "answer": 0,
+  "explanation": "Di global configuration, vlan 10 membuat VLAN 10.",
+  "xp": 10
+ },
+ {
+  "id": 6,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "switchport mode trunk",
+  "options": [
+   "Port membawa banyak VLAN antar switch",
+   "Port hanya untuk satu VLAN",
+   "Mematikan port",
+   "Membuat VLAN baru"
+  ],
+  "answer": 0,
+  "explanation": "Trunk membawa traffic beberapa VLAN dengan tagging 802.1Q.",
+  "xp": 10
+ },
+ {
+  "id": 7,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Semua port switch Cisco secara default berada di VLAN:",
+  "code": "",
+  "options": [
+   "VLAN 0",
+   "VLAN 1",
+   "VLAN 10",
+   "VLAN 1002"
+  ],
+  "answer": 1,
+  "explanation": "Default-nya VLAN 1.",
+  "xp": 10
+ },
+ {
+  "id": 8,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "switchport access vlan 20",
+  "options": [
+   "Memasukkan port access ke VLAN 20",
+   "Membuat VLAN 20",
+   "Menghapus VLAN 20",
+   "Mengubah port menjadi trunk"
+  ],
+  "answer": 0,
+  "explanation": "Command ini menetapkan port access ke VLAN 20. VLAN-nya harus ada, atau dibuat dengan vlan 20.",
+  "xp": 10
+ },
+ {
+  "id": 9,
+  "category": "Routing",
+  "difficulty": "Mudah",
+  "question": "Apa fungsi command berikut?",
+  "code": "ip route 0.0.0.0 0.0.0.0 192.168.1.254",
+  "options": [
+   "Membuat VLAN",
+   "Membuat default route",
+   "Menghapus routing table",
+   "Mengaktifkan DHCP"
+  ],
+  "answer": 1,
+  "explanation": "Tujuan 0.0.0.0/0 berarti semua jaringan, dikirim ke next hop 192.168.1.254.",
+  "xp": 10
+ },
+ {
+  "id": 10,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Pada command ini, 192.168.1.2 adalah:",
+  "code": "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+  "options": [
+   "Next hop",
+   "Network tujuan",
+   "Wildcard mask",
+   "Gateway PC"
+  ],
+  "answer": 0,
+  "explanation": "Format: ip route [network] [mask] [next-hop].",
+  "xp": 10
+ },
+ {
+  "id": 11,
+  "category": "Routing",
+  "difficulty": "Mudah",
+  "question": "Kode C pada output show ip route berarti:",
+  "code": "",
+  "options": [
+   "Connected",
+   "Static",
+   "OSPF",
+   "Candidate default"
+  ],
+  "answer": 0,
+  "explanation": "C adalah jaringan yang terhubung langsung ke interface router.",
+  "xp": 10
+ },
+ {
+  "id": 12,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Kode S* pada show ip route menunjukkan:",
+  "code": "",
+  "options": [
+   "Default route statis",
+   "Route OSPF",
+   "Route connected",
+   "Route RIP"
+  ],
+  "answer": 0,
+  "explanation": "S = static, * = candidate default.",
+  "xp": 10
+ },
+ {
+  "id": 13,
+  "category": "OSPF",
+  "difficulty": "Mudah",
+  "question": "Command untuk memulai OSPF process ID 1 adalah:",
+  "code": "",
+  "options": [
+   "router ospf 1",
+   "ospf router 1",
+   "routing ospf 1",
+   "enable ospf 1"
+  ],
+  "answer": 0,
+  "explanation": "Dari global configuration: router ospf 1.",
+  "xp": 10
+ },
+ {
+  "id": 14,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Pada command ini, 0.0.0.255 adalah:",
+  "code": "network 192.168.1.0 0.0.0.255 area 0",
+  "options": [
+   "Wildcard mask",
+   "Subnet mask",
+   "Router ID",
+   "Cost"
+  ],
+  "answer": 0,
+  "explanation": "OSPF memakai wildcard mask, kebalikan dari subnet mask 255.255.255.0.",
+  "xp": 10
+ },
+ {
+  "id": 15,
+  "category": "OSPF",
+  "difficulty": "Mudah",
+  "question": "Area backbone pada OSPF adalah:",
+  "code": "",
+  "options": [
+   "Area 0",
+   "Area 1",
+   "Area 10",
+   "Area 100"
+  ],
+  "answer": 0,
+  "explanation": "Semua area harus terhubung ke Area 0.",
+  "xp": 10
+ },
+ {
+  "id": 16,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Command untuk melihat neighbor OSPF:",
+  "code": "",
+  "options": [
+   "show ip ospf neighbor",
+   "show ospf peers",
+   "show ip neighbor",
+   "show vlan brief"
+  ],
+  "answer": 0,
+  "explanation": "show ip ospf neighbor menampilkan router tetangga dan state-nya.",
+  "xp": 10
+ },
+ {
+  "id": 17,
+  "category": "Subnetting",
+  "difficulty": "Mudah",
+  "question": "Berapa jumlah host yang dapat digunakan pada subnet /24?",
+  "code": "",
+  "options": [
+   "128",
+   "254",
+   "256",
+   "512"
+  ],
+  "answer": 1,
+  "explanation": "2^8 = 256 alamat, dikurangi network dan broadcast = 254.",
+  "xp": 10
+ },
+ {
+  "id": 18,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Subnet mask untuk /26 adalah:",
+  "code": "",
+  "options": [
+   "255.255.255.192",
+   "255.255.255.128",
+   "255.255.255.224",
+   "255.255.255.240"
+  ],
+  "answer": 0,
+  "explanation": "/26 = 26 bit 1. Oktet keempat: 11000000 = 192.",
+  "xp": 10
+ },
+ {
+  "id": 19,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Broadcast address dari 192.168.1.0/25 adalah:",
+  "code": "",
+  "options": [
+   "192.168.1.127",
+   "192.168.1.255",
+   "192.168.1.128",
+   "192.168.1.63"
+  ],
+  "answer": 0,
+  "explanation": "/25 punya blok 128 alamat: 0-127. Broadcast-nya .127.",
+  "xp": 10
+ },
+ {
+  "id": 20,
+  "category": "Subnetting",
+  "difficulty": "Sulit",
+  "question": "Network address dari 172.16.5.70/26 adalah:",
+  "code": "",
+  "options": [
+   "172.16.5.64",
+   "172.16.5.0",
+   "172.16.5.128",
+   "172.16.5.70"
+  ],
+  "answer": 0,
+  "explanation": "Blok /26 berukuran 64: 0, 64, 128, 192. Angka 70 berada di blok 64.",
+  "xp": 10
+ },
+ {
+  "id": 21,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Interface router berstatus administratively down. Solusinya:",
+  "code": "",
+  "options": [
+   "no shutdown",
+   "shutdown",
+   "ip address dhcp",
+   "exit"
+  ],
+  "answer": 0,
+  "explanation": "Status itu berarti interface dimatikan manual. no shutdown mengaktifkannya.",
+  "xp": 10
+ },
+ {
+  "id": 22,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "PC1 (VLAN 10) tidak bisa ping PC2 (VLAN 20) di switch yang sama. Penyebab paling mungkin:",
+  "code": "",
+  "options": [
+   "Tidak ada inter-VLAN routing",
+   "Kabel terlalu panjang",
+   "Hostname salah",
+   "Banner belum diset"
+  ],
+  "answer": 0,
+  "explanation": "Beda VLAN = beda subnet. Butuh router atau switch Layer 3 untuk menghubungkannya.",
+  "xp": 10
+ },
+ {
+  "id": 23,
+  "category": "Troubleshooting",
+  "difficulty": "Sulit",
+  "question": "Traceroute berhenti di hop 2 dengan tanda * * *. Kemungkinan:",
+  "code": "",
+  "options": [
+   "Router hop 2 tidak punya route ke tujuan atau route balik",
+   "Hostname terlalu panjang",
+   "Banner MOTD salah",
+   "VLAN 1 dihapus"
+  ],
+  "answer": 0,
+  "explanation": "Cek show ip route pada router hop 2 dan router tujuan.",
+  "xp": 10
+ },
+ {
+  "id": 24,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Gejala default gateway PC salah:",
+  "code": "",
+  "options": [
+   "Bisa ping satu subnet, gagal ke jaringan lain",
+   "Tidak bisa ping sama sekali",
+   "Interface router flapping",
+   "Hanya DNS yang gagal"
+  ],
+  "answer": 0,
+  "explanation": "Gateway hanya dipakai untuk keluar subnet, jadi komunikasi lokal tetap jalan.",
+  "xp": 10
+ },
+ {
+  "id": 25,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Apa fungsi command berikut?",
+  "code": "configure terminal",
+  "options": [
+   "Masuk ke global configuration mode",
+   "Kembali ke user EXEC mode",
+   "Menyimpan konfigurasi",
+   "Me-restart router"
+  ],
+  "answer": 0,
+  "explanation": "Dari privileged EXEC, configure terminal membuka global configuration mode.",
+  "xp": 10
+ },
+ {
+  "id": 26,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Apa fungsi command berikut?",
+  "code": "hostname R1",
+  "options": [
+   "Mengganti nama perangkat menjadi R1",
+   "Membuat user R1",
+   "Membuat interface R1",
+   "Menetapkan IP R1"
+  ],
+  "answer": 0,
+  "explanation": "hostname mengubah nama perangkat dan prompt CLI menjadi R1.",
+  "xp": 10
+ },
+ {
+  "id": 27,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Prompt Router> menandakan mode:",
+  "code": "",
+  "options": [
+   "User EXEC",
+   "Privileged EXEC",
+   "Global configuration",
+   "ROMMON"
+  ],
+  "answer": 0,
+  "explanation": "Tanda > berarti User EXEC. Tanda # berarti Privileged EXEC.",
+  "xp": 10
+ },
+ {
+  "id": 28,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Command untuk menyimpan konfigurasi agar tidak hilang saat reload:",
+  "code": "",
+  "options": [
+   "copy running-config startup-config",
+   "copy startup-config running-config",
+   "erase startup-config",
+   "show running-config"
+  ],
+  "answer": 0,
+  "explanation": "Command itu menyalin konfigurasi dari RAM ke NVRAM.",
+  "xp": 10
+ },
+ {
+  "id": 29,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Perbedaan running-config dan startup-config:",
+  "code": "",
+  "options": [
+   "running-config di RAM, startup-config di NVRAM",
+   "running-config di NVRAM, startup-config di RAM",
+   "Keduanya di flash",
+   "Keduanya di ROM"
+  ],
+  "answer": 0,
+  "explanation": "running-config hilang saat perangkat mati bila belum disimpan.",
+  "xp": 10
+ },
+ {
+  "id": 30,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Command untuk kembali dari Privileged EXEC ke User EXEC:",
+  "code": "",
+  "options": [
+   "disable",
+   "exit config",
+   "logout config",
+   "user exec"
+  ],
+  "answer": 0,
+  "explanation": "disable keluar dari privileged EXEC ke user EXEC.",
+  "xp": 10
+ },
+ {
+  "id": 31,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Konfigurasi berikut berfungsi untuk:",
+  "code": "line console 0\n password cisco\n login",
+  "options": [
+   "Mengamankan akses lewat port console",
+   "Mengamankan akses telnet",
+   "Membuat enable password",
+   "Membuat banner"
+  ],
+  "answer": 0,
+  "explanation": "line console 0 memilih port console. password dan login mewajibkan password.",
+  "xp": 10
+ },
+ {
+  "id": 32,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Command banner motd berfungsi untuk:",
+  "code": "",
+  "options": [
+   "Menampilkan pesan saat pengguna login",
+   "Mengganti password",
+   "Menghapus konfigurasi",
+   "Mengaktifkan interface"
+  ],
+  "answer": 0,
+  "explanation": "MOTD (Message of the Day) tampil saat seseorang mengakses perangkat.",
+  "xp": 10
+ },
+ {
+  "id": 33,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Command untuk masuk konfigurasi interface GigabitEthernet 0/0:",
+  "code": "",
+  "options": [
+   "interface gigabitEthernet 0/0",
+   "enter gig 0/0 config",
+   "config interface g0/0 open",
+   "gigabitEthernet 0/0 mode"
+  ],
+  "answer": 0,
+  "explanation": "Dari global configuration, ketik interface gigabitEthernet 0/0 (atau interface g0/0).",
+  "xp": 10
+ },
+ {
+  "id": 34,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Command ip address 192.168.1.1 255.255.255.0 dijalankan pada mode:",
+  "code": "",
+  "options": [
+   "Interface configuration, (config-if)#",
+   "Global configuration, (config)#",
+   "User EXEC, >",
+   "Privileged EXEC, #"
+  ],
+  "answer": 0,
+  "explanation": "IP address diatur di dalam interface configuration mode.",
+  "xp": 10
+ },
+ {
+  "id": 35,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Interface router yang baru dinyalakan secara default berstatus:",
+  "code": "",
+  "options": [
+   "Administratively down",
+   "Up/up",
+   "Up/down otomatis",
+   "Otomatis dapat IP DHCP"
+  ],
+  "answer": 0,
+  "explanation": "Interface router perlu diaktifkan dengan no shutdown.",
+  "xp": 10
+ },
+ {
+  "id": 36,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Command end (atau Ctrl+Z) akan:",
+  "code": "",
+  "options": [
+   "Kembali langsung ke privileged EXEC",
+   "Menyimpan konfigurasi",
+   "Mematikan router",
+   "Naik satu mode saja"
+  ],
+  "answer": 0,
+  "explanation": "end keluar dari mode konfigurasi mana pun langsung ke privileged EXEC. exit hanya naik satu tingkat.",
+  "xp": 10
+ },
+ {
+  "id": 37,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Tebak output: command show version menampilkan:",
+  "code": "",
+  "options": [
+   "Versi IOS, uptime, dan configuration register",
+   "Daftar VLAN",
+   "Routing table",
+   "Isi tabel ARP"
+  ],
+  "answer": 0,
+  "explanation": "show version memuat info IOS, uptime, memori, dan config register.",
+  "xp": 10
+ },
+ {
+  "id": 38,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Tanda ? di CLI Cisco berguna untuk:",
+  "code": "",
+  "options": [
+   "Menampilkan bantuan command yang tersedia",
+   "Menghapus command",
+   "Menyimpan konfigurasi",
+   "Keluar dari mode"
+  ],
+  "answer": 0,
+  "explanation": "Ketik ? untuk melihat command atau parameter yang valid pada mode itu.",
+  "xp": 10
+ },
+ {
+  "id": 39,
+  "category": "Dasar Cisco",
+  "difficulty": "Sulit",
+  "question": "Apa fungsi command berikut?",
+  "code": "no ip domain-lookup",
+  "options": [
+   "Mencegah router menunggu DNS saat salah ketik command",
+   "Mematikan DNS server",
+   "Menghapus domain name",
+   "Mengaktifkan DHCP"
+  ],
+  "answer": 0,
+  "explanation": "Tanpa ini, salah ketik dianggap nama host dan router menunggu DNS timeout.",
+  "xp": 10
+ },
+ {
+  "id": 40,
+  "category": "Dasar Cisco",
+  "difficulty": "Sulit",
+  "question": "Apa fungsi command berikut?",
+  "code": "service password-encryption",
+  "options": [
+   "Mengenkripsi password plain-text di config",
+   "Membuat enable secret",
+   "Menghapus password",
+   "Mengamankan SSH"
+  ],
+  "answer": 0,
+  "explanation": "Password line dan enable password diberi enkripsi lemah (type 7) agar tidak terbaca langsung.",
+  "xp": 10
+ },
+ {
+  "id": 41,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Command untuk melihat daftar VLAN dan port anggotanya:",
+  "code": "",
+  "options": [
+   "show vlan brief",
+   "show ip vlan",
+   "show interfaces vlan",
+   "show switchport list"
+  ],
+  "answer": 0,
+  "explanation": "show vlan brief menampilkan VLAN ID, nama, status, dan port.",
+  "xp": 10
+ },
+ {
+  "id": 42,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Apa fungsi command name di konfigurasi berikut?",
+  "code": "vlan 10\n name Sales",
+  "options": [
+   "Memberi nama VLAN 10 menjadi Sales",
+   "Membuat user Sales",
+   "Mengganti hostname",
+   "Membuat VLAN 11"
+  ],
+  "answer": 0,
+  "explanation": "name memberi label yang mudah dibaca pada VLAN.",
+  "xp": 10
+ },
+ {
+  "id": 43,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Port access pada switch hanya dapat menjadi anggota:",
+  "code": "",
+  "options": [
+   "Satu VLAN data",
+   "Semua VLAN",
+   "Dua VLAN",
+   "VLAN native saja"
+  ],
+  "answer": 0,
+  "explanation": "Port access membawa traffic satu VLAN saja.",
+  "xp": 10
+ },
+ {
+  "id": 44,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Standar tagging yang dipakai trunk Cisco modern:",
+  "code": "",
+  "options": [
+   "IEEE 802.1Q",
+   "IEEE 802.3",
+   "IEEE 802.11",
+   "IEEE 802.1X"
+  ],
+  "answer": 0,
+  "explanation": "802.1Q menyisipkan tag VLAN pada frame Ethernet.",
+  "xp": 10
+ },
+ {
+  "id": 45,
+  "category": "VLAN",
+  "difficulty": "Sulit",
+  "question": "Traffic native VLAN pada trunk 802.1Q dikirim:",
+  "code": "",
+  "options": [
+   "Tanpa tag (untagged)",
+   "Dengan tag ganda",
+   "Terenkripsi",
+   "Diblokir"
+  ],
+  "answer": 0,
+  "explanation": "Native VLAN adalah satu-satunya VLAN yang dikirim tanpa tag di trunk.",
+  "xp": 10
+ },
+ {
+  "id": 46,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "switchport trunk native vlan 99",
+  "options": [
+   "Mengubah native VLAN trunk menjadi VLAN 99",
+   "Membuat VLAN 99",
+   "Menghapus VLAN 99",
+   "Menjadikan port access VLAN 99"
+  ],
+  "answer": 0,
+  "explanation": "Native VLAN default adalah 1. Kedua ujung trunk harus sama.",
+  "xp": 10
+ },
+ {
+  "id": 47,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "switchport trunk allowed vlan 10,20",
+  "options": [
+   "Hanya VLAN 10 dan 20 yang boleh lewat trunk",
+   "Membuat VLAN 10 dan 20",
+   "Menghapus VLAN 10 dan 20",
+   "Mengubah port jadi access"
+  ],
+  "answer": 0,
+  "explanation": "Command ini membatasi VLAN yang boleh melintas di trunk.",
+  "xp": 10
+ },
+ {
+  "id": 48,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Inter-VLAN routing dengan router-on-a-stick memakai:",
+  "code": "",
+  "options": [
+   "Subinterface dengan encapsulation dot1q",
+   "Satu interface access",
+   "Kabel crossover saja",
+   "Hub"
+  ],
+  "answer": 0,
+  "explanation": "Satu link trunk ke router dipecah jadi subinterface, satu per VLAN.",
+  "xp": 10
+ },
+ {
+  "id": 49,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Konfigurasi ini membuat:",
+  "code": "interface g0/0.10\n encapsulation dot1q 10\n ip address 192.168.10.1 255.255.255.0",
+  "options": [
+   "Gateway VLAN 10 pada subinterface",
+   "VLAN 10 baru di switch",
+   "Trunk native VLAN",
+   "Default route"
+  ],
+  "answer": 0,
+  "explanation": "Subinterface .10 melayani VLAN 10 dan menjadi default gateway-nya.",
+  "xp": 10
+ },
+ {
+  "id": 50,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Perangkat yang dapat melakukan inter-VLAN routing tanpa router terpisah:",
+  "code": "",
+  "options": [
+   "Switch Layer 3",
+   "Switch Layer 2",
+   "Hub",
+   "Repeater"
+  ],
+  "answer": 0,
+  "explanation": "Switch Layer 3 me-route antar VLAN memakai SVI.",
+  "xp": 10
+ },
+ {
+  "id": 51,
+  "category": "VLAN",
+  "difficulty": "Sulit",
+  "question": "Konfigurasi ini membuat:",
+  "code": "interface vlan 10\n ip address 192.168.10.1 255.255.255.0",
+  "options": [
+   "SVI sebagai gateway VLAN 10",
+   "Port access VLAN 10",
+   "Trunk VLAN 10",
+   "Static route"
+  ],
+  "answer": 0,
+  "explanation": "SVI (Switch Virtual Interface) memberi IP Layer 3 pada sebuah VLAN.",
+  "xp": 10
+ },
+ {
+  "id": 52,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Command untuk melihat status trunk:",
+  "code": "",
+  "options": [
+   "show interfaces trunk",
+   "show trunk vlan",
+   "show vlan trunk",
+   "show ip trunk"
+  ],
+  "answer": 0,
+  "explanation": "Output berisi mode, encapsulation, native VLAN, dan VLAN yang diizinkan.",
+  "xp": 10
+ },
+ {
+  "id": 53,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Tebak output: setelah port Fa0/1 dipindah ke VLAN 10, pada show vlan brief port itu terlihat di:",
+  "code": "",
+  "options": [
+   "Baris VLAN 10, tidak lagi di VLAN 1",
+   "Baris VLAN 1 saja",
+   "Kedua VLAN",
+   "Tidak muncul"
+  ],
+  "answer": 0,
+  "explanation": "Satu port access hanya satu VLAN, jadi hilang dari daftar VLAN 1.",
+  "xp": 10
+ },
+ {
+  "id": 54,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Tujuan utama VLAN adalah:",
+  "code": "",
+  "options": [
+   "Memecah broadcast domain",
+   "Menambah kecepatan kabel",
+   "Menggantikan router sepenuhnya",
+   "Mengenkripsi traffic"
+  ],
+  "answer": 0,
+  "explanation": "Setiap VLAN adalah broadcast domain terpisah.",
+  "xp": 10
+ },
+ {
+  "id": 55,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Command untuk menghapus VLAN 10 di switch:",
+  "code": "",
+  "options": [
+   "no vlan 10",
+   "delete vlan 10",
+   "remove vlan 10",
+   "vlan 10 delete"
+  ],
+  "answer": 0,
+  "explanation": "Gunakan no vlan 10 di global configuration.",
+  "xp": 10
+ },
+ {
+  "id": 56,
+  "category": "VLAN",
+  "difficulty": "Sulit",
+  "question": "Dua PC di VLAN berbeda dengan IP satu subnet tidak bisa saling ping karena:",
+  "code": "",
+  "options": [
+   "Broadcast/ARP tidak melewati batas VLAN",
+   "Kabel rusak",
+   "Subnet mask terlalu besar",
+   "Hostname sama"
+  ],
+  "answer": 0,
+  "explanation": "ARP request adalah broadcast, dan tidak menyeberang VLAN tanpa routing.",
+  "xp": 10
+ },
+ {
+  "id": 57,
+  "category": "Routing",
+  "difficulty": "Mudah",
+  "question": "Routing table pada router berisi:",
+  "code": "",
+  "options": [
+   "Daftar jaringan tujuan beserta next hop atau interface keluar",
+   "Daftar password perangkat",
+   "Daftar VLAN",
+   "Riwayat command"
+  ],
+  "answer": 0,
+  "explanation": "Router membaca routing table untuk menentukan ke mana paket diteruskan.",
+  "xp": 10
+ },
+ {
+  "id": 58,
+  "category": "Routing",
+  "difficulty": "Mudah",
+  "question": "Apa fungsi command berikut?",
+  "code": "ip route 192.168.2.0 255.255.255.0 10.0.0.2",
+  "options": [
+   "Membuat static route ke 192.168.2.0/24 lewat next hop 10.0.0.2",
+   "Membuat VLAN 2",
+   "Mengubah IP interface",
+   "Menghapus route"
+  ],
+  "answer": 0,
+  "explanation": "Format: ip route [network] [mask] [next-hop].",
+  "xp": 10
+ },
+ {
+  "id": 59,
+  "category": "Routing",
+  "difficulty": "Mudah",
+  "question": "Static routing paling cocok untuk:",
+  "code": "",
+  "options": [
+   "Jaringan kecil dengan topologi sederhana",
+   "Jaringan besar yang sering berubah",
+   "Menggantikan semua protokol routing di ISP",
+   "Mengatur VLAN"
+  ],
+  "answer": 0,
+  "explanation": "Static route dibuat manual, sehingga tidak praktis untuk jaringan besar.",
+  "xp": 10
+ },
+ {
+  "id": 60,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Administrative distance default static route ke next hop adalah:",
+  "code": "",
+  "options": [
+   "1",
+   "0",
+   "110",
+   "120"
+  ],
+  "answer": 0,
+  "explanation": "Connected = 0, static = 1, OSPF = 110, RIP = 120.",
+  "xp": 10
+ },
+ {
+  "id": 61,
+  "category": "Routing",
+  "difficulty": "Sulit",
+  "question": "Router punya route 10.0.0.0/8 dan 10.1.1.0/24. Paket ke 10.1.1.5 akan memakai:",
+  "code": "",
+  "options": [
+   "Route 10.1.1.0/24",
+   "Route 10.0.0.0/8",
+   "Keduanya bergantian",
+   "Dibuang"
+  ],
+  "answer": 0,
+  "explanation": "Router memilih longest prefix match, yaitu route yang paling spesifik.",
+  "xp": 10
+ },
+ {
+  "id": 62,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Pesan Gateway of last resort is not set berarti:",
+  "code": "",
+  "options": [
+   "Belum ada default route",
+   "Semua interface down",
+   "OSPF error",
+   "VLAN belum dibuat"
+  ],
+  "answer": 0,
+  "explanation": "Default route (0.0.0.0/0) belum dikonfigurasi.",
+  "xp": 10
+ },
+ {
+  "id": 63,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Agar LAN R1 dan LAN R2 bisa saling berkomunikasi dengan static route, route dibuat di:",
+  "code": "",
+  "options": [
+   "Kedua router (route pergi dan pulang)",
+   "Hanya R1",
+   "Hanya R2",
+   "Hanya di switch"
+  ],
+  "answer": 0,
+  "explanation": "Paket balik juga butuh route. Tanpa itu ping akan gagal.",
+  "xp": 10
+ },
+ {
+  "id": 64,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "ip route 0.0.0.0 0.0.0.0 serial0/0/0",
+  "options": [
+   "Default route dengan interface keluar serial0/0/0",
+   "Membuat VLAN",
+   "Mengaktifkan serial",
+   "Menghapus default route"
+  ],
+  "answer": 0,
+  "explanation": "Static route boleh memakai interface keluar sebagai pengganti next hop.",
+  "xp": 10
+ },
+ {
+  "id": 65,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Command untuk menampilkan hanya route static:",
+  "code": "",
+  "options": [
+   "show ip route static",
+   "show static route",
+   "show route ip static",
+   "show ip static"
+  ],
+  "answer": 0,
+  "explanation": "Filter ini menyaring output routing table.",
+  "xp": 10
+ },
+ {
+  "id": 66,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Kode L pada show ip route berarti:",
+  "code": "",
+  "options": [
+   "Local, alamat IP interface router itu sendiri (/32)",
+   "Loopback",
+   "Link-state",
+   "Learned by RIP"
+  ],
+  "answer": 0,
+  "explanation": "L muncul berdampingan dengan C untuk setiap interface yang punya IP.",
+  "xp": 10
+ },
+ {
+  "id": 67,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Pada R1 - R2 - R3, agar R1 mencapai LAN R3, next hop di R1 adalah:",
+  "code": "",
+  "options": [
+   "IP R2 di sisi yang terhubung ke R1",
+   "IP R3",
+   "IP PC tujuan",
+   "IP loopback R1"
+  ],
+  "answer": 0,
+  "explanation": "Next hop harus alamat tetangga yang terhubung langsung.",
+  "xp": 10
+ },
+ {
+  "id": 68,
+  "category": "OSPF",
+  "difficulty": "Mudah",
+  "question": "OSPF adalah protokol routing jenis:",
+  "code": "",
+  "options": [
+   "Link-state",
+   "Distance-vector",
+   "Statis",
+   "Tanpa metrik"
+  ],
+  "answer": 0,
+  "explanation": "OSPF bertukar informasi link-state dan menghitung jalur dengan algoritma SPF.",
+  "xp": 10
+ },
+ {
+  "id": 69,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Metrik yang dipakai OSPF adalah:",
+  "code": "",
+  "options": [
+   "Cost (berdasarkan bandwidth)",
+   "Hop count",
+   "Delay saja",
+   "Jumlah VLAN"
+  ],
+  "answer": 0,
+  "explanation": "Semakin besar bandwidth, semakin kecil cost.",
+  "xp": 10
+ },
+ {
+  "id": 70,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Administrative distance default OSPF adalah:",
+  "code": "",
+  "options": [
+   "110",
+   "1",
+   "90",
+   "120"
+  ],
+  "answer": 0,
+  "explanation": "OSPF = 110, sedangkan RIP = 120.",
+  "xp": 10
+ },
+ {
+  "id": 71,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "router-id 1.1.1.1",
+  "options": [
+   "Menetapkan Router ID OSPF secara manual",
+   "Membuat IP interface",
+   "Membuat area 1",
+   "Mengganti hostname"
+  ],
+  "answer": 0,
+  "explanation": "Router ID adalah identitas 32-bit unik untuk router di domain OSPF.",
+  "xp": 10
+ },
+ {
+  "id": 72,
+  "category": "OSPF",
+  "difficulty": "Sulit",
+  "question": "Tanpa router-id manual, OSPF memilih Router ID dari:",
+  "code": "",
+  "options": [
+   "IP loopback tertinggi, lalu IP interface aktif tertinggi",
+   "IP interface terendah",
+   "Hostname",
+   "MAC address"
+  ],
+  "answer": 0,
+  "explanation": "Urutan pilihan: manual, loopback tertinggi, IP aktif tertinggi.",
+  "xp": 10
+ },
+ {
+  "id": 73,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Paket Hello pada OSPF dipakai untuk:",
+  "code": "",
+  "options": [
+   "Menemukan dan menjaga hubungan neighbor",
+   "Menyimpan konfigurasi",
+   "Mengenkripsi data",
+   "Membuat VLAN"
+  ],
+  "answer": 0,
+  "explanation": "Hello dikirim berkala. Jika tidak terdengar, neighbor dianggap mati.",
+  "xp": 10
+ },
+ {
+  "id": 74,
+  "category": "OSPF",
+  "difficulty": "Mudah",
+  "question": "Kode O pada show ip route menunjukkan route dari:",
+  "code": "",
+  "options": [
+   "OSPF",
+   "RIP",
+   "Static",
+   "Connected"
+  ],
+  "answer": 0,
+  "explanation": "Kode O berarti route dipelajari lewat OSPF. Kode R untuk RIP, S untuk static, dan C untuk connected.",
+  "xp": 10
+ },
+ {
+  "id": 75,
+  "category": "OSPF",
+  "difficulty": "Sulit",
+  "question": "Pada command berikut, wildcard 0.0.0.3 mencakup:",
+  "code": "network 10.0.0.0 0.0.0.3 area 0",
+  "options": [
+   "4 alamat (10.0.0.0 sampai 10.0.0.3), setara /30",
+   "254 alamat",
+   "2 alamat saja",
+   "256 alamat"
+  ],
+  "answer": 0,
+  "explanation": "Wildcard 0.0.0.3 adalah kebalikan dari mask 255.255.255.252 (/30).",
+  "xp": 10
+ },
+ {
+  "id": 76,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Dua router OSPF gagal menjadi neighbor. Penyebab yang mungkin:",
+  "code": "",
+  "options": [
+   "Hello/dead timer, area, atau subnet berbeda",
+   "Hostname berbeda",
+   "Banner berbeda",
+   "Password console berbeda"
+  ],
+  "answer": 0,
+  "explanation": "Parameter itu harus cocok agar adjacency terbentuk.",
+  "xp": 10
+ },
+ {
+  "id": 77,
+  "category": "OSPF",
+  "difficulty": "Sulit",
+  "question": "Status neighbor OSPF yang menunjukkan adjacency lengkap:",
+  "code": "",
+  "options": [
+   "FULL",
+   "INIT",
+   "DOWN",
+   "2-WAY saja"
+  ],
+  "answer": 0,
+  "explanation": "FULL berarti database link-state sudah tersinkron.",
+  "xp": 10
+ },
+ {
+  "id": 78,
+  "category": "OSPF",
+  "difficulty": "Sulit",
+  "question": "Apa fungsi command berikut?",
+  "code": "passive-interface g0/1",
+  "options": [
+   "Menghentikan Hello lewat g0/1 tetapi jaringannya tetap diiklankan",
+   "Mematikan interface g0/1",
+   "Menghapus OSPF",
+   "Mengubah cost"
+  ],
+  "answer": 0,
+  "explanation": "Umumnya dipakai pada interface LAN agar tidak terbentuk neighbor di sana.",
+  "xp": 10
+ },
+ {
+  "id": 79,
+  "category": "Subnetting",
+  "difficulty": "Mudah",
+  "question": "Alamat IPv4 terdiri dari:",
+  "code": "",
+  "options": [
+   "32 bit (4 oktet)",
+   "64 bit",
+   "128 bit",
+   "16 bit"
+  ],
+  "answer": 0,
+  "explanation": "IPv4 ditulis sebagai 4 oktet desimal, misalnya 192.168.1.1.",
+  "xp": 10
+ },
+ {
+  "id": 80,
+  "category": "Subnetting",
+  "difficulty": "Mudah",
+  "question": "Berapa host usable pada subnet /30?",
+  "code": "",
+  "options": [
+   "2",
+   "4",
+   "6",
+   "30"
+  ],
+  "answer": 0,
+  "explanation": "2^2 = 4 alamat, dikurangi network dan broadcast = 2. Cocok untuk link antar router.",
+  "xp": 10
+ },
+ {
+  "id": 81,
+  "category": "Subnetting",
+  "difficulty": "Mudah",
+  "question": "Subnet mask 255.255.255.0 setara dengan:",
+  "code": "",
+  "options": [
+   "/24",
+   "/16",
+   "/25",
+   "/26"
+  ],
+  "answer": 0,
+  "explanation": "Tiga oktet penuh = 24 bit.",
+  "xp": 10
+ },
+ {
+  "id": 82,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Subnet mask 255.255.255.224 setara dengan:",
+  "code": "",
+  "options": [
+   "/27",
+   "/26",
+   "/28",
+   "/25"
+  ],
+  "answer": 0,
+  "explanation": "224 = 11100000 (3 bit), jadi 24 + 3 = /27.",
+  "xp": 10
+ },
+ {
+  "id": 83,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Host range dari 192.168.10.0/26 adalah:",
+  "code": "",
+  "options": [
+   "192.168.10.1 - 192.168.10.62",
+   "192.168.10.1 - 192.168.10.63",
+   "192.168.10.0 - 192.168.10.63",
+   "192.168.10.1 - 192.168.10.254"
+  ],
+  "answer": 0,
+  "explanation": "Blok /26 berukuran 64: network .0, broadcast .63, host .1 sampai .62.",
+  "xp": 10
+ },
+ {
+  "id": 84,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Berapa host usable pada subnet /27?",
+  "code": "",
+  "options": [
+   "30",
+   "32",
+   "62",
+   "14"
+  ],
+  "answer": 0,
+  "explanation": "2^5 = 32 alamat, dikurangi 2 = 30.",
+  "xp": 10
+ },
+ {
+  "id": 85,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Network address dari 192.168.1.130/25 adalah:",
+  "code": "",
+  "options": [
+   "192.168.1.128",
+   "192.168.1.0",
+   "192.168.1.129",
+   "192.168.1.130"
+  ],
+  "answer": 0,
+  "explanation": "Blok /25 berukuran 128: 0-127 dan 128-255. Angka 130 ada di blok 128.",
+  "xp": 10
+ },
+ {
+  "id": 86,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Broadcast address dari 10.0.0.0/30 adalah:",
+  "code": "",
+  "options": [
+   "10.0.0.3",
+   "10.0.0.2",
+   "10.0.0.255",
+   "10.0.0.4"
+  ],
+  "answer": 0,
+  "explanation": "Blok /30 berukuran 4: .0 (network), .1, .2 (host), .3 (broadcast).",
+  "xp": 10
+ },
+ {
+  "id": 87,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "192.168.1.0/24 dibagi menjadi subnet /26. Jumlah subnet yang terbentuk:",
+  "code": "",
+  "options": [
+   "4",
+   "2",
+   "8",
+   "64"
+  ],
+  "answer": 0,
+  "explanation": "Meminjam 2 bit menghasilkan 2^2 = 4 subnet.",
+  "xp": 10
+ },
+ {
+  "id": 88,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "VLSM adalah teknik:",
+  "code": "",
+  "options": [
+   "Membagi jaringan menjadi subnet dengan ukuran berbeda",
+   "Mengubah IP secara otomatis",
+   "Membuat VLAN",
+   "Mengenkripsi subnet"
+  ],
+  "answer": 0,
+  "explanation": "VLSM (Variable Length Subnet Mask) menyesuaikan ukuran subnet dengan kebutuhan host.",
+  "xp": 10
+ },
+ {
+  "id": 89,
+  "category": "Subnetting",
+  "difficulty": "Sulit",
+  "question": "Sebuah subnet perlu 50 host. Prefix paling efisien adalah:",
+  "code": "",
+  "options": [
+   "/26",
+   "/25",
+   "/27",
+   "/24"
+  ],
+  "answer": 0,
+  "explanation": "/26 menyediakan 62 host. /27 hanya 30, sedangkan /25 (126) terlalu boros.",
+  "xp": 10
+ },
+ {
+  "id": 90,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Interface berstatus up, tetapi line protocol down. Masalah umumnya di:",
+  "code": "",
+  "options": [
+   "Layer 2 (data link), misalnya encapsulation atau clock rate",
+   "Password enable",
+   "Banner",
+   "Hostname"
+  ],
+  "answer": 0,
+  "explanation": "Layer 1 terlihat baik, tetapi protokol data link belum berjalan.",
+  "xp": 10
+ },
+ {
+  "id": 91,
+  "category": "Troubleshooting",
+  "difficulty": "Mudah",
+  "question": "Interface berstatus down/down. Hal pertama yang dicek:",
+  "code": "",
+  "options": [
+   "Kabel dan perangkat di ujung lain",
+   "Routing table",
+   "Password VLAN",
+   "Hostname"
+  ],
+  "answer": 0,
+  "explanation": "down/down biasanya masalah fisik (Layer 1).",
+  "xp": 10
+ },
+ {
+  "id": 92,
+  "category": "Troubleshooting",
+  "difficulty": "Mudah",
+  "question": "Ping ke 127.0.0.1 berhasil menandakan:",
+  "code": "",
+  "options": [
+   "TCP/IP stack di PC berfungsi",
+   "Internet lancar",
+   "Gateway aktif",
+   "DNS berjalan"
+  ],
+  "answer": 0,
+  "explanation": "127.0.0.1 adalah loopback, hanya menguji stack lokal.",
+  "xp": 10
+ },
+ {
+  "id": 93,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "PC1 192.168.1.10/24 dan PC2 192.168.2.10/24 langsung terhubung tanpa router. Ping gagal karena:",
+  "code": "",
+  "options": [
+   "Beda subnet dan tidak ada gateway",
+   "Kabel salah warna",
+   "Hostname sama",
+   "VLAN 1 hilang"
+  ],
+  "answer": 0,
+  "explanation": "Komunikasi antar subnet memerlukan router atau gateway.",
+  "xp": 10
+ },
+ {
+  "id": 94,
+  "category": "Troubleshooting",
+  "difficulty": "Mudah",
+  "question": "Dua PC memakai IP yang sama menyebabkan:",
+  "code": "",
+  "options": [
+   "IP conflict, koneksi tidak stabil",
+   "Ping lebih cepat",
+   "VLAN otomatis dibuat",
+   "Trunk aktif"
+  ],
+  "answer": 0,
+  "explanation": "Setiap host di satu subnet harus punya IP unik.",
+  "xp": 10
+ },
+ {
+  "id": 95,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Pendekatan troubleshooting bottom-up dimulai dari:",
+  "code": "",
+  "options": [
+   "Layer 1 (kabel dan interface)",
+   "Layer 7 (aplikasi)",
+   "Layer 4",
+   "DNS"
+  ],
+  "answer": 0,
+  "explanation": "Cek fisik dulu, lalu naik ke data link, jaringan, dan seterusnya.",
+  "xp": 10
+ },
+ {
+  "id": 96,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Command untuk melihat statistik dan error counter interface:",
+  "code": "",
+  "options": [
+   "show interfaces",
+   "show vlan brief",
+   "show ip route",
+   "show version"
+  ],
+  "answer": 0,
+  "explanation": "show interfaces menampilkan status, error, dan traffic.",
+  "xp": 10
+ },
+ {
+  "id": 97,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Ping ke gateway berhasil, tetapi ke jaringan lain gagal. Cek berikutnya:",
+  "code": "",
+  "options": [
+   "show ip route pada router",
+   "Banner MOTD",
+   "Password console",
+   "Kabel PC"
+  ],
+  "answer": 0,
+  "explanation": "Kemungkinan router tidak punya route ke tujuan.",
+  "xp": 10
+ },
+ {
+  "id": 98,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "PC tidak bisa menjangkau gateway VLAN-nya. Command pertama di switch untuk memeriksa:",
+  "code": "",
+  "options": [
+   "show vlan brief",
+   "show ip ospf",
+   "show version",
+   "show clock"
+  ],
+  "answer": 0,
+  "explanation": "Pastikan port PC berada di VLAN yang benar.",
+  "xp": 10
+ },
+ {
+  "id": 99,
+  "category": "Troubleshooting",
+  "difficulty": "Sulit",
+  "question": "Peringatan native VLAN mismatch pada trunk berarti:",
+  "code": "",
+  "options": [
+   "Dua ujung trunk memakai native VLAN berbeda",
+   "Trunk mati total",
+   "VLAN dihapus",
+   "Password salah"
+  ],
+  "answer": 0,
+  "explanation": "Kedua ujung trunk harus memakai native VLAN yang sama.",
+  "xp": 10
+ },
+ {
+  "id": 100,
+  "category": "Troubleshooting",
+  "difficulty": "Sulit",
+  "question": "Hasil ping dengan tanda U berarti:",
+  "code": "",
+  "options": [
+   "Router mengirim pesan destination unreachable",
+   "Semua balasan diterima",
+   "Timeout biasa",
+   "Ping diblokir switch"
+  ],
+  "answer": 0,
+  "explanation": "Sering karena router tidak punya route ke tujuan.",
+  "xp": 10
+ },
+ {
+  "id": 101,
+  "category": "Routing",
+  "difficulty": "Sulit",
+  "question": "Paket ke 10.1.5.9 akan diteruskan ke:",
+  "code": "S    10.1.0.0/16 [1/0] via 192.168.1.2\nS    10.1.5.0/24 [1/0] via 192.168.1.3\nC    192.168.1.0/24 is directly connected, Gi0/0",
+  "options": [
+   "192.168.1.3",
+   "192.168.1.2",
+   "Gi0/0 langsung",
+   "Dibuang"
+  ],
+  "answer": 0,
+  "explanation": "Longest prefix match: /24 lebih spesifik daripada /16.",
+  "xp": 10
+ },
+ {
+  "id": 102,
+  "category": "Routing",
+  "difficulty": "Sulit",
+  "question": "Paket dari LAN menuju 8.8.8.8 akan:",
+  "code": "Gateway of last resort is not set\nC    192.168.1.0/24 is directly connected, Gi0/0\nL    192.168.1.1/32 is directly connected, Gi0/0",
+  "options": [
+   "Dibuang karena tidak ada route",
+   "Dikirim ke Gi0/0",
+   "Dikirim ke 192.168.1.1",
+   "Dikirim ke gateway PC"
+  ],
+  "answer": 0,
+  "explanation": "Tidak ada default route atau route yang cocok, jadi router membuang paket dan mengirim ICMP unreachable.",
+  "xp": 10
+ },
+ {
+  "id": 103,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Angka [1/0] pada route berikut berarti:",
+  "code": "S*   0.0.0.0/0 [1/0] via 10.0.0.2",
+  "options": [
+   "AD 1, metrik 0",
+   "AD 0, metrik 1",
+   "Cost 1, hop 0",
+   "Prefix 1, mask 0"
+  ],
+  "answer": 0,
+  "explanation": "Formatnya [administrative distance/metrik].",
+  "xp": 10
+ },
+ {
+  "id": 104,
+  "category": "OSPF",
+  "difficulty": "Sulit",
+  "question": "Neighbor tertahan di INIT. Kemungkinan penyebabnya:",
+  "code": "R1# show ip ospf neighbor\nNeighbor ID  Pri  State   Address\n2.2.2.2      1    INIT/-  10.0.0.2",
+  "options": [
+   "Hello dari R2 diterima, tetapi R1 tidak terlihat di Hello R2 (komunikasi satu arah)",
+   "Password enable salah",
+   "VLAN berbeda",
+   "Hostname sama"
+  ],
+  "answer": 0,
+  "explanation": "INIT berarti Hello tetangga terdengar, tetapi dua arah belum terbentuk. Cek ACL atau parameter yang tidak cocok.",
+  "xp": 10
+ },
+ {
+  "id": 105,
+  "category": "OSPF",
+  "difficulty": "Sulit",
+  "question": "Arti angka [110/2] pada route berikut:",
+  "code": "O    192.168.3.0/24 [110/2] via 10.0.0.2, Gi0/1",
+  "options": [
+   "AD 110, total cost 2",
+   "Cost 110, AD 2",
+   "Area 110, hop 2",
+   "Router ID 110"
+  ],
+  "answer": 0,
+  "explanation": "Formatnya [AD/cost], dan AD OSPF adalah 110.",
+  "xp": 10
+ },
+ {
+  "id": 106,
+  "category": "VLAN",
+  "difficulty": "Sulit",
+  "question": "PC di Fa0/1 dan Fa0/2 (satu subnet) tidak bisa saling ping. Penyebabnya:",
+  "code": "VLAN Name    Status  Ports\n1    default active  Fa0/3\n10   Sales   active  Fa0/1\n20   Admin   active  Fa0/2",
+  "options": [
+   "Berada di VLAN berbeda (10 dan 20)",
+   "Fa0/3 terlalu banyak",
+   "VLAN 1 terhapus",
+   "Trunk mati"
+  ],
+  "answer": 0,
+  "explanation": "Broadcast dan ARP tidak menyeberang VLAN. Pindahkan salah satu port ke VLAN yang sama.",
+  "xp": 10
+ },
+ {
+  "id": 107,
+  "category": "VLAN",
+  "difficulty": "Sulit",
+  "question": "Host di VLAN 30 tidak bisa melewati trunk ini karena:",
+  "code": "Port   Mode  Encapsulation  Status    Native vlan\nGi0/1  on    802.1q         trunking  1\n\nPort   Vlans allowed on trunk\nGi0/1  10,20",
+  "options": [
+   "VLAN 30 tidak ada di allowed list",
+   "Encapsulation salah",
+   "Native VLAN 1",
+   "Mode trunk mati"
+  ],
+  "answer": 0,
+  "explanation": "Trunk hanya membawa VLAN 10 dan 20. Tambahkan dengan switchport trunk allowed vlan add 30.",
+  "xp": 10
+ },
+ {
+  "id": 108,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Pesan berikut berarti:",
+  "code": "Switch(config-if)# switchport access vlan 50\n% Access VLAN does not exist. Creating vlan 50",
+  "options": [
+   "VLAN 50 dibuat otomatis",
+   "Command gagal",
+   "Port dimatikan",
+   "Port menjadi trunk"
+  ],
+  "answer": 0,
+  "explanation": "IOS membuat VLAN yang belum ada saat port ditetapkan ke VLAN tersebut.",
+  "xp": 10
+ },
+ {
+  "id": 109,
+  "category": "Subnetting",
+  "difficulty": "Sulit",
+  "question": "192.168.10.0/24 dibagi menjadi 4 subnet sama besar. Prefix dan host per subnet:",
+  "code": "",
+  "options": [
+   "/26 dan 62 host",
+   "/25 dan 126 host",
+   "/27 dan 30 host",
+   "/28 dan 14 host"
+  ],
+  "answer": 0,
+  "explanation": "4 subnet butuh 2 bit tambahan (/24 menjadi /26), dan tiap subnet punya 62 host usable.",
+  "xp": 10
+ },
+ {
+  "id": 110,
+  "category": "Subnetting",
+  "difficulty": "Sulit",
+  "question": "Broadcast address dari 172.16.20.150/28:",
+  "code": "",
+  "options": [
+   "172.16.20.159",
+   "172.16.20.160",
+   "172.16.20.151",
+   "172.16.20.255"
+  ],
+  "answer": 0,
+  "explanation": "Blok /28 berukuran 16. Angka 150 ada di blok 144-159, jadi broadcast-nya .159.",
+  "xp": 10
+ },
+ {
+  "id": 111,
+  "category": "Subnetting",
+  "difficulty": "Sulit",
+  "question": "Host 10.1.1.100/25 dan 10.1.1.130/25:",
+  "code": "",
+  "options": [
+   "Berada di subnet berbeda",
+   "Satu subnet",
+   "Satu broadcast domain",
+   "Alamatnya tidak valid"
+  ],
+  "answer": 0,
+  "explanation": "100 ada di 10.1.1.0/25, sedangkan 130 ada di 10.1.1.128/25.",
+  "xp": 10
+ },
+ {
+  "id": 112,
+  "category": "Troubleshooting",
+  "difficulty": "Sulit",
+  "question": "Status up/down dan ping ke tetangga gagal. Cek pertama:",
+  "code": "R1# ping 10.0.0.2\n.....\nSuccess rate is 0 percent (0/5)\nR1# show ip interface brief\nGi0/1  10.0.0.1  YES manual  up  down",
+  "options": [
+   "Kabel dan Layer 2 (encapsulation, ujung lain)",
+   "Static route",
+   "Password enable",
+   "Hostname"
+  ],
+  "answer": 0,
+  "explanation": "Line protocol down berarti masalah Layer 2, jadi Layer 3 belum perlu diperiksa.",
+  "xp": 10
+ },
+ {
+  "id": 113,
+  "category": "Troubleshooting",
+  "difficulty": "Sulit",
+  "question": "R2 terjangkau, hop berikutnya tidak membalas. Cek:",
+  "code": "R1# traceroute 192.168.3.10\n1  10.0.0.2  4 msec\n2  * * *",
+  "options": [
+   "show ip route di R2 (route ke tujuan dan route balik)",
+   "Hostname R1",
+   "Banner MOTD",
+   "Kabel PC1"
+  ],
+  "answer": 0,
+  "explanation": "Hop 1 berhasil, jadi masalah ada setelah R2, misalnya route yang belum lengkap.",
+  "xp": 10
+ },
+ {
+  "id": 114,
+  "category": "Dasar Cisco",
+  "difficulty": "Sulit",
+  "question": "Konfigurasi berikut membatasi akses remote ke:",
+  "code": "line vty 0 4\n transport input ssh\n login local",
+  "options": [
+   "SSH dengan username lokal",
+   "Telnet tanpa password",
+   "Console saja",
+   "HTTP"
+  ],
+  "answer": 0,
+  "explanation": "transport input ssh menolak Telnet, dan login local memakai username dari database lokal.",
+  "xp": 10
+ },
+ {
+  "id": 115,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Command yang membuat RSA key untuk SSH:",
+  "code": "",
+  "options": [
+   "crypto key generate rsa",
+   "ssh key create",
+   "ip ssh enable rsa",
+   "generate ssh key"
+  ],
+  "answer": 0,
+  "explanation": "crypto key generate rsa membuat pasangan key yang dibutuhkan SSH.",
+  "xp": 10
+ },
+ {
+  "id": 116,
+  "category": "Dasar Cisco",
+  "difficulty": "Mudah",
+  "question": "Protokol remote yang mengirim data sebagai teks polos:",
+  "code": "",
+  "options": [
+   "Telnet",
+   "SSH",
+   "HTTPS",
+   "SFTP"
+  ],
+  "answer": 0,
+  "explanation": "Telnet tidak terenkripsi, sehingga password bisa disadap.",
+  "xp": 10
+ },
+ {
+  "id": 117,
+  "category": "Dasar Cisco",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "username admin secret Cisco123",
+  "options": [
+   "Membuat user lokal dengan password terenkripsi",
+   "Membuat VLAN admin",
+   "Mengganti hostname",
+   "Membuat banner"
+  ],
+  "answer": 0,
+  "explanation": "Dipakai bersama login local pada line vty.",
+  "xp": 10
+ },
+ {
+  "id": 118,
+  "category": "Dasar Cisco",
+  "difficulty": "Sulit",
+  "question": "Sebelum crypto key generate rsa, yang harus sudah diatur:",
+  "code": "",
+  "options": [
+   "Hostname bukan default dan ip domain-name",
+   "VLAN 10",
+   "OSPF",
+   "Default route"
+  ],
+  "answer": 0,
+  "explanation": "Nama RSA key dibentuk dari hostname dan domain name.",
+  "xp": 10
+ },
+ {
+  "id": 119,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Apa fungsi command berikut?",
+  "code": "show running-config interface fa0/1",
+  "options": [
+   "Menampilkan konfigurasi satu interface",
+   "Menyimpan konfigurasi",
+   "Menghapus interface",
+   "Melihat routing table"
+  ],
+  "answer": 0,
+  "explanation": "Berguna untuk memeriksa VLAN dan mode port dengan cepat.",
+  "xp": 10
+ },
+ {
+  "id": 120,
+  "category": "VLAN",
+  "difficulty": "Sulit",
+  "question": "Trunk membawa VLAN 10 dan 20, tetapi dua host VLAN 10 di switch berbeda tidak bisa berkomunikasi. Kemungkinan:",
+  "code": "",
+  "options": [
+   "Port access salah satu host berada di VLAN lain",
+   "Banner MOTD salah",
+   "Hostname sama",
+   "Kabel terlalu pendek"
+  ],
+  "answer": 0,
+  "explanation": "Kedua host harus berada di VLAN yang sama di masing-masing switch.",
+  "xp": 10
+ },
+ {
+  "id": 121,
+  "category": "Routing",
+  "difficulty": "Sulit",
+  "question": "Manakah yang menjadi route cadangan (floating)?",
+  "code": "ip route 0.0.0.0 0.0.0.0 10.0.0.2\nip route 0.0.0.0 0.0.0.0 10.0.1.2 200",
+  "options": [
+   "Route via 10.0.1.2",
+   "Route via 10.0.0.2",
+   "Keduanya sama",
+   "Tidak ada"
+  ],
+  "answer": 0,
+  "explanation": "AD 200 lebih tinggi dari AD 1, jadi baru dipakai saat route utama hilang.",
+  "xp": 10
+ },
+ {
+  "id": 122,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Administrative distance connected route:",
+  "code": "",
+  "options": [
+   "0",
+   "1",
+   "110",
+   "120"
+  ],
+  "answer": 0,
+  "explanation": "Connected memiliki AD 0, yang paling tepercaya.",
+  "xp": 10
+ },
+ {
+  "id": 123,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Command mengubah cost OSPF pada interface:",
+  "code": "",
+  "options": [
+   "ip ospf cost 10",
+   "ospf cost 10",
+   "cost ospf 10",
+   "set cost 10"
+  ],
+  "answer": 0,
+  "explanation": "Dijalankan pada interface configuration mode.",
+  "xp": 10
+ },
+ {
+  "id": 124,
+  "category": "OSPF",
+  "difficulty": "Sulit",
+  "question": "Interface LAN diberi passive-interface. Yang terjadi:",
+  "code": "",
+  "options": [
+   "Jaringan tetap diiklankan tanpa membentuk neighbor",
+   "Jaringan tidak diiklankan lagi",
+   "Interface mati",
+   "OSPF berhenti total"
+  ],
+  "answer": 0,
+  "explanation": "passive-interface menahan Hello, tetapi network tetap masuk ke OSPF.",
+  "xp": 10
+ },
+ {
+  "id": 125,
+  "category": "Subnetting",
+  "difficulty": "Sedang",
+  "question": "Block size untuk mask 255.255.255.224:",
+  "code": "",
+  "options": [
+   "32",
+   "16",
+   "64",
+   "224"
+  ],
+  "answer": 0,
+  "explanation": "256 - 224 = 32.",
+  "xp": 10
+ },
+ {
+  "id": 126,
+  "category": "Subnetting",
+  "difficulty": "Sulit",
+  "question": "Network address dari 10.10.10.200/27:",
+  "code": "",
+  "options": [
+   "10.10.10.192",
+   "10.10.10.160",
+   "10.10.10.224",
+   "10.10.10.200"
+  ],
+  "answer": 0,
+  "explanation": "Block 32: 192-223, jadi network .192.",
+  "xp": 10
+ },
+ {
+  "id": 127,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Pendekatan troubleshooting yang dimulai dari Layer 1:",
+  "code": "",
+  "options": [
+   "Bottom-up",
+   "Top-down",
+   "Divide-and-conquer",
+   "Trial and error"
+  ],
+  "answer": 0,
+  "explanation": "Bottom-up cocok saat masalah diduga fisik.",
+  "xp": 10
+ },
+ {
+  "id": 128,
+  "category": "Troubleshooting",
+  "difficulty": "Sulit",
+  "question": "Setelah konfigurasi diubah, ping justru makin buruk. Langkah terbaik:",
+  "code": "",
+  "options": [
+   "Batalkan perubahan lalu uji ulang satu per satu",
+   "Ubah semua konfigurasi sekaligus",
+   "Reboot semua perangkat",
+   "Hapus semua VLAN"
+  ],
+  "answer": 0,
+  "explanation": "Ubah satu hal setiap kali agar penyebabnya jelas.",
+  "xp": 10
+ },
+ {
+  "id": 129,
+  "category": "Layanan",
+  "difficulty": "Mudah",
+  "question": "Layanan yang memberi IP secara otomatis ke host:",
+  "code": "",
+  "options": [
+   "DHCP",
+   "DNS",
+   "NAT",
+   "SNMP"
+  ],
+  "answer": 0,
+  "explanation": "DHCP membagikan IP, mask, gateway, dan DNS.",
+  "xp": 10
+ },
+ {
+  "id": 130,
+  "category": "Layanan",
+  "difficulty": "Mudah",
+  "question": "Fungsi utama NAT:",
+  "code": "",
+  "options": [
+   "Menerjemahkan IP private ke IP public",
+   "Membuat VLAN",
+   "Mengenkripsi traffic",
+   "Menentukan cost OSPF"
+  ],
+  "answer": 0,
+  "explanation": "NAT memungkinkan jaringan private mengakses internet.",
+  "xp": 10
+ },
+ {
+  "id": 131,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Kata overload pada command berikut berarti:",
+  "code": "ip nat inside source list 1 interface g0/1 overload",
+  "options": [
+   "PAT: banyak host berbagi satu IP public",
+   "Menghapus NAT",
+   "Menggandakan interface",
+   "Membatasi bandwidth"
+  ],
+  "answer": 0,
+  "explanation": "Overload membedakan koneksi dengan nomor port.",
+  "xp": 10
+ },
+ {
+  "id": 132,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Fungsi command berikut:",
+  "code": "ip dhcp excluded-address 192.168.1.1 192.168.1.10",
+  "options": [
+   "Alamat .1 sampai .10 tidak dibagikan ke klien",
+   "Hanya .1 sampai .10 yang dibagikan",
+   "Menghapus pool",
+   "Mengaktifkan DNS"
+  ],
+  "answer": 0,
+  "explanation": "Alamat statis seperti gateway dikecualikan agar tidak bentrok.",
+  "xp": 10
+ },
+ {
+  "id": 133,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Fungsi command berikut:",
+  "code": "show ip dhcp binding",
+  "options": [
+   "Melihat IP yang sudah dibagikan DHCP",
+   "Melihat routing table",
+   "Melihat VLAN",
+   "Melihat ACL"
+  ],
+  "answer": 0,
+  "explanation": "Output berisi IP, MAC address klien, dan masa sewa.",
+  "xp": 10
+ },
+ {
+  "id": 134,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "ACL standar memfilter paket berdasarkan:",
+  "code": "",
+  "options": [
+   "IP sumber",
+   "IP tujuan dan port",
+   "MAC address",
+   "VLAN"
+  ],
+  "answer": 0,
+  "explanation": "Filter berdasarkan tujuan dan port butuh ACL extended.",
+  "xp": 10
+ },
+ {
+  "id": 135,
+  "category": "Layanan",
+  "difficulty": "Sulit",
+  "question": "Host 192.168.1.50 dan host lain diperlakukan:",
+  "code": "access-list 10 deny 192.168.1.50\naccess-list 10 permit any",
+  "options": [
+   "Host .50 diblokir, host lain diizinkan",
+   "Semua diblokir",
+   "Semua diizinkan",
+   "Hanya .50 yang diizinkan"
+  ],
+  "answer": 0,
+  "explanation": "Aturan dibaca berurutan: deny untuk .50, permit any untuk sisanya.",
+  "xp": 10
+ },
+ {
+  "id": 136,
+  "category": "Layanan",
+  "difficulty": "Sulit",
+  "question": "ACL hanya berisi permit 192.168.1.0 0.0.0.255. Paket dari 10.0.0.5 akan:",
+  "code": "",
+  "options": [
+   "Ditolak oleh deny any implisit",
+   "Diizinkan",
+   "Dialihkan ke VLAN 1",
+   "Di-NAT"
+  ],
+  "answer": 0,
+  "explanation": "Tidak ada aturan yang cocok, jadi kena deny any di akhir.",
+  "xp": 10
+ },
+ {
+  "id": 137,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Fungsi command berikut:",
+  "code": "ip access-group 10 out",
+  "options": [
+   "Memasang ACL 10 pada interface arah keluar",
+   "Membuat ACL 10",
+   "Menghapus ACL",
+   "Mengaktifkan NAT"
+  ],
+  "answer": 0,
+  "explanation": "ACL harus dipasang di interface dan arah yang tepat.",
+  "xp": 10
+ },
+ {
+  "id": 138,
+  "category": "Layanan",
+  "difficulty": "Sulit",
+  "question": "Host mendapat IP 169.254.x.x padahal seharusnya dari DHCP. Artinya:",
+  "code": "",
+  "options": [
+   "Host tidak menerima balasan DHCP (APIPA)",
+   "Host memakai NAT",
+   "Subnet mask salah",
+   "VLAN 169 aktif"
+  ],
+  "answer": 0,
+  "explanation": "Alamat 169.254.0.0/16 dipakai Windows saat DHCP gagal.",
+  "xp": 10
+ },
+ {
+  "id": 139,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Perbedaan ACL standar dan extended:",
+  "code": "",
+  "options": [
+   "Extended bisa memfilter tujuan, protokol, dan port",
+   "Standar lebih lambat",
+   "Extended hanya untuk IPv6",
+   "Tidak ada perbedaan"
+  ],
+  "answer": 0,
+  "explanation": "ACL standar hanya melihat IP sumber, sedangkan extended juga melihat tujuan, protokol, dan port.",
+  "xp": 10
+ },
+ {
+  "id": 140,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Fungsi command berikut:",
+  "code": "access-list 100 deny tcp any any eq 80",
+  "options": [
+   "Memblokir lalu lintas web (TCP 80) dari mana pun",
+   "Mengizinkan SSH",
+   "Memblokir ICMP",
+   "Membuat NAT"
+  ],
+  "answer": 0,
+  "explanation": "eq 80 membatasi aturan pada port tujuan 80 (HTTP).",
+  "xp": 10
+ },
+ {
+  "id": 141,
+  "category": "Layanan",
+  "difficulty": "Sulit",
+  "question": "ACL standar sebaiknya dipasang dekat:",
+  "code": "",
+  "options": [
+   "Tujuan",
+   "Sumber",
+   "Switch akses",
+   "DNS server"
+  ],
+  "answer": 0,
+  "explanation": "ACL standar hanya melihat sumber, jadi dipasang dekat tujuan agar tidak memblokir terlalu luas.",
+  "xp": 10
+ },
+ {
+  "id": 142,
+  "category": "Layanan",
+  "difficulty": "Sulit",
+  "question": "ACL extended sebaiknya dipasang dekat:",
+  "code": "",
+  "options": [
+   "Sumber",
+   "Tujuan",
+   "Internet",
+   "Core"
+  ],
+  "answer": 0,
+  "explanation": "Karena bisa spesifik, ACL extended dipasang dekat sumber agar lalu lintas tidak membebani jaringan.",
+  "xp": 10
+ },
+ {
+  "id": 143,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Command untuk melihat tabel terjemahan NAT:",
+  "code": "",
+  "options": [
+   "show ip nat translations",
+   "show nat",
+   "show ip nat table",
+   "show translations"
+  ],
+  "answer": 0,
+  "explanation": "Output berisi inside local, inside global, dan lainnya.",
+  "xp": 10
+ },
+ {
+  "id": 144,
+  "category": "Layanan",
+  "difficulty": "Sedang",
+  "question": "Alamat private milik host di dalam jaringan, dalam istilah NAT, disebut:",
+  "code": "",
+  "options": [
+   "Inside local",
+   "Outside global",
+   "Inside global",
+   "Outside local"
+  ],
+  "answer": 0,
+  "explanation": "Inside local adalah alamat host internal sebelum diterjemahkan.",
+  "xp": 10
+ },
+ {
+  "id": 145,
+  "category": "Layanan",
+  "difficulty": "Sulit",
+  "question": "Host mendapat IP yang sama dengan gateway. Penyebabnya:",
+  "code": "",
+  "options": [
+   "Gateway belum dikecualikan dari pool DHCP",
+   "NAT overload",
+   "ACL deny any",
+   "Native VLAN berbeda"
+  ],
+  "answer": 0,
+  "explanation": "Gunakan ip dhcp excluded-address untuk alamat yang dipakai statis.",
+  "xp": 10
+ },
+ {
+  "id": 146,
+  "category": "Layanan",
+  "difficulty": "Mudah",
+  "question": "Port standar HTTPS:",
+  "code": "",
+  "options": [
+   "443",
+   "80",
+   "22",
+   "53"
+  ],
+  "answer": 0,
+  "explanation": "HTTP memakai 80, SSH 22, DNS 53.",
+  "xp": 10
+ },
+ {
+  "id": 147,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Switch memutuskan forwarding frame berdasarkan:",
+  "code": "",
+  "options": [
+   "MAC address tujuan",
+   "IP tujuan",
+   "Port TCP",
+   "Native VLAN"
+  ],
+  "answer": 0,
+  "explanation": "Switch Layer 2 bekerja dengan MAC address.",
+  "xp": 10
+ },
+ {
+  "id": 148,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Tabel yang dipelajari switch dari frame yang masuk:",
+  "code": "",
+  "options": [
+   "MAC address table",
+   "Routing table",
+   "ARP cache",
+   "DHCP binding"
+  ],
+  "answer": 0,
+  "explanation": "Switch mencatat MAC sumber beserta port-nya.",
+  "xp": 10
+ },
+ {
+  "id": 149,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Frame ke MAC yang belum diketahui switch akan:",
+  "code": "",
+  "options": [
+   "Dibanjirkan (flood) ke semua port di VLAN yang sama",
+   "Dibuang",
+   "Dikirim ke router",
+   "Dikirim ke native VLAN saja"
+  ],
+  "answer": 0,
+  "explanation": "Unknown unicast di-flood hingga switch mempelajari MAC tujuan.",
+  "xp": 10
+ },
+ {
+  "id": 150,
+  "category": "VLAN",
+  "difficulty": "Sulit",
+  "question": "Entri berikut menunjukkan:",
+  "code": "Switch# show mac address-table\n10  aaaa.bbbb.cccc  DYNAMIC  Fa0/1",
+  "options": [
+   "MAC aaaa.bbbb.cccc dipelajari di Fa0/1 pada VLAN 10",
+   "VLAN 10 dihapus",
+   "Fa0/1 adalah trunk",
+   "MAC dikonfigurasi statis"
+  ],
+  "answer": 0,
+  "explanation": "DYNAMIC berarti dipelajari otomatis dari frame yang masuk.",
+  "xp": 10
+ },
+ {
+  "id": 151,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Tujuan port security:",
+  "code": "",
+  "options": [
+   "Membatasi MAC address yang boleh memakai port",
+   "Mempercepat port",
+   "Membuat VLAN",
+   "Mengenkripsi frame"
+  ],
+  "answer": 0,
+  "explanation": "Port security menolak MAC yang tidak diizinkan.",
+  "xp": 10
+ },
+ {
+  "id": 152,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Loop Layer 2 dicegah oleh:",
+  "code": "",
+  "options": [
+   "Spanning Tree Protocol (STP)",
+   "OSPF",
+   "DHCP",
+   "NAT"
+  ],
+  "answer": 0,
+  "explanation": "STP memblokir jalur redundan agar tidak terjadi broadcast storm.",
+  "xp": 10
+ },
+ {
+  "id": 153,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "STP memilih root bridge berdasarkan:",
+  "code": "",
+  "options": [
+   "Bridge ID terendah",
+   "MAC tertinggi",
+   "Jumlah port",
+   "Kecepatan port"
+  ],
+  "answer": 0,
+  "explanation": "Bridge ID terdiri dari priority dan MAC address, nilai terendah menang.",
+  "xp": 10
+ },
+ {
+  "id": 154,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Switch Layer 2 bekerja pada lapisan OSI:",
+  "code": "",
+  "options": [
+   "Data link (Layer 2)",
+   "Network (Layer 3)",
+   "Transport (Layer 4)",
+   "Physical (Layer 1)"
+  ],
+  "answer": 0,
+  "explanation": "Layer 2 memakai MAC address dan frame.",
+  "xp": 10
+ },
+ {
+  "id": 155,
+  "category": "Keamanan",
+  "difficulty": "Mudah",
+  "question": "Aspek keamanan yang memastikan data tidak dibaca pihak yang tidak berhak:",
+  "code": "",
+  "options": [
+   "Confidentiality",
+   "Availability",
+   "Integrity",
+   "Non-repudiation"
+  ],
+  "answer": 0,
+  "explanation": "Confidentiality menjaga kerahasiaan, misalnya dengan enkripsi.",
+  "xp": 10
+ },
+ {
+  "id": 156,
+  "category": "Keamanan",
+  "difficulty": "Mudah",
+  "question": "Serangan yang membanjiri server dengan permintaan palsu hingga layanan down disebut:",
+  "code": "",
+  "options": [
+   "DoS/DDoS",
+   "Packet sniffing",
+   "Trojan horse",
+   "IP spoofing"
+  ],
+  "answer": 0,
+  "explanation": "DoS menghabiskan sumber daya sehingga layanan tidak tersedia.",
+  "xp": 10
+ },
+ {
+  "id": 157,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Mendengarkan seluruh paket yang lewat di media komunikasi disebut:",
+  "code": "",
+  "options": [
+   "Packet sniffing",
+   "IP spoofing",
+   "DNS forgery",
+   "Probe"
+  ],
+  "answer": 0,
+  "explanation": "Sniffing menangkap paket yang lewat, misalnya password yang tidak terenkripsi.",
+  "xp": 10
+ },
+ {
+  "id": 158,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "IP spoofing dilakukan dengan cara:",
+  "code": "",
+  "options": [
+   "Mengubah alamat asal paket",
+   "Membanjiri server",
+   "Menyisipkan program tersembunyi",
+   "Memindai port"
+  ],
+  "answer": 0,
+  "explanation": "Alamat asal dipalsukan untuk menipu penerima atau melewati firewall.",
+  "xp": 10
+ },
+ {
+  "id": 159,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Pengiriman pesan palsu kepada orang lain termasuk kategori:",
+  "code": "",
+  "options": [
+   "Fabrication",
+   "Interception",
+   "Interruption",
+   "Modification"
+  ],
+  "answer": 0,
+  "explanation": "Fabrication adalah penyisipan objek palsu ke dalam sistem.",
+  "xp": 10
+ },
+ {
+  "id": 160,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Perubahan isi pesan di tengah jalan melanggar aspek:",
+  "code": "",
+  "options": [
+   "Integrity",
+   "Availability",
+   "Confidentiality",
+   "Authentication"
+  ],
+  "answer": 0,
+  "explanation": "Integrity menjamin informasi tidak diubah tanpa izin.",
+  "xp": 10
+ },
+ {
+  "id": 161,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Tool otomatis yang memeriksa banyak port terbuka pada host disebut:",
+  "code": "",
+  "options": [
+   "Scan",
+   "Probe",
+   "Trojan",
+   "DNS forgery"
+  ],
+  "answer": 0,
+  "explanation": "Scan adalah probe dalam jumlah besar memakai tool otomatis.",
+  "xp": 10
+ },
+ {
+  "id": 162,
+  "category": "Keamanan",
+  "difficulty": "Sulit",
+  "question": "Aspek yang mencegah seseorang menyangkal telah melakukan transaksi:",
+  "code": "",
+  "options": [
+   "Non-repudiation",
+   "Access control",
+   "Authentication",
+   "Availability"
+  ],
+  "answer": 0,
+  "explanation": "Non-repudiation mendukung transaksi elektronik, misalnya lewat tanda tangan digital.",
+  "xp": 10
+ },
+ {
+  "id": 163,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Debian 10 memiliki codename resmi:",
+  "code": "",
+  "options": [
+   "Buster",
+   "Stretch",
+   "Bullseye",
+   "Bookworm"
+  ],
+  "answer": 0,
+  "explanation": "Debian 9 adalah Stretch, Debian 10 Buster, dan Debian 11 Bullseye.",
+  "xp": 10
+ },
+ {
+  "id": 164,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Perintah untuk memperbarui daftar repository pada Debian:",
+  "code": "",
+  "options": [
+   "apt-get update",
+   "apt-get install",
+   "apt-get autoremove",
+   "apt-cache search"
+  ],
+  "answer": 0,
+  "explanation": "update mengambil daftar paket terbaru, bukan memasang paket.",
+  "xp": 10
+ },
+ {
+  "id": 165,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "File konfigurasi antarmuka jaringan pada Debian 10:",
+  "code": "",
+  "options": [
+   "/etc/network/interfaces",
+   "/etc/netplan/config.yaml",
+   "/etc/resolv.conf",
+   "/etc/sysconfig/network"
+  ],
+  "answer": 0,
+  "explanation": "Netplan dipakai di Ubuntu, sedangkan Debian 10 memakai /etc/network/interfaces.",
+  "xp": 10
+ },
+ {
+  "id": 166,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Untuk mengatur IP statis lewat terminal, file yang diedit:",
+  "code": "",
+  "options": [
+   "nano /etc/network/interfaces",
+   "nano /etc/hosts",
+   "nano /etc/dhcp/dhcpd.conf",
+   "nano /etc/default/grub"
+  ],
+  "answer": 0,
+  "explanation": "Isi bagian iface dengan address dan netmask.",
+  "xp": 10
+ },
+ {
+  "id": 167,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Perintah untuk menginstal Apache2:",
+  "code": "",
+  "options": [
+   "apt-get install apache2",
+   "apt-get remove apache2",
+   "apt-add apache2",
+   "dpkg -r apache2"
+  ],
+  "answer": 0,
+  "explanation": "Apache2 adalah paket web server.",
+  "xp": 10
+ },
+ {
+  "id": 168,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Perintah untuk me-restart layanan jaringan:",
+  "code": "",
+  "options": [
+   "systemctl restart networking",
+   "systemctl start networking",
+   "systemctl restart network-manager",
+   "service network restart"
+  ],
+  "answer": 0,
+  "explanation": "restart menerapkan ulang konfigurasi yang baru disimpan.",
+  "xp": 10
+ },
+ {
+  "id": 169,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "File daftar repository Debian:",
+  "code": "",
+  "options": [
+   "/etc/apt/sources.list",
+   "/etc/apt/source.list",
+   "/usr/src/apt",
+   "/etc/apt/repos.list"
+  ],
+  "answer": 0,
+  "explanation": "Nama file memakai kata sources, bentuk jamak.",
+  "xp": 10
+ },
+ {
+  "id": 170,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Paket yang digunakan untuk server DHCP pada Debian:",
+  "code": "",
+  "options": [
+   "isc-dhcp-server",
+   "isc-dhcp-client",
+   "dhclient",
+   "dhcpd-tools"
+  ],
+  "answer": 0,
+  "explanation": "isc-dhcp-client hanya untuk sisi klien.",
+  "xp": 10
+ },
+ {
+  "id": 171,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Perintah untuk melihat status layanan pada systemd:",
+  "code": "",
+  "options": [
+   "systemctl status",
+   "service --check",
+   "sys-status",
+   "system.get status"
+  ],
+  "answer": 0,
+  "explanation": "Contoh: systemctl status apache2.",
+  "xp": 10
+ },
+ {
+  "id": 172,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Hak akses grup setelah perintah berikut adalah:",
+  "code": "chmod 676 Kuda",
+  "options": [
+   "rwx",
+   "rw-",
+   "r--",
+   "r-x"
+  ],
+  "answer": 0,
+  "explanation": "6 = rw-, 7 = rwx, 6 = rw-, jadi grup mendapat rwx.",
+  "xp": 10
+ },
+ {
+  "id": 173,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Perintah untuk mengubah pemilik file atau direktori:",
+  "code": "",
+  "options": [
+   "chown",
+   "chmod",
+   "chgrp",
+   "passwd"
+  ],
+  "answer": 0,
+  "explanation": "chmod mengubah permission, sedangkan chown mengubah pemilik.",
+  "xp": 10
+ },
+ {
+  "id": 174,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Perintah untuk membuat direktori baru:",
+  "code": "",
+  "options": [
+   "mkdir",
+   "touch",
+   "rmdir",
+   "cp"
+  ],
+  "answer": 0,
+  "explanation": "touch membuat file, rmdir menghapus direktori kosong.",
+  "xp": 10
+ },
+ {
+  "id": 175,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Port default Squid pada konfigurasi jobsheet:",
+  "code": "",
+  "options": [
+   "3128",
+   "80",
+   "25",
+   "443"
+  ],
+  "answer": 0,
+  "explanation": "http_port 3128 lalu lalu lintas port 80 dialihkan ke sana dengan iptables.",
+  "xp": 10
+ },
+ {
+  "id": 176,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Paket MTA yang dipakai pada mail server di jobsheet:",
+  "code": "",
+  "options": [
+   "postfix",
+   "squid3",
+   "apache2",
+   "bind9"
+  ],
+  "answer": 0,
+  "explanation": "Postfix mengirim email (SMTP), courier melayani POP/IMAP.",
+  "xp": 10
+ },
+ {
+  "id": 177,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Interval Hello default OSPF pada jaringan broadcast:",
+  "code": "",
+  "options": [
+   "10 detik",
+   "30 detik",
+   "5 detik",
+   "60 detik"
+  ],
+  "answer": 0,
+  "explanation": "Dead interval default adalah 4 kali Hello (40 detik).",
+  "xp": 10
+ },
+ {
+  "id": 178,
+  "category": "OSPF",
+  "difficulty": "Sedang",
+  "question": "Tipe paket OSPF yang membangun dan memelihara adjacency:",
+  "code": "",
+  "options": [
+   "Hello",
+   "LSU",
+   "DBD",
+   "LSAck"
+  ],
+  "answer": 0,
+  "explanation": "Hello juga menjaga neighbor tetap aktif.",
+  "xp": 10
+ },
+ {
+  "id": 179,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Algoritma pemilihan jalur pada EIGRP:",
+  "code": "",
+  "options": [
+   "DUAL",
+   "SPF Dijkstra",
+   "Bellman-Ford saja",
+   "Spanning Tree"
+  ],
+  "answer": 0,
+  "explanation": "DUAL (Diffusing Update Algorithm) menjamin jalur bebas loop.",
+  "xp": 10
+ },
+ {
+  "id": 180,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Angka 100 pada router eigrp 100 adalah:",
+  "code": "",
+  "options": [
+   "Nomor autonomous system",
+   "Router ID",
+   "Nomor area",
+   "Cost"
+  ],
+  "answer": 0,
+  "explanation": "Router EIGRP bertetangga harus memakai nomor AS yang sama.",
+  "xp": 10
+ },
+ {
+  "id": 181,
+  "category": "Routing",
+  "difficulty": "Mudah",
+  "question": "Hop count maksimum yang valid pada RIP:",
+  "code": "",
+  "options": [
+   "15",
+   "16",
+   "255",
+   "1000"
+  ],
+  "answer": 0,
+  "explanation": "16 hop dianggap tidak terjangkau.",
+  "xp": 10
+ },
+ {
+  "id": 182,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "RIPv1 berbeda dari RIPv2 karena RIPv1:",
+  "code": "",
+  "options": [
+   "Tidak membawa subnet mask",
+   "Memakai cost",
+   "Memakai area",
+   "Memakai DUAL"
+  ],
+  "answer": 0,
+  "explanation": "RIPv2 membawa subnet mask sehingga mendukung VLSM.",
+  "xp": 10
+ },
+ {
+  "id": 183,
+  "category": "Routing",
+  "difficulty": "Sedang",
+  "question": "Static route Apem ke LAN 202.10.10.0/24 memakai next hop:",
+  "code": "",
+  "options": [
+   "202.10.40.1",
+   "202.10.20.1",
+   "202.10.50.1",
+   "202.10.30.1"
+  ],
+  "answer": 0,
+  "explanation": "Apem terhubung langsung ke Cucur lewat 202.10.40.0/24, dan sisi Cucur adalah .1.",
+  "xp": 10
+ },
+ {
+  "id": 184,
+  "category": "VLAN",
+  "difficulty": "Mudah",
+  "question": "Jenis VLAN selain default, data, native, dan voice:",
+  "code": "",
+  "options": [
+   "Management VLAN",
+   "Trunk VLAN",
+   "Access VLAN",
+   "Dynamic VLAN"
+  ],
+  "answer": 0,
+  "explanation": "Lima jenis VLAN: default, data, native, voice, dan management.",
+  "xp": 10
+ },
+ {
+  "id": 185,
+  "category": "VLAN",
+  "difficulty": "Sedang",
+  "question": "Voice VLAN dipakai untuk:",
+  "code": "",
+  "options": [
+   "Lalu lintas VoIP",
+   "Manajemen switch",
+   "Frame tanpa tag",
+   "Server DHCP"
+  ],
+  "answer": 0,
+  "explanation": "Voice VLAN memisahkan lalu lintas suara dari data.",
+  "xp": 10
+ },
+ {
+  "id": 186,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Aplikasi virtualisasi yang dikembangkan Oracle:",
+  "code": "",
+  "options": [
+   "VirtualBox",
+   "VMware Workstation",
+   "QEMU",
+   "Proxmox"
+  ],
+  "answer": 0,
+  "explanation": "Oracle VM VirtualBox dikembangkan dan dikelola oleh Oracle.",
+  "xp": 10
+ },
+ {
+  "id": 187,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Mode menjalankan mesin virtual tanpa jendela tampilan:",
+  "code": "",
+  "options": [
+   "Headless Start",
+   "Normal Start",
+   "Detachable Start",
+   "Reset"
+  ],
+  "answer": 0,
+  "explanation": "Headless Start cocok untuk server yang diakses lewat jaringan.",
+  "xp": 10
+ },
+ {
+  "id": 188,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Opsi Remove yang menghapus VM tetapi tidak menghapus file-nya:",
+  "code": "",
+  "options": [
+   "Remove only",
+   "Delete all files",
+   "Cancel",
+   "Move"
+  ],
+  "answer": 0,
+  "explanation": "Delete all files menghapus juga hard disk virtual dan file log.",
+  "xp": 10
+ },
+ {
+  "id": 189,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Pengguna Linux dengan hak akses penuh disebut:",
+  "code": "",
+  "options": [
+   "Root (superuser)",
+   "Guest",
+   "Operator",
+   "Visitor"
+  ],
+  "answer": 0,
+  "explanation": "User biasa dibatasi hak aksesnya.",
+  "xp": 10
+ },
+ {
+  "id": 190,
+  "category": "Linux",
+  "difficulty": "Sedang",
+  "question": "Fungsi boot loader (GRUB):",
+  "code": "",
+  "options": [
+   "Memuat sistem operasi saat komputer menyala",
+   "Mengatur IP address",
+   "Menghapus partisi",
+   "Menyimpan password"
+  ],
+  "answer": 0,
+  "explanation": "Tanpa boot loader sistem operasi tidak bisa dimulai.",
+  "xp": 10
+ },
+ {
+  "id": 191,
+  "category": "Linux",
+  "difficulty": "Mudah",
+  "question": "Metode partisi otomatis pada instalasi Debian:",
+  "code": "",
+  "options": [
+   "Guided - Use Entire Disk",
+   "Manual",
+   "Encrypted LVM",
+   "Raid"
+  ],
+  "answer": 0,
+  "explanation": "Guided memakai seluruh disk dan membuat partisi root dan swap otomatis.",
+  "xp": 10
+ },
+ {
+  "id": 192,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Prefix yang paling pas untuk 101 host:",
+  "code": "",
+  "options": [
+   "/25",
+   "/26",
+   "/24",
+   "/27"
+  ],
+  "answer": 0,
+  "explanation": "/25 menyediakan 126 host usable, sedangkan /26 hanya 62.",
+  "xp": 10
+ },
+ {
+  "id": 193,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Subnet 10.10.1.192/30 pada skenario VLSM dipakai untuk:",
+  "code": "",
+  "options": [
+   "Jaringan server (2 host)",
+   "WLAN",
+   "LAN",
+   "Management"
+  ],
+  "answer": 0,
+  "explanation": "/30 hanya punya 2 host: router dan satu server.",
+  "xp": 10
+ },
+ {
+  "id": 194,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Klien LAN tidak bisa ke internet padahal IP dan gateway benar. Cek:",
+  "code": "",
+  "options": [
+   "NAT masquerade pada router",
+   "Warna kabel",
+   "Hostname server",
+   "Banner MOTD"
+  ],
+  "answer": 0,
+  "explanation": "Tanpa NAT, alamat private tidak bisa dirutekan ke internet.",
+  "xp": 10
+ },
+ {
+  "id": 195,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Klien tidak mendapat IP otomatis. Cek pertama:",
+  "code": "",
+  "options": [
+   "DHCP server aktif pada interface yang benar",
+   "DNS server",
+   "Web server",
+   "Port trunk"
+  ],
+  "answer": 0,
+  "explanation": "DHCP server harus dibuat pada interface yang terhubung ke klien.",
+  "xp": 10
+ },
+ {
+  "id": 196,
+  "category": "Troubleshooting",
+  "difficulty": "Sulit",
+  "question": "Server Debian bisa ping router tetapi tidak bisa membuka nama domain. Cek:",
+  "code": "",
+  "options": [
+   "/etc/resolv.conf (DNS)",
+   "/etc/hosts saja",
+   "Port switch",
+   "Cost OSPF"
+  ],
+  "answer": 0,
+  "explanation": "Ping berhasil berarti IP dan gateway baik. Masalahnya ada di resolusi nama.",
+  "xp": 10
+ },
+ {
+  "id": 197,
+  "category": "Troubleshooting",
+  "difficulty": "Mudah",
+  "question": "Perintah untuk menguji DNS:",
+  "code": "",
+  "options": [
+   "nslookup",
+   "ifconfig",
+   "chmod",
+   "mkdir"
+  ],
+  "answer": 0,
+  "explanation": "Contoh: nslookup namapeserta.net.",
+  "xp": 10
+ },
+ {
+  "id": 198,
+  "category": "Troubleshooting",
+  "difficulty": "Mudah",
+  "question": "Pada MikroTik, NAT masquerade dibuat di menu:",
+  "code": "",
+  "options": [
+   "IP > Firewall > NAT",
+   "IP > DHCP Server",
+   "System > Reset",
+   "Queues"
+  ],
+  "answer": 0,
+  "explanation": "Chain srcnat dengan action masquerade.",
+  "xp": 10
+ },
+ {
+  "id": 199,
+  "category": "Troubleshooting",
+  "difficulty": "Sedang",
+  "question": "Tujuan membatasi bandwidth per klien (256 kbps kabel, 128 kbps wireless):",
+  "code": "",
+  "options": [
+   "Pembagian kecepatan yang merata",
+   "Menambah jumlah host",
+   "Mengamankan password",
+   "Menghapus NAT"
+  ],
+  "answer": 0,
+  "explanation": "Bandwidth limiter mencegah satu klien memakai seluruh kapasitas.",
+  "xp": 10
+ },
+ {
+  "id": 200,
+  "category": "Keamanan",
+  "difficulty": "Mudah",
+  "question": "Teknik mengacak data agar hanya pihak yang berhak dapat membacanya:",
+  "code": "",
+  "options": [
+   "Enkripsi",
+   "Fragmentasi",
+   "Kompresi",
+   "Routing"
+  ],
+  "answer": 0,
+  "explanation": "Enkripsi menjaga confidentiality, bahkan bila data disadap.",
+  "xp": 10
+ },
+ {
+  "id": 201,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Perbedaan autentikasi dan otorisasi:",
+  "code": "",
+  "options": [
+   "Autentikasi membuktikan identitas, otorisasi menentukan hak akses",
+   "Keduanya sama",
+   "Otorisasi membuktikan identitas",
+   "Autentikasi menentukan bandwidth"
+  ],
+  "answer": 0,
+  "explanation": "Login membuktikan siapa Anda, hak akses menentukan apa yang boleh Anda lakukan.",
+  "xp": 10
+ },
+ {
+  "id": 202,
+  "category": "Keamanan",
+  "difficulty": "Mudah",
+  "question": "Perangkat atau perangkat lunak yang menyaring lalu lintas berdasarkan aturan:",
+  "code": "",
+  "options": [
+   "Firewall",
+   "Repeater",
+   "Hub",
+   "Modem"
+  ],
+  "answer": 0,
+  "explanation": "ACL pada router adalah salah satu bentuk penyaringan sederhana.",
+  "xp": 10
+ },
+ {
+  "id": 203,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Fungsi hash seperti SHA-256 dalam keamanan dipakai untuk:",
+  "code": "",
+  "options": [
+   "Memeriksa integritas data",
+   "Mengenkripsi data dua arah",
+   "Membuat VLAN",
+   "Memberi alamat IP"
+  ],
+  "answer": 0,
+  "explanation": "Perubahan satu bit saja menghasilkan hash yang berbeda.",
+  "xp": 10
+ },
+ {
+  "id": 204,
+  "category": "Keamanan",
+  "difficulty": "Mudah",
+  "question": "Email palsu yang menipu pengguna agar memberikan password disebut:",
+  "code": "",
+  "options": [
+   "Phishing",
+   "Sniffing",
+   "Spoofing",
+   "Routing"
+  ],
+  "answer": 0,
+  "explanation": "Phishing memanfaatkan manipulasi pengguna, bukan celah teknis.",
+  "xp": 10
+ },
+ {
+  "id": 205,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Malware yang menyebar sendiri lewat jaringan tanpa program inang:",
+  "code": "",
+  "options": [
+   "Worm",
+   "Trojan",
+   "Spyware",
+   "Adware"
+  ],
+  "answer": 0,
+  "explanation": "Virus butuh program inang, sedangkan worm menyebar mandiri.",
+  "xp": 10
+ },
+ {
+  "id": 206,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Malware yang mengenkripsi file lalu meminta tebusan:",
+  "code": "",
+  "options": [
+   "Ransomware",
+   "Worm",
+   "Rootkit",
+   "Keylogger"
+  ],
+  "answer": 0,
+  "explanation": "Pencegahan terbaik adalah backup rutin yang terpisah dari jaringan.",
+  "xp": 10
+ },
+ {
+  "id": 207,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "Backup data terutama mendukung aspek keamanan:",
+  "code": "",
+  "options": [
+   "Availability",
+   "Confidentiality",
+   "Authentication",
+   "Non-repudiation"
+  ],
+  "answer": 0,
+  "explanation": "Dengan backup, layanan dan data bisa dipulihkan setelah kerusakan.",
+  "xp": 10
+ },
+ {
+  "id": 208,
+  "category": "Keamanan",
+  "difficulty": "Sedang",
+  "question": "VPN dipakai untuk:",
+  "code": "",
+  "options": [
+   "Membuat jalur terenkripsi melintasi jaringan publik",
+   "Membagi jaringan menjadi VLAN",
+   "Memberi IP otomatis",
+   "Menerjemahkan nama domain"
+  ],
+  "answer": 0,
+  "explanation": "VPN menjaga confidentiality saat data melewati internet.",
+  "xp": 10
+ },
+ {
+  "id": 209,
+  "category": "Keamanan",
+  "difficulty": "Sulit",
+  "question": "Mengapa Telnet kalah aman dibanding SSH:",
+  "code": "",
+  "options": [
+   "Telnet mengirim data, termasuk password, sebagai teks polos",
+   "Telnet lebih lambat",
+   "Telnet butuh VLAN khusus",
+   "Telnet memakai port 22"
+  ],
+  "answer": 0,
+  "explanation": "Siapa pun yang menyadap jaringan bisa membaca sesi Telnet.",
+  "xp": 10
+ }
+]
