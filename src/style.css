@@ -73,6 +73,7 @@ main{max-width:1120px;margin:0 auto;padding:16px 16px calc(var(--nav-h) + 28px +
 .score{font-size:3.2rem;font-weight:800;line-height:1.1}
 .term{background:#0b1f3a;color:#c9f7e0;font:.82rem/1.5 ui-monospace,Menlo,Consolas,monospace;border-radius:18px;padding:14px;height:min(56vh,520px);overflow:auto;box-shadow:var(--shadow);margin-bottom:12px}
 .term:focus-within{box-shadow:0 0 0 3px var(--orange)}
+.bdevices{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.bdevices .chip{white-space:nowrap}.bdevices small{display:block;color:var(--mute);font-size:.68rem}
 :root[data-terminal="green"] .term{background:#031405;color:#39ff88;text-shadow:0 0 5px rgba(57,255,136,.35)}
 :root[data-terminal="green"] .term input{color:#39ff88}
 :root[data-terminal="amber"] .term{background:#160d00;color:#ffb52e;text-shadow:0 0 5px rgba(255,181,46,.35)}
