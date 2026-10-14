@@ -3,7 +3,7 @@
 const CATS=["Semua","Dasar Cisco","Switching & VLAN","Routing","Subnetting","Layanan","Keamanan","Linux","Troubleshooting"];
 
 const PAGES=[
-{k:"dashboard",i:"🏠",t:"Home"},{k:"install",i:"💿",t:"Install"},{k:"builder",i:"🧩",t:"Topology"},{k:"modul",i:"📚",t:"Modul"},{k:"trouble",i:"🔧",t:"Trouble",d:"Kasus troubleshooting: cari penyebab PC1 tidak bisa ping PC2."},
+{k:"dashboard",i:"🏠",t:"Home"},{k:"devices",i:"🖥️",t:"Devices",d:"Inventory dan health perangkat jaringan."},{k:"install",i:"💿",t:"Install"},{k:"builder",i:"🧩",t:"Topology"},{k:"modul",i:"📚",t:"Modul"},{k:"trouble",i:"🔧",t:"Trouble",d:"Kasus troubleshooting: cari penyebab PC1 tidak bisa ping PC2."},
 {k:"sandbox",i:"💻",t:"Sandbox",d:"Simulator CLI Cisco: enable, configure terminal, interface, ip address."},
 {k:"quest",i:"🎯",t:"Quest",d:"Misi konfigurasi dengan hadiah XP."},{k:"kuis",i:"🏆",t:"Kuis",d:"Bank soal 100+ dengan soal acak dan skor."},
 {k:"cheat",i:"📋",t:"Cheat",d:"Daftar command dengan tombol salin."},{k:"kamus",i:"📖",t:"Kamus",d:"Istilah jaringan: VLAN, OSPF, CIDR, NAT, dan lainnya."},
@@ -22,7 +22,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const hl=(t,q)=>{t=esc(t);if(!q)return t;const r=new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig");return t.replace(r,"<mark>$1</mark>")};
 
-function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2600)}
+function toast(m){const t=$("#toast");if(!t)return;t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2600)}
 function copyText(value){
  const text=String(value);
  try{
