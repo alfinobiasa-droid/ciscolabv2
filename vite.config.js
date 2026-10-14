@@ -1,3 +1,6 @@
-export default {
-  base: './', // path relatif agar hasil build bisa dipasang di subfolder (mis. GitHub Pages)
-};
+import {defineConfig} from "vite";
+
+export default defineConfig({
+  base: "./",
+  server: {proxy: {"/api": "http://localhost:8787"}},
+});
